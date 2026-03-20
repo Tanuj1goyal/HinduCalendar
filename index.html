@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>कुरुक्षेत्र पंचांग | Kurukshetra Hindu Panchang</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--saffron:#E8600A;--gold:#D4A017;--bright-gold:#F5C518;--cream:#FDF6E3;--parchment:#F2E8C9;--dark-brown:#2C1A0E;--red:#B5252A;--pink:#E8748A;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background-color:var(--dark-brown);background-image:radial-gradient(ellipse at 20% 0%,rgba(232,96,10,.15) 0%,transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(212,160,23,.1) 0%,transparent 50%),url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4A017' fill-opacity='0.04'%3E%3Cpath d='M30 0L36 12H48L38 19L42 31L30 24L18 31L22 19L12 12H24Z'/%3E%3C/g%3E%3C/svg%3E");color:var(--cream);font-family:'EB Garamond',serif;min-height:100vh;}
+.site-header{background:linear-gradient(180deg,#1A0800 0%,#2C1A0E 40%,#3D2010 100%);border-bottom:3px solid var(--gold);box-shadow:0 4px 30px rgba(212,160,23,.3);position:relative;overflow:hidden;}
+.site-header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(212,160,23,.03) 40px,rgba(212,160,23,.03) 41px);}
+.top-band{background:var(--saffron);text-align:center;padding:5px;font-family:'Tiro Devanagari Sanskrit',serif;font-size:.82rem;color:#1A0800;letter-spacing:1.5px;}
+.header-main{display:flex;align-items:center;justify-content:center;flex-direction:column;padding:18px 20px 14px;position:relative;z-index:1;}
+.om{font-size:3rem;color:var(--bright-gold);animation:glow 3s ease-in-out infinite;}
+@keyframes glow{0%,100%{text-shadow:0 0 20px rgba(245,197,24,.5);}50%{text-shadow:0 0 40px rgba(245,197,24,.9),0 0 80px rgba(232,96,10,.4);}}
+.title-hi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--bright-gold);text-align:center;margin-top:6px;text-shadow:2px 2px 8px rgba(0,0,0,.8);}
+.title-en{font-family:'Cinzel Decorative',cursive;font-size:clamp(.6rem,1.6vw,.9rem);color:var(--gold);letter-spacing:4px;text-transform:uppercase;margin-top:4px;}
+.loc-tag{display:inline-flex;align-items:center;gap:6px;margin-top:8px;background:rgba(212,160,23,.15);border:1px solid rgba(212,160,23,.4);border-radius:20px;padding:3px 14px;font-size:.78rem;color:var(--parchment);}
+.live-clock{font-family:'Cinzel Decorative',cursive;font-size:.9rem;color:var(--bright-gold);text-align:center;margin-top:8px;letter-spacing:2px;}
+.nav-tabs{display:flex;justify-content:center;background:rgba(0,0,0,.4);border-top:1px solid rgba(212,160,23,.2);flex-wrap:wrap;}
+.nav-tab{padding:10px 18px;cursor:pointer;font-family:'Tiro Devanagari Sanskrit',serif;font-size:.83rem;color:var(--parchment);border:none;background:transparent;transition:all .3s;border-bottom:3px solid transparent;white-space:nowrap;}
+.nav-tab:hover{color:var(--bright-gold);background:rgba(212,160,23,.08);}
+.nav-tab.active{color:var(--bright-gold);border-bottom-color:var(--saffron);background:rgba(232,96,10,.12);}
+.main{max-width:1200px;margin:0 auto;padding:20px 16px 40px;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.card{background:linear-gradient(145deg,rgba(45,25,12,.95),rgba(28,14,5,.98));border:1px solid rgba(212,160,23,.35);border-radius:8px;padding:20px;margin-bottom:16px;position:relative;box-shadow:0 4px 20px rgba(0,0,0,.5);}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:8px 8px 0 0;}
+.ctitle{font-family:'Cinzel Decorative',cursive;font-size:.73rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.ctitle::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(212,160,23,.4),transparent);}
+/* Date hero */
+.date-hero{background:linear-gradient(135deg,#1A0800,#2C1A0E);border:2px solid var(--gold);border-radius:10px;padding:20px;text-align:center;box-shadow:0 8px 32px rgba(212,160,23,.2);margin-bottom:16px;}
+.date-hero::before{content:'॥ श्री गणेशाय नमः ॥';display:block;font-family:'Tiro Devanagari Sanskrit',serif;color:rgba(212,160,23,.4);font-size:.85rem;margin-bottom:8px;}
+.date-en{font-family:'Cinzel Decorative',cursive;font-size:clamp(1rem,2.8vw,1.7rem);color:var(--bright-gold);}
+.date-hi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:clamp(.9rem,2.3vw,1.3rem);color:var(--parchment);margin-top:4px;}
+.samvat-row{margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+.sbadge{background:rgba(212,160,23,.15);border:1px solid rgba(212,160,23,.3);border-radius:4px;padding:3px 11px;font-size:.78rem;color:var(--gold);font-family:'Tiro Devanagari Sanskrit',serif;}
+/* Sun/Moon */
+.sm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;}
+.sm-item{text-align:center;padding:12px;background:rgba(0,0,0,.25);border-radius:8px;border:1px solid rgba(212,160,23,.15);}
+.sm-icon{font-size:1.8rem;margin-bottom:4px;}
+.sm-lbl{font-size:.66rem;color:var(--gold);letter-spacing:1px;font-family:'Cinzel Decorative',cursive;text-transform:uppercase;}
+.sm-val{font-size:1.1rem;color:var(--cream);font-family:'Tiro Devanagari Sanskrit',serif;}
+.sm-sub{font-size:.72rem;color:rgba(253,246,227,.5);}
+/* Panchang 5-grid */
+.p5{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px;}
+.pi{background:rgba(0,0,0,.3);border:1px solid rgba(212,160,23,.2);border-radius:8px;padding:12px 14px;}
+.pi-lbl{font-size:.68rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-family:'Cinzel Decorative',cursive;margin-bottom:3px;}
+.pi-hi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.05rem;color:var(--cream);}
+.pi-en{font-size:.75rem;color:rgba(253,246,227,.5);margin-top:1px;}
+/* Rahu */
+.rahu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;}
+.ri{padding:12px;border-radius:8px;text-align:center;border:1px solid;}
+.ri.bad{background:rgba(181,37,42,.15);border-color:rgba(181,37,42,.4);}
+.ri.good{background:rgba(26,74,46,.2);border-color:rgba(46,139,87,.3);}
+.ri-en{font-size:.7rem;letter-spacing:1px;font-family:'Cinzel Decorative',cursive;margin-bottom:3px;}
+.ri-hi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.85rem;margin-bottom:4px;}
+.ri-time{font-size:.88rem;color:var(--cream);}
+/* Muhurat */
+.mlist{display:flex;flex-direction:column;gap:8px;}
+.mi{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:6px;border-left:3px solid;}
+.mi.shubh{background:rgba(26,74,46,.2);border-color:#4CAF50;}
+.mi.ashubh{background:rgba(181,37,42,.15);border-color:var(--red);}
+.mi.medium{background:rgba(212,160,23,.1);border-color:var(--gold);}
+.mdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.mi.shubh .mdot{background:#4CAF50;}.mi.ashubh .mdot{background:var(--red);}.mi.medium .mdot{background:var(--gold);}
+.mname{flex:1;}
+.mn-hi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.95rem;}
+.mn-en{font-size:.7rem;color:rgba(253,246,227,.55);}
+.mtime{font-size:.84rem;color:var(--parchment);text-align:right;white-space:nowrap;}
+.mbadge{font-size:.6rem;padding:2px 6px;border-radius:10px;display:inline-block;margin-top:2px;}
+/* Calendar */
+.mnav{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.mnav-btn{background:rgba(212,160,23,.15);border:1px solid rgba(212,160,23,.4);color:var(--gold);padding:7px 16px;border-radius:4px;cursor:pointer;font-size:1rem;transition:background .2s;}
+.mnav-btn:hover{background:rgba(212,160,23,.3);}
+.mtitle{text-align:center;}
+.mthi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.25rem;color:var(--bright-gold);}
+.mten{font-family:'Cinzel Decorative',cursive;font-size:.68rem;color:var(--gold);letter-spacing:2px;}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.ch{text-align:center;padding:6px 2px;font-family:'Cinzel Decorative',cursive;font-size:.58rem;color:var(--gold);letter-spacing:1px;}
+.cd{min-height:78px;padding:5px;background:rgba(0,0,0,.3);border:1px solid rgba(212,160,23,.1);border-radius:4px;transition:background .2s;}
+.cd:hover{background:rgba(212,160,23,.1);}
+.cd.today{border:2px solid var(--saffron);background:rgba(232,96,10,.1);}
+.cd.om{opacity:.3;}
+.cd.fd{background:rgba(232,96,10,.07);}
+.cd.ed{background:rgba(80,80,180,.1);border-color:rgba(150,150,255,.25);}
+.cden{font-size:.95rem;color:var(--cream);font-weight:600;}
+.cdhi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.65rem;color:rgba(253,246,227,.4);}
+.ctithi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.62rem;color:var(--gold);margin-top:1px;}
+.cfest{font-size:.58rem;color:var(--pink);margin-top:1px;line-height:1.25;}
+.celbl{font-size:.54rem;background:rgba(100,100,255,.3);color:#aaaaff;padding:1px 3px;border-radius:3px;display:inline-block;}
+@media(max-width:480px){.cd{min-height:52px;padding:3px;}.ctithi,.cfest{display:none;}}
+/* Festivals */
+.fbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+.fbtn{padding:5px 13px;border-radius:20px;border:1px solid rgba(212,160,23,.3);background:transparent;color:var(--parchment);font-size:.76rem;cursor:pointer;font-family:'Tiro Devanagari Sanskrit',serif;transition:all .2s;}
+.fbtn:hover,.fbtn.active{background:rgba(212,160,23,.2);border-color:var(--gold);color:var(--bright-gold);}
+.flist{display:flex;flex-direction:column;gap:8px;}
+.fi{display:grid;grid-template-columns:100px 1fr auto;gap:10px;align-items:start;padding:11px 13px;background:rgba(0,0,0,.25);border:1px solid rgba(212,160,23,.2);border-radius:6px;border-left:3px solid var(--saffron);transition:background .2s;}
+.fi:hover{background:rgba(212,160,23,.07);}
+.fi.ec{border-left-color:#7788ff;}
+.fi.vt{border-left-color:var(--pink);}
+.fi.past{opacity:.5;}
+.fi.tf{background:rgba(232,96,10,.1);}
+.fden{font-size:.78rem;color:var(--gold);}
+.fdhi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.7rem;color:rgba(253,246,227,.55);}
+.fnhi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.98rem;color:var(--cream);}
+.fnen{font-size:.73rem;color:rgba(253,246,227,.55);}
+.ftim{font-size:.7rem;color:var(--pink);text-align:right;white-space:nowrap;}
+.fb{display:inline-block;font-size:.58rem;padding:2px 6px;border-radius:10px;margin-top:3px;}
+@media(max-width:500px){.fi{grid-template-columns:80px 1fr;}.ftim{display:none;}}
+/* Eclipse */
+.ecard{border-color:rgba(119,136,255,.4) !important;background:linear-gradient(135deg,rgba(20,20,60,.95),rgba(28,14,5,.98)) !important;}
+.ecard::before{background:linear-gradient(90deg,transparent,#7788ff,transparent) !important;}
+.egrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+.ei{padding:16px;border-radius:8px;border:1px solid rgba(119,136,255,.3);background:rgba(0,0,30,.4);}
+.etype{font-family:'Cinzel Decorative',cursive;font-size:.72rem;color:#aaaaff;letter-spacing:2px;margin-bottom:6px;}
+.enhi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.1rem;color:var(--cream);}
+.edate{font-size:.82rem;color:var(--gold);margin-top:3px;}
+.eph{margin-top:10px;display:flex;flex-direction:column;gap:4px;}
+.ep{display:flex;justify-content:space-between;font-size:.76rem;padding:4px 8px;background:rgba(0,0,0,.3);border-radius:4px;}
+.ep-n{color:#aaaaff;}.ep-t{color:var(--cream);}
+.enote{font-size:.68rem;color:rgba(253,246,227,.4);margin-top:8px;font-style:italic;}
+/* Misc */
+.today-banner{background:linear-gradient(135deg,rgba(232,96,10,.12),rgba(212,160,23,.08));border:1px solid rgba(232,96,10,.3);border-radius:8px;padding:9px 14px;margin-bottom:10px;font-family:'Tiro Devanagari Sanskrit',serif;font-size:.88rem;color:var(--parchment);text-align:center;}
+::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:var(--dark-brown);}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+.fade-in{animation:fadeIn .5s ease forwards;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+footer{text-align:center;padding:20px;font-size:.72rem;color:rgba(253,246,227,.4);border-top:1px solid rgba(212,160,23,.2);font-family:'Tiro Devanagari Sanskrit',serif;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="top-band">॥ हरि ॐ तत्सत् ॥ &nbsp;·&nbsp; कुरुक्षेत्र धर्मक्षेत्र &nbsp;·&nbsp; अक्षांश 29.97°N | देशांतर 76.88°E | IST UTC+5:30</div>
+  <div class="header-main">
+    <div class="om">ॐ</div>
+    <div class="title-hi">कुरुक्षेत्र पंचांग</div>
+    <div class="title-en">Kurukshetra Hindu Panchang</div>
+    <div class="loc-tag">📍 कुरुक्षेत्र, हरियाणा — जहाँ श्रीमद्भगवद्गीता का उपदेश हुआ</div>
+    <div class="live-clock" id="liveClock">--:--:-- IST</div>
+  </div>
+  <nav class="nav-tabs" id="navTabs">
+    <button class="nav-tab active" data-tab="panchang">🗓 आज का पंचांग</button>
+    <button class="nav-tab" data-tab="calendar">📅 मासिक कैलेंडर</button>
+    <button class="nav-tab" data-tab="festivals">🪔 त्योहार / व्रत</button>
+    <button class="nav-tab" data-tab="muhurat">✨ मुहूर्त</button>
+    <button class="nav-tab" data-tab="eclipse">🌑 ग्रहण</button>
+  </nav>
+</header>
+
+<main class="main">
+
+  <!-- ═══ PANCHANG ═══ -->
+  <section class="tab-panel active" id="tab-panchang">
+    <div class="date-hero fade-in" id="dateHero"></div>
+    <div class="card fade-in"><div class="ctitle">🌅 सूर्य एवं चन्द्र | Sun &amp; Moon — कुरुक्षेत्र IST</div><div class="sm-grid" id="smGrid"></div></div>
+    <div class="card fade-in"><div class="ctitle">📿 पञ्चाङ्ग विवरण | Panchang Details</div><div class="p5" id="p5Grid"></div></div>
+    <div class="card fade-in"><div class="ctitle">⚠️ काल विचार | Inauspicious Periods</div><div class="rahu-grid" id="rahuGrid1"></div></div>
+    <div class="card fade-in"><div class="ctitle">✨ आज के मुहूर्त | Today's Muhurats</div><div class="mlist" id="mlist1"></div></div>
+  </section>
+
+  <!-- ═══ CALENDAR ═══ -->
+  <section class="tab-panel" id="tab-calendar">
+    <div class="card">
+      <div class="mnav">
+        <button class="mnav-btn" id="btnPrev">◀ पूर्व</button>
+        <div class="mtitle"><div class="mthi" id="calHi"></div><div class="mten" id="calEn"></div></div>
+        <button class="mnav-btn" id="btnNext">आगे ▶</button>
+      </div>
+      <div class="cal" id="calGrid"></div>
+      <div style="display:flex;gap:14px;margin-top:12px;flex-wrap:wrap;font-size:.7rem;color:rgba(253,246,227,.6);">
+        <span>🟠 आज</span><span style="color:var(--pink)">● त्योहार</span>
+        <span style="color:#aaaaff">● ग्रहण</span><span style="color:var(--gold)">🙏 एकादशी</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FESTIVALS ═══ -->
+  <section class="tab-panel" id="tab-festivals">
+    <div class="card">
+      <div class="ctitle">🪔 2025–2026 त्योहार एवं व्रत | Festivals &amp; Vrats</div>
+      <div class="fbar" id="fbar">
+        <button class="fbtn active" data-filter="all">सभी | All</button>
+        <button class="fbtn" data-filter="festival">त्योहार</button>
+        <button class="fbtn" data-filter="vrat">व्रत</button>
+        <button class="fbtn" data-filter="ekadashi">एकादशी</button>
+        <button class="fbtn" data-filter="eclipse">ग्रहण</button>
+      </div>
+      <div class="flist" id="flist"></div>
+    </div>
+  </section>
+
+  <!-- ═══ MUHURAT ═══ -->
+  <section class="tab-panel" id="tab-muhurat">
+    <div class="card"><div class="ctitle">✨ शुभ मुहूर्त | Auspicious Timings</div><div class="today-banner" id="mBanner"></div><div class="mlist" id="mlist2"></div></div>
+    <div class="card"><div class="ctitle">🚫 अशुभ काल | Inauspicious Periods</div><div class="rahu-grid" id="rahuGrid2"></div></div>
+    <div class="card"><div class="ctitle">📖 मुहूर्त मार्गदर्शिका | Guide</div>
+      <div style="font-family:'Tiro Devanagari Sanskrit',serif;line-height:2;font-size:.9rem;color:var(--parchment);">
+        <p><span style="color:var(--bright-gold)">ब्रह्म मुहूर्त</span> — सूर्योदय से ९६ मिनट पूर्व। ध्यान, पूजा, अध्ययन हेतु सर्वोत्तम।</p>
+        <p style="margin-top:6px"><span style="color:var(--bright-gold)">अभिजित मुहूर्त</span> — मध्याह्न के आसपास ४८ मिनट। विवाह, गृहप्रवेश, यात्रा हेतु श्रेष्ठ।</p>
+        <p style="margin-top:6px"><span style="color:var(--bright-gold)">विजय मुहूर्त</span> — अभिजित के पश्चात्। नए कार्य प्रारम्भ हेतु शुभ।</p>
+        <p style="margin-top:6px"><span style="color:var(--bright-gold)">गोधूलि मुहूर्त</span> — सूर्यास्त के समय। विवाह एवं शुभ कार्यों हेतु उत्तम।</p>
+        <p style="margin-top:6px"><span style="color:var(--pink)">राहु काल / गुलिका / यमगण्ड</span> — इन कालों में शुभ कार्य वर्जित।</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ECLIPSE ═══ -->
+  <section class="tab-panel" id="tab-eclipse">
+    <div class="card ecard"><div class="ctitle" style="color:#aaaaff">🌑 2025–2026 ग्रहण | Eclipses (कुरुक्षेत्र IST)</div><div class="egrid" id="eGrid"></div></div>
+    <div class="card" style="margin-top:16px"><div class="ctitle">📖 ग्रहण नियम | Eclipse Guidelines</div>
+      <div style="font-family:'Tiro Devanagari Sanskrit',serif;line-height:2;font-size:.9rem;color:var(--parchment);">
+        <p>• <span style="color:var(--bright-gold)">सूर्य ग्रहण</span> — सूतक काल: ग्रहण से 12 घंटे पूर्व प्रारम्भ।</p>
+        <p>• <span style="color:var(--bright-gold)">चंद्र ग्रहण</span> — सूतक काल: ग्रहण से 9 घंटे पूर्व प्रारम्भ।</p>
+        <p>• ग्रहण काल में पूजा-पाठ, जप एवं ध्यान करें।</p>
+        <p>• ग्रहण समाप्ति के बाद <span style="color:var(--bright-gold)">स्नान एवं दान</span> अवश्य करें।</p>
+        <p>• गर्भवती महिलाएं ग्रहण न देखें।</p>
+        <p>• कुरुक्षेत्र में <span style="color:var(--gold)">ब्रह्मसर</span> एवं <span style="color:var(--gold)">सन्निहित सरोवर</span> में ग्रहण स्नान का विशेष पुण्य।</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>॥ कुरुक्षेत्र पंचांग — धर्मक्षेत्र से सेवा में ॥</div>
+  <div style="margin-top:4px">सभी गणनाएँ कुरुक्षेत्र (29.97°N, 76.88°E) के लिए IST में गतिशील रूप से की जाती हैं।</div>
+  <div style="margin-top:4px;color:rgba(253,246,227,.28)">Dynamically computed for Kurukshetra. Consult a qualified Pandit for religious decisions.</div>
+</footer>
+
+<script>
+'use strict';
+/* ── CONSTANTS ── */
+const LAT=29.9695,LON=76.8783,IST=5.5;
+const HIM=['जनवरी','फरवरी','मार्च','अप्रैल','मई','जून','जुलाई','अगस्त','सितम्बर','अक्टूबर','नवम्बर','दिसम्बर'];
+const ENM=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const WDS=['रवि','सोम','मंगल','बुध','गुरु','शुक्र','शनि'];
+const WDE=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const WDF=['रविवार','सोमवार','मंगलवार','बुधवार','गुरुवार','शुक्रवार','शनिवार'];
+const HMN=['चैत्र','वैशाख','ज्येष्ठ','आषाढ़','श्रावण','भाद्रपद','आश्विन','कार्तिक','मार्गशीर्ष','पौष','माघ','फाल्गुन'];
+const THI=['प्रतिपदा','द्वितीया','तृतीया','चतुर्थी','पञ्चमी','षष्ठी','सप्तमी','अष्टमी','नवमी','दशमी','एकादशी','द्वादशी','त्रयोदशी','चतुर्दशी','पूर्णिमा'];
+const TEN=['Pratipada','Dvitiya','Tritiya','Chaturthi','Panchami','Shashthi','Saptami','Ashtami','Navami','Dashami','Ekadashi','Dwadashi','Trayodashi','Chaturdashi','Purnima'];
+const NKH=['अश्विनी','भरणी','कृत्तिका','रोहिणी','मृगशिरा','आर्द्रा','पुनर्वसु','पुष्य','आश्लेषा','मघा','पू.फाल्गुनी','उ.फाल्गुनी','हस्त','चित्रा','स्वाति','विशाखा','अनुराधा','ज्येष्ठा','मूल','पू.आषाढ़ा','उ.आषाढ़ा','श्रवण','धनिष्ठा','शतभिषा','पू.भाद्रपद','उ.भाद्रपद','रेवती'];
+const NKE=['Ashwini','Bharani','Krittika','Rohini','Mrigashira','Ardra','Punarvasu','Pushya','Ashlesha','Magha','Purva Phalguni','Uttara Phalguni','Hasta','Chitra','Swati','Vishakha','Anuradha','Jyeshtha','Mula','Purva Ashadha','Uttara Ashadha','Shravana','Dhanishtha','Shatabhisha','Purva Bhadrapada','Uttara Bhadrapada','Revati'];
+const YOG=['विष्कम्भ','प्रीति','आयुष्मान','सौभाग्य','शोभन','अतिगण्ड','सुकर्म','धृति','शूल','गण्ड','वृद्धि','ध्रुव','व्याघात','हर्षण','वज्र','सिद्धि','व्यतीपात','वरीयान','परिघ','शिव','सिद्ध','साध्य','शुभ','शुक्ल','ब्रह्म','इन्द्र','वैधृति'];
+const KAR=['बव','बालव','कौलव','तैतिल','गर','वणिज','विष्टि','शकुनि','चतुष्पाद','नाग','किंस्तुघ्न'];
+const HN=['०','१','२','३','४','५','६','७','८','९'];
+const RAHU_I=[8,2,7,5,6,4,3],GULI_I=[6,5,4,3,2,1,7],YAMA_I=[4,3,2,1,7,6,5];
+
+/* ── HELPERS ── */
+function hi(n){return String(n).replace(/[0-9]/g,d=>HN[d]);}
+function r2d(r){return r*180/Math.PI;}
+function d2r(d){return d*Math.PI/180;}
+
+// minutes-from-midnight → "HH:MM AM/PM"
+function fmt(m){
+  m=((m%1440)+1440)%1440;
+  const h24=Math.floor(m/60),mn=Math.round(m%60);
+  const ap=h24<12?'AM':'PM',h12=h24%12||12;
+  return `${String(h12).padStart(2,'0')}:${String(mn).padStart(2,'0')} ${ap}`;
+}
+
+/* ── JULIAN DAY ── */
+function JD(date){
+  const Y=date.getFullYear(),M=date.getMonth()+1,D=date.getDate();
+  const UT=date.getHours()+date.getMinutes()/60+date.getSeconds()/3600;
+  let y=Y,m=M;if(m<=2){y--;m+=12;}
+  const A=Math.floor(y/100),B=2-A+Math.floor(A/4);
+  return Math.floor(365.25*(y+4716))+Math.floor(30.6001*(m+1))+D+UT/24+B-1524.5;
+}
+
+/* ── SUN LONGITUDE ── */
+function sunLon(jd){
+  const n=jd-2451545,L=(280.460+0.9856474*n)%360;
+  const g=d2r((357.528+0.9856003*n)%360);
+  return (L+1.915*Math.sin(g)+0.020*Math.sin(2*g)+360)%360;
+}
+
+/* ── MOON LONGITUDE ── */
+function moonLon(jd){
+  const n=jd-2451545,L=(218.316+13.176396*n)%360;
+  const M=d2r((134.963+13.064993*n)%360),F=d2r((93.272+13.229350*n)%360);
+  return (L+6.289*Math.sin(M)-1.274*Math.sin(2*F-M)+0.658*Math.sin(2*F)+360)%360;
+}
+
+/* ── SUNRISE / SUNSET for Kurukshetra → IST minutes ── */
+function sunTimes(date){
+  const jd=JD(new Date(date.getFullYear(),date.getMonth(),date.getDate(),12,0,0));
+  const n=jd-2451545;
+  const L0=(280.46646+0.9850397*n)%360;
+  const M=d2r((357.52911+0.98560028*n)%360);
+  const C=(1.914602-0.004817*n/365.25/1000-0.000014*(n/365.25/1000)**2)*Math.sin(M)
+          +0.019993*Math.sin(2*M)+0.000289*Math.sin(3*M);
+  const sL=(L0+C+360)%360;
+  const eps=23.439-0.0000004*n;
+  const eR=d2r(eps),lR=d2r(sL);
+  const decl=Math.asin(Math.sin(eR)*Math.sin(lR));
+  // Equation of time
+  const y2=Math.tan(d2r(eps/2))**2,L0r=d2r(L0);
+  const eqT=4*r2d(y2*Math.sin(2*L0r)-2*0.016708*Math.sin(M)+4*0.016708*y2*Math.sin(M)*Math.cos(2*L0r)-0.5*y2*y2*Math.sin(4*L0r)-1.25*0.016708**2*Math.sin(2*M));
+  // Solar noon (UT minutes)
+  const noonUT=720-4*LON-eqT;
+  // Hour angle
+  const latR=d2r(LAT);
+  const cosHA=(Math.cos(d2r(90.833))-Math.sin(latR)*Math.sin(decl))/(Math.cos(latR)*Math.cos(decl));
+  if(Math.abs(cosHA)>1)return null;
+  const HA=r2d(Math.acos(cosHA));
+  // Convert to IST (add 330 min)
+  return{
+    sunrise:noonUT-4*HA+IST*60,
+    sunset :noonUT+4*HA+IST*60,
+    noon   :noonUT      +IST*60
+  };
+}
+
+/* ── MOONRISE (approximate, IST minutes) ── */
+function moonrise(date){
+  const jd=JD(new Date(date.getFullYear(),date.getMonth(),date.getDate(),0,0,0));
+  const elapsed=jd-2451545;
+  // Moon rises ~50 min later each day; at J2000 new moon it rose ~06:00 IST at KU
+  return ((6*60 + (elapsed*(24*60)/29.53)) % (24*60) + 24*60) % (24*60);
+}
+
+/* ── KAALA TIMINGS ── */
+function kaalTimings(date,sr,ss){
+  const dow=date.getDay(),day=ss-sr,part=day/8;
+  const sl=idx=>({start:sr+(idx-1)*part,end:sr+idx*part});
+  return{
+    rahu   :sl(RAHU_I[dow]),gulika:sl(GULI_I[dow]),yama:sl(YAMA_I[dow]),
+    abhijit:{start:sr+day/2-24,end:sr+day/2+24},
+    brahma :{start:sr-96,end:sr-48},
+    vijaya :{start:sr+3*part,end:sr+3*part+24},
+    godhuli:{start:ss-24,end:ss+12},
+    nishita:{start:ss+360,end:ss+408}
+  };
+}
+
+/* ── PANCHANG ELEMENTS ── */
+function getTithi(jd){
+  const diff=(moonLon(jd)-sunLon(jd)+360)%360;
+  const t=Math.floor(diff/12);
+  const paksha=t<15?'शुक्ल':'कृष्ण',tNum=t<15?t:t-15;
+  const nameHi=t===29?'अमावस्या':THI[Math.min(tNum,14)];
+  const nameEn=t===29?'Amavasya':TEN[Math.min(tNum,14)];
+  return{paksha,tNum,nameHi,nameEn};
+}
+function getNakshatra(jd){const i=Math.floor(moonLon(jd)/(360/27))%27;return{hi:NKH[i],en:NKE[i]};}
+function getYoga(jd){const i=Math.floor((sunLon(jd)+moonLon(jd))%360/(360/27))%27;return{hi:YOG[i]};}
+function getKarana(jd){return{hi:KAR[Math.floor((moonLon(jd)-sunLon(jd)+360)%360/6)%11]};}
+function getVS(d){return d.getFullYear()+(d.getMonth()>=3?57:56);}
+function getHM(d){return HMN[(d.getMonth()+9)%12];}
+
+/* ── TODAY COMPUTE ── */
+const TODAY=new Date();
+const TJD=JD(TODAY);
+const SUNTM=sunTimes(TODAY);
+const TITHI=getTithi(TJD);
+const NAKSH=getNakshatra(TJD);
+const YOGA=getYoga(TJD);
+const KARAN=getKarana(TJD);
+const KAAL=kaalTimings(TODAY,SUNTM.sunrise,SUNTM.sunset);
+const MOONR=moonrise(TODAY);
+
+/* ── RENDER DATE HERO ── */
+function renderDate(){
+  const vs=getVS(TODAY),hm=getHM(TODAY),dow=TODAY.getDay();
+  document.getElementById('dateHero').innerHTML=`
+    <div class="date-en">${WDF[dow]} | ${WDE[dow]}, ${ENM[TODAY.getMonth()]} ${TODAY.getDate()}, ${TODAY.getFullYear()}</div>
+    <div class="date-hi">${hi(TODAY.getDate())} ${HIM[TODAY.getMonth()]} ${hi(TODAY.getFullYear())} — ${WDF[dow]}</div>
+    <div class="samvat-row">
+      <span class="sbadge">विक्रम संवत् ${hi(vs)}</span>
+      <span class="sbadge">हिन्दी मास: ${hm}</span>
+      <span class="sbadge">${TITHI.paksha} पक्ष</span>
+    </div>`;
+}
+
+/* ── RENDER SUN/MOON ── */
+function renderSunMoon(){
+  const dayLen=SUNTM.sunset-SUNTM.sunrise;
+  const items=[
+    {ico:'🌅',en:'SUNRISE',  hi:'सूर्योदय',  v:fmt(SUNTM.sunrise)},
+    {ico:'🌇',en:'SUNSET',   hi:'सूर्यास्त',  v:fmt(SUNTM.sunset)},
+    {ico:'☀️',en:'SOLAR NOON',hi:'मध्याह्न',  v:fmt(SUNTM.noon)},
+    {ico:'📏',en:'DAY LENGTH',hi:'दिन लंबाई', v:`${Math.floor(dayLen/60)}h ${Math.round(dayLen%60)}m`},
+    {ico:'🌕',en:'MOONRISE', hi:'चन्द्रोदय',  v:fmt(MOONR)},
+    {ico:'🌑',en:'MOONSET',  hi:'चन्द्रास्त',  v:fmt(MOONR+746)},
+  ];
+  document.getElementById('smGrid').innerHTML=items.map(i=>`
+    <div class="sm-item"><div class="sm-icon">${i.ico}</div>
+    <div class="sm-lbl">${i.en}</div><div class="sm-val">${i.v}</div>
+    <div class="sm-sub">${i.hi}</div></div>`).join('');
+}
+
+/* ── RENDER PANCHANG 5 ── */
+function renderPanchang(){
+  const rows=[
+    {lbl:'TITHI',     hi2:TITHI.paksha+' '+TITHI.nameHi, en2:(TITHI.paksha==='शुक्ल'?'Shukla':'Krishna')+' '+TITHI.nameEn},
+    {lbl:'NAKSHATRA', hi2:NAKSH.hi, en2:NAKSH.en},
+    {lbl:'YOGA',      hi2:YOGA.hi,  en2:YOGA.hi},
+    {lbl:'KARANA',    hi2:KARAN.hi, en2:KARAN.hi},
+    {lbl:'PAKSHA',    hi2:TITHI.paksha+' पक्ष', en2:TITHI.paksha==='शुक्ल'?'Shukla Paksha':'Krishna Paksha'},
+    {lbl:'VAAR',      hi2:WDF[TODAY.getDay()], en2:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][TODAY.getDay()]},
+  ];
+  document.getElementById('p5Grid').innerHTML=rows.map(r=>`
+    <div class="pi"><div class="pi-lbl">${r.lbl}</div>
+    <div class="pi-hi">${r.hi2}</div><div class="pi-en">${r.en2}</div></div>`).join('');
+}
+
+/* ── RENDER RAHU GRID ── */
+function renderRahuGrid(id){
+  const p=[
+    {en:'Rahu Kaal',  hi:'राहु काल',   t:KAAL.rahu,   c:'bad'},
+    {en:'Gulika Kaal',hi:'गुलिका काल', t:KAAL.gulika, c:'bad'},
+    {en:'Yamaganda',  hi:'यमगण्ड',     t:KAAL.yama,   c:'bad'},
+  ];
+  document.getElementById(id).innerHTML=p.map(x=>`
+    <div class="ri ${x.c}"><div class="ri-en">${x.en}</div>
+    <div class="ri-hi">${x.hi}</div>
+    <div class="ri-time">${fmt(x.t.start)} – ${fmt(x.t.end)}</div></div>`).join('');
+}
+
+/* ── RENDER MUHURAT ── */
+function muhuratData(){
+  return[
+    {hi:'ब्रह्म मुहूर्त',  en:'Brahma Muhurat',  t:KAAL.brahma,  type:'shubh'},
+    {hi:'अभिजित मुहूर्त', en:'Abhijit Muhurat', t:KAAL.abhijit, type:'shubh'},
+    {hi:'विजय मुहूर्त',   en:'Vijaya Muhurat',  t:KAAL.vijaya,  type:'shubh'},
+    {hi:'गोधूलि मुहूर्त', en:'Godhuli Muhurat', t:KAAL.godhuli, type:'shubh'},
+    {hi:'निशिता मुहूर्त', en:'Nishita Muhurat', t:KAAL.nishita, type:'medium'},
+    {hi:'राहु काल',        en:'Rahu Kaal',       t:KAAL.rahu,    type:'ashubh'},
+    {hi:'गुलिका काल',      en:'Gulika Kaal',     t:KAAL.gulika,  type:'ashubh'},
+    {hi:'यमगण्ड',          en:'Yamaganda',       t:KAAL.yama,    type:'ashubh'},
+  ];
+}
+function renderMuhurats(id){
+  const bmap={shubh:{bg:'rgba(76,175,80,.2)',cl:'#81C784',lbl:'शुभ'},ashubh:{bg:'rgba(181,37,42,.2)',cl:'#EF5350',lbl:'अशुभ'},medium:{bg:'rgba(212,160,23,.2)',cl:'var(--gold)',lbl:'मध्यम'}};
+  document.getElementById(id).innerHTML=muhuratData().map(m=>{
+    const b=bmap[m.type];
+    return`<div class="mi ${m.type}"><div class="mdot"></div>
+    <div class="mname"><div class="mn-hi">${m.hi}</div><div class="mn-en">${m.en}</div></div>
+    <div class="mtime"><div>${fmt(m.t.start)} – ${fmt(m.t.end)}</div>
+    <div class="mbadge" style="background:${b.bg};color:${b.cl}">${b.lbl}</div></div></div>`;
+  }).join('');
+}
+
+/* ── FESTIVALS DATA ── */
+const FDATA=[
+  {d:new Date(2025,0,13),hi:'लोहड़ी',en:'Lohri',type:'festival',s:'शाम',e:'रात'},
+  {d:new Date(2025,0,14),hi:'मकर संक्रान्ति',en:'Makar Sankranti',type:'festival',s:'07:15',e:'09:30'},
+  {d:new Date(2025,0,29),hi:'मौनी अमावस्या',en:'Mauni Amavasya',type:'vrat',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,1,2), hi:'वसन्त पञ्चमी',en:'Vasant Panchami',type:'festival',s:'07:00',e:'12:34'},
+  {d:new Date(2025,1,12),hi:'महा शिवरात्रि',en:'Maha Shivaratri',type:'festival',s:'रात 12:00',e:'06:00'},
+  {d:new Date(2025,2,13),hi:'होलिका दहन',en:'Holika Dahan',type:'festival',s:'20:06',e:'22:30'},
+  {d:new Date(2025,2,14),hi:'होली',en:'Holi',type:'festival',s:'07:00',e:'दोपहर'},
+  {d:new Date(2025,2,30),hi:'राम नवमी',en:'Ram Navami',type:'festival',s:'11:08',e:'13:36'},
+  {d:new Date(2025,3,6), hi:'हनुमान जयन्ती',en:'Hanuman Jayanti',type:'festival',s:'सूर्योदय',e:'12:00'},
+  {d:new Date(2025,3,13),hi:'बैसाखी',en:'Baisakhi',type:'festival',s:'07:00',e:'20:00'},
+  {d:new Date(2025,4,12),hi:'बुद्ध पूर्णिमा',en:'Buddha Purnima',type:'festival',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,6,6), hi:'गुरु पूर्णिमा',en:'Guru Purnima',type:'festival',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,7,16),hi:'रक्षा बन्धन',en:'Raksha Bandhan',type:'festival',s:'05:51',e:'17:34'},
+  {d:new Date(2025,7,22),hi:'जन्माष्टमी',en:'Janmashtami',type:'festival',s:'रात 00:00',e:'04:00'},
+  {d:new Date(2025,8,2), hi:'हरतालिका तीज',en:'Hartalika Teej',type:'vrat',s:'05:00',e:'20:00'},
+  {d:new Date(2025,8,3), hi:'गणेश चतुर्थी',en:'Ganesh Chaturthi',type:'festival',s:'11:03',e:'13:34'},
+  {d:new Date(2025,9,2), hi:'नवरात्रि प्रारम्भ',en:'Navratri Begins',type:'festival',s:'06:00',e:''},
+  {d:new Date(2025,9,8), hi:'दुर्गा अष्टमी',en:'Durga Ashtami',type:'festival',s:'05:30',e:'20:00'},
+  {d:new Date(2025,9,9), hi:'महानवमी',en:'Maha Navami',type:'festival',s:'06:00',e:'14:30'},
+  {d:new Date(2025,9,10),hi:'विजयादशमी / दशहरा',en:'Dussehra',type:'festival',s:'14:02',e:'18:00'},
+  {d:new Date(2025,9,20),hi:'शरद पूर्णिमा',en:'Sharad Purnima',type:'festival',s:'चन्द्रोदय',e:'रात 12:00'},
+  {d:new Date(2025,9,28),hi:'करवा चौथ',en:'Karva Chauth',type:'vrat',s:'06:00',e:'चन्द्र दर्शन'},
+  {d:new Date(2025,10,1),hi:'धनतेरस',en:'Dhanteras',type:'festival',s:'18:31',e:'20:12'},
+  {d:new Date(2025,10,3),hi:'दीपावली',en:'Diwali',type:'festival',s:'18:45',e:'20:30'},
+  {d:new Date(2025,10,5),hi:'भाई दूज',en:'Bhai Dooj',type:'festival',s:'13:00',e:'15:00'},
+  {d:new Date(2025,10,7),hi:'छठ पूजा (सायं अर्घ्य)',en:'Chhath Puja Sunset Arghya',type:'festival',s:'17:30',e:'18:00'},
+  {d:new Date(2025,10,8),hi:'छठ पूजा (प्रातः अर्घ्य)',en:'Chhath Puja Sunrise Arghya',type:'festival',s:'06:25',e:'07:00'},
+  {d:new Date(2026,0,13),hi:'लोहड़ी',en:'Lohri 2026',type:'festival',s:'शाम',e:'रात'},
+  {d:new Date(2026,0,14),hi:'मकर संक्रान्ति',en:'Makar Sankranti 2026',type:'festival',s:'07:20',e:'09:40'},
+  {d:new Date(2026,1,17),hi:'महा शिवरात्रि',en:'Maha Shivaratri 2026',type:'festival',s:'रात 00:30',e:'05:30'},
+  {d:new Date(2026,2,4), hi:'होली',en:'Holi 2026',type:'festival',s:'07:00',e:'दोपहर'},
+  {d:new Date(2026,2,19),hi:'राम नवमी',en:'Ram Navami 2026',type:'festival',s:'11:00',e:'13:30'},
+  // Ekadashis
+  {d:new Date(2025,0,10), hi:'षट्तिला एकादशी',en:'Shattila Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,0,25), hi:'जया एकादशी',en:'Jaya Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,1,9),  hi:'विजया एकादशी',en:'Vijaya Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,1,24), hi:'आमलकी एकादशी',en:'Amalaki Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,2,11), hi:'पापमोचनी एकादशी',en:'Papamochani Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,2,25), hi:'कामदा एकादशी',en:'Kamada Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,3,9),  hi:'वरुथिनी एकादशी',en:'Varuthini Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,3,24), hi:'मोहिनी एकादशी',en:'Mohini Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,4,8),  hi:'अपरा एकादशी',en:'Apara Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,4,23), hi:'निर्जला एकादशी',en:'Nirjala Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,5,7),  hi:'योगिनी एकादशी',en:'Yogini Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,5,22), hi:'देवशयनी एकादशी',en:'Devshayani Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,6,6),  hi:'कामिका एकादशी',en:'Kamika Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,6,21), hi:'पुत्रदा एकादशी',en:'Putrada Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,7,5),  hi:'अजा एकादशी',en:'Aja Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,7,19), hi:'परिवर्तिनी एकादशी',en:'Parivartini Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,8,4),  hi:'इन्दिरा एकादशी',en:'Indira Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,8,18), hi:'पाशांकुशा एकादशी',en:'Pashankusha Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,9,3),  hi:'रमा एकादशी',en:'Rama Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,9,18), hi:'देवोत्थान एकादशी',en:'Devotthan Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,10,2), hi:'उत्पन्ना एकादशी',en:'Utpanna Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,10,17),hi:'मोक्षदा एकादशी',en:'Mokshada Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  {d:new Date(2025,11,5), hi:'गीता जयन्ती',en:'Gita Jayanti',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
+  // Eclipses
+  {d:new Date(2025,2,13),hi:'पूर्ण चन्द्रग्रहण',en:'Total Lunar Eclipse',type:'eclipse',s:'15:57',e:'20:00',note:'कुरुक्षेत्र में आंशिक दृश्य | सूतक: 06:57'},
+  {d:new Date(2025,8,7), hi:'पूर्ण चन्द्रग्रहण',en:'Total Lunar Eclipse',type:'eclipse',s:'21:58',e:'02:24',note:'कुरुक्षेत्र में पूर्ण दृश्य | सूतक: 12:58'},
+  {d:new Date(2026,1,17),hi:'वलयाकार सूर्यग्रहण',en:'Annular Solar Eclipse',type:'eclipse',s:'10:42',e:'14:18',note:'कुरुक्षेत्र में आंशिक दृश्य | सूतक: रात 22:42'},
+  {d:new Date(2026,7,12),hi:'पूर्ण सूर्यग्रहण',en:'Total Solar Eclipse',type:'eclipse',s:'16:34',e:'20:10',note:'कुरुक्षेत्र में आंशिक दृश्य | सूतक: 04:34'},
+];
+
+/* ── FESTIVAL RENDER ── */
+let fFilter='all';
+function renderFestivals(){
+  const now=new Date();now.setHours(0,0,0,0);
+  let data=fFilter==='all'?FDATA:FDATA.filter(f=>f.type===fFilter);
+  data=[...data].sort((a,b)=>a.d-b.d);
+  const bmap={festival:['#FFB347','rgba(232,96,10,.25)','त्योहार'],vrat:['var(--pink)','rgba(232,116,138,.2)','व्रत'],ekadashi:['var(--pink)','rgba(232,116,138,.2)','एकादशी'],eclipse:['#aaaaff','rgba(100,100,255,.2)','ग्रहण']};
+  document.getElementById('flist').innerHTML=data.map(f=>{
+    const past=f.d<now&&f.d.toDateString()!==now.toDateString();
+    const isToday=f.d.toDateString()===now.toDateString();
+    const tc=f.type==='eclipse'?' ec':f.type==='vrat'||f.type==='ekadashi'?' vt':'';
+    const bm=bmap[f.type]||bmap.festival;
+    const timing=f.s&&f.e?`${f.s} – ${f.e}`:f.s||'';
+    const dStr=`${f.d.getDate()} ${ENM[f.d.getMonth()]} ${f.d.getFullYear()}`;
+    return`<div class="fi${tc}${past?' past':''}${isToday?' tf':''}">
+      <div><div class="fden">${dStr}</div><div class="fdhi">${hi(f.d.getDate())} ${HIM[f.d.getMonth()]}</div>
+      <span class="fb" style="background:${bm[1]};color:${bm[0]}">${bm[2]}</span></div>
+      <div><div class="fnhi">${f.hi}</div><div class="fnen">${f.en}</div>
+      ${f.note?`<div style="font-size:.67rem;color:rgba(253,246,227,.4);margin-top:2px">${f.note}</div>`:''}</div>
+      <div class="ftim">${timing}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ── ECLIPSES ── */
+function addH(s,h){
+  const m=s.match(/(\d{1,2}):(\d{2})/);if(!m)return s;
+  let hh=parseInt(m[1])+Math.floor(h),mm=parseInt(m[2])+Math.round((h%1)*60);
+  if(mm>=60){hh++;mm-=60;}
+  return`${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')}`;
+}
+function renderEclipses(){
+  const ec=FDATA.filter(f=>f.type==='eclipse');
+  document.getElementById('eGrid').innerHTML=ec.map(e=>{
+    const sol=e.en.includes('Solar');
+    const ph=sol?[
+      {n:'सूतक प्रारम्भ | Sutak',t:'12 घंटे पूर्व'},
+      {n:'पहला स्पर्श | First Contact',t:e.s},
+      {n:'वलय / पूर्णता | Maximum',t:addH(e.s,1.5)},
+      {n:'अंतिम स्पर्श | Last Contact',t:e.e},
+      {n:'स्नान-दान | After Eclipse',t:e.e+' के बाद'},
+    ]:[
+      {n:'सूतक प्रारम्भ | Sutak',t:'9 घंटे पूर्व'},
+      {n:'उपच्छाया प्रारम्भ | P1',t:e.s},
+      {n:'पूर्ण ग्रास | Totality',t:addH(e.s,1)},
+      {n:'मोक्ष / समाप्ति | P4',t:e.e},
+      {n:'स्नान-दान | After Eclipse',t:e.e+' के बाद'},
+    ];
+    const dS=`${e.d.getDate()} ${ENM[e.d.getMonth()]} ${e.d.getFullYear()}`;
+    return`<div class="ei">
+      <div class="etype">${sol?'☀️ SURYA GRAHAN':'🌕 CHANDRA GRAHAN'}</div>
+      <div class="enhi">${e.hi}</div>
+      <div class="edate">📅 ${dS} | ${e.en}</div>
+      ${e.note?`<div style="font-size:.7rem;color:#aaaaff;margin-top:4px">📍 ${e.note}</div>`:''}
+      <div class="eph">${ph.map(p=>`<div class="ep"><span class="ep-n">${p.n}</span><span class="ep-t">${p.t}</span></div>`).join('')}</div>
+      <div class="enote">* IST में अनुमानित। ब्रह्मसर / सन्निहित सरोवर स्नान का विशेष पुण्य।</div>
+    </div>`;
+  }).join('');
+}
+
+/* ── MONTHLY CALENDAR ── */
+let CY=TODAY.getFullYear(),CM=TODAY.getMonth();
+function renderCal(){
+  document.getElementById('calHi').textContent=`${HIM[CM]} ${hi(CY)} | ${getHM(new Date(CY,CM,15))}`;
+  document.getElementById('calEn').textContent=`${ENM[CM].toUpperCase()} ${CY}`;
+  const fd=new Date(CY,CM,1).getDay(),dim=new Date(CY,CM+1,0).getDate(),dip=new Date(CY,CM,0).getDate();
+  const hdr=WDE.map((d,i)=>`<div class="ch"><span style="color:var(--gold)">${WDS[i]}</span><br>${d}</div>`).join('');
+  let cells='';
+  for(let i=fd-1;i>=0;i--)cells+=`<div class="cd om"><div class="cden">${dip-i}</div></div>`;
+  for(let d=1;d<=dim;d++){
+    const jd=JD(new Date(CY,CM,d,12,0,0)),t=getTithi(jd);
+    const isT=d===TODAY.getDate()&&CM===TODAY.getMonth()&&CY===TODAY.getFullYear();
+    const fe=FDATA.filter(f=>f.d.getFullYear()===CY&&f.d.getMonth()===CM&&f.d.getDate()===d);
+    const hasEc=fe.some(f=>f.type==='eclipse'),hasFe=fe.some(f=>f.type!=='eclipse');
+    const cls=['cd',isT?'today':'',hasFe?'fd':'',hasEc?'ed':''].filter(Boolean).join(' ');
+    const fh=fe.slice(0,2).map(f=>`<div class="cfest"${hasEc?' style="color:#aaaaff"':''}>${f.type==='eclipse'?'🌑':f.type==='ekadashi'?'🙏':'🪔'}${f.hi.length>10?f.hi.slice(0,10)+'…':f.hi}</div>`).join('');
+    cells+=`<div class="${cls}">
+      <div class="cden">${d}</div>
+      <div class="cdhi">${hi(d)}</div>
+      <div class="ctithi">${t.paksha==='शुक्ल'?'शु':'कृ'} ${t.nameHi.slice(0,4)}</div>
+      ${fh}${hasEc?'<span class="celbl">ग्रहण</span>':''}
+    </div>`;
+  }
+  const rem=(fd+dim)%7;
+  for(let i=1;i<=(rem===0?0:7-rem);i++)cells+=`<div class="cd om"><div class="cden">${i}</div></div>`;
+  document.getElementById('calGrid').innerHTML=hdr+cells;
+}
+
+/* ── LIVE CLOCK (always IST regardless of user timezone) ── */
+function updateClock(){
+  const now=new Date();
+  const ist=new Date(now.getTime()+now.getTimezoneOffset()*60000+IST*3600000);
+  const h24=ist.getHours(),mn=ist.getMinutes(),sc=ist.getSeconds();
+  const ap=h24<12?'AM':'PM',h12=h24%12||12;
+  document.getElementById('liveClock').textContent=
+    `${String(h12).padStart(2,'0')}:${String(mn).padStart(2,'0')}:${String(sc).padStart(2,'0')} ${ap} IST — कुरुक्षेत्र`;
+}
+
+/* ── TAB SWITCHING (event delegation — no inline `event`) ── */
+function initTabs(){
+  document.getElementById('navTabs').addEventListener('click',function(e){
+    const btn=e.target.closest('.nav-tab');
+    if(!btn)return;
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+    btn.classList.add('active');
+  });
+}
+
+/* ── INIT ── */
+function init(){
+  initTabs();
+
+  document.getElementById('btnPrev').addEventListener('click',()=>{CM--;if(CM<0){CM=11;CY--;}renderCal();});
+  document.getElementById('btnNext').addEventListener('click',()=>{CM++;if(CM>11){CM=0;CY++;}renderCal();});
+
+  document.getElementById('fbar').addEventListener('click',function(e){
+    const btn=e.target.closest('.fbtn');if(!btn)return;
+    fFilter=btn.dataset.filter;
+    document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    renderFestivals();
+  });
+
+  renderDate();
+  renderSunMoon();
+  renderPanchang();
+  renderRahuGrid('rahuGrid1');
+  renderMuhurats('mlist1');
+  renderCal();
+  renderFestivals();
+  renderEclipses();
+
+  // Muhurat tab
+  document.getElementById('mBanner').textContent=
+    `आज: ${WDF[TODAY.getDay()]}, ${hi(TODAY.getDate())} ${HIM[TODAY.getMonth()]} ${hi(TODAY.getFullYear())} — कुरुक्षेत्र`;
+  renderMuhurats('mlist2');
+  renderRahuGrid('rahuGrid2');
+
+  updateClock();
+  setInterval(updateClock,1000);
+}
+
+document.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>
