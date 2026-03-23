@@ -1,333 +1,29 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>कुरुक्षेत्र पंचांग | Kurukshetra Panchang</title>
-<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<style>
-:root{
-  --saffron:#E8600A;--gold:#D4A017;--bright-gold:#F5C518;
-  --cream:#FDF6E3;--parchment:#F2E8C9;--dark:#2C1A0E;
-  --red:#B5252A;--pink:#E8748A;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{
-  background:#2C1A0E;
-  background-image:
-    radial-gradient(ellipse at 20% 0%,rgba(232,96,10,.15) 0%,transparent 50%),
-    radial-gradient(ellipse at 80% 100%,rgba(212,160,23,.1) 0%,transparent 50%);
-  color:var(--cream);font-family:'EB Garamond',serif;min-height:100vh;
-}
-/* HEADER */
-.hdr{background:linear-gradient(180deg,#1A0800 0%,#2C1A0E 60%,#3D2010 100%);border-bottom:3px solid var(--gold);box-shadow:0 4px 30px rgba(212,160,23,.3);}
-.topband{background:var(--saffron);text-align:center;padding:5px 10px;font-family:'Tiro Devanagari Sanskrit',serif;font-size:.8rem;color:#1A0800;letter-spacing:1px;}
-.hdrmain{display:flex;flex-direction:column;align-items:center;padding:18px 20px 12px;}
-.om{font-size:3rem;color:var(--bright-gold);animation:glow 3s ease-in-out infinite;}
-@keyframes glow{0%,100%{text-shadow:0 0 20px rgba(245,197,24,.5);}50%{text-shadow:0 0 50px rgba(245,197,24,.9),0 0 90px rgba(232,96,10,.4);}}
-.ttl-hi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:clamp(1.5rem,4vw,2.6rem);color:var(--bright-gold);margin-top:6px;text-shadow:2px 2px 8px rgba(0,0,0,.8);}
-.ttl-en{font-family:'Cinzel Decorative',cursive;font-size:clamp(.6rem,1.5vw,.85rem);color:var(--gold);letter-spacing:4px;text-transform:uppercase;margin-top:4px;}
-.loctag{margin-top:8px;background:rgba(212,160,23,.15);border:1px solid rgba(212,160,23,.4);border-radius:20px;padding:3px 14px;font-size:.78rem;color:var(--parchment);}
-.clk{font-family:'Cinzel Decorative',cursive;font-size:.88rem;color:var(--bright-gold);margin-top:8px;letter-spacing:2px;}
-/* NAV */
-.nav{display:flex;justify-content:center;flex-wrap:wrap;background:rgba(0,0,0,.45);border-top:1px solid rgba(212,160,23,.2);}
-.ntab{
-  padding:11px 16px;cursor:pointer;
-  font-family:'Tiro Devanagari Sanskrit',serif;font-size:.82rem;
-  color:var(--parchment);border:none;background:transparent;
-  border-bottom:3px solid transparent;white-space:nowrap;
-  transition:color .2s,background .2s,border-color .2s;
-}
-.ntab:hover{color:var(--bright-gold);background:rgba(212,160,23,.08);}
-.ntab.on{color:var(--bright-gold);border-bottom-color:var(--saffron);background:rgba(232,96,10,.13);}
-/* PANELS */
-.main{max-width:1200px;margin:0 auto;padding:20px 14px 50px;}
-.panel{display:none;}
-.panel.on{display:block;}
-/* CARD */
-.card{background:linear-gradient(145deg,rgba(45,25,12,.96),rgba(28,14,5,.99));border:1px solid rgba(212,160,23,.35);border-radius:8px;padding:20px;margin-bottom:16px;position:relative;box-shadow:0 4px 20px rgba(0,0,0,.5);}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:8px 8px 0 0;}
-.ctitle{font-family:'Cinzel Decorative',cursive;font-size:.72rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
-.ctitle::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(212,160,23,.4),transparent);}
-/* DATE HERO */
-.hero{background:linear-gradient(135deg,#1A0800,#2C1A0E);border:2px solid var(--gold);border-radius:10px;padding:20px;text-align:center;margin-bottom:16px;box-shadow:0 8px 32px rgba(212,160,23,.2);}
-.hero::before{content:'॥ श्री गणेशाय नमः ॥';display:block;font-family:'Tiro Devanagari Sanskrit',serif;color:rgba(212,160,23,.4);font-size:.85rem;margin-bottom:8px;}
-.den{font-family:'Cinzel Decorative',cursive;font-size:clamp(1rem,2.8vw,1.7rem);color:var(--bright-gold);}
-.dhi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:clamp(.9rem,2.2vw,1.3rem);color:var(--parchment);margin-top:4px;}
-.srow{margin-top:10px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
-.sbadge{background:rgba(212,160,23,.15);border:1px solid rgba(212,160,23,.3);border-radius:4px;padding:3px 10px;font-size:.77rem;color:var(--gold);font-family:'Tiro Devanagari Sanskrit',serif;}
-/* SUN/MOON */
-.smg{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:10px;}
-.smi{text-align:center;padding:11px;background:rgba(0,0,0,.25);border-radius:8px;border:1px solid rgba(212,160,23,.15);}
-.smico{font-size:1.7rem;margin-bottom:3px;}
-.smlbl{font-size:.64rem;color:var(--gold);letter-spacing:1px;font-family:'Cinzel Decorative',cursive;text-transform:uppercase;}
-.smval{font-size:1.05rem;color:var(--cream);font-family:'Tiro Devanagari Sanskrit',serif;}
-.smsub{font-size:.7rem;color:rgba(253,246,227,.5);}
-/* PANCHANG */
-.p5g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;}
-.pi{background:rgba(0,0,0,.3);border:1px solid rgba(212,160,23,.2);border-radius:8px;padding:12px 14px;}
-.pilbl{font-size:.66rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-family:'Cinzel Decorative',cursive;margin-bottom:3px;}
-.pihi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.02rem;color:var(--cream);}
-.pien{font-size:.73rem;color:rgba(253,246,227,.5);}
-/* RAHU */
-.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px;}
-.ri{padding:12px;border-radius:8px;text-align:center;border:1px solid;}
-.bad{background:rgba(181,37,42,.15);border-color:rgba(181,37,42,.4);}
-.rien{font-size:.68rem;letter-spacing:1px;font-family:'Cinzel Decorative',cursive;margin-bottom:3px;}
-.rihi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.83rem;margin-bottom:4px;}
-.ritm{font-size:.87rem;color:var(--cream);}
-/* MUHURATS */
-.ml{display:flex;flex-direction:column;gap:8px;}
-.mit{display:flex;align-items:center;gap:10px;padding:9px 13px;border-radius:6px;border-left:3px solid;}
-.shubh{background:rgba(26,74,46,.2);border-color:#4CAF50;}
-.ashubh{background:rgba(181,37,42,.15);border-color:var(--red);}
-.medium{background:rgba(212,160,23,.1);border-color:var(--gold);}
-.mdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-.shubh .mdot{background:#4CAF50;}.ashubh .mdot{background:var(--red);}.medium .mdot{background:var(--gold);}
-.mnm{flex:1;}
-.mhi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.93rem;}
-.men{font-size:.68rem;color:rgba(253,246,227,.55);}
-.mtm{font-size:.82rem;color:var(--parchment);text-align:right;white-space:nowrap;}
-.mbdg{font-size:.58rem;padding:2px 6px;border-radius:10px;display:inline-block;margin-top:2px;}
-/* CALENDAR */
-.mnav{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
-.mbtn{background:rgba(212,160,23,.15);border:1px solid rgba(212,160,23,.4);color:var(--gold);padding:7px 15px;border-radius:4px;cursor:pointer;font-size:.95rem;transition:background .2s;}
-.mbtn:hover{background:rgba(212,160,23,.3);}
-.mttl{text-align:center;}
-.mhi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.2rem;color:var(--bright-gold);}
-.men2{font-family:'Cinzel Decorative',cursive;font-size:.65rem;color:var(--gold);letter-spacing:2px;}
-.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
-.ch{text-align:center;padding:5px 2px;font-family:'Cinzel Decorative',cursive;font-size:.56rem;color:var(--gold);}
-.cd{min-height:76px;padding:5px;background:rgba(0,0,0,.3);border:1px solid rgba(212,160,23,.1);border-radius:4px;}
-.cd.tod{border:2px solid var(--saffron);background:rgba(232,96,10,.1);}
-.cd.om{opacity:.3;}
-.cd.fd{background:rgba(232,96,10,.07);}
-.cd.ecd{background:rgba(80,80,180,.1);border-color:rgba(150,150,255,.2);}
-.cde{font-size:.92rem;color:var(--cream);font-weight:600;}
-.cdh{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.62rem;color:rgba(253,246,227,.4);}
-.cdt{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.6rem;color:var(--gold);}
-.cdf{font-size:.56rem;color:var(--pink);line-height:1.3;margin-top:1px;}
-.cde2{font-size:.52rem;background:rgba(100,100,255,.3);color:#aaaaff;padding:1px 3px;border-radius:3px;}
-@media(max-width:480px){.cd{min-height:50px;padding:3px;}.cdt,.cdf{display:none;}}
-/* FESTIVALS */
-.fbar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px;}
-.fbtn{padding:4px 12px;border-radius:20px;border:1px solid rgba(212,160,23,.3);background:transparent;color:var(--parchment);font-size:.74rem;cursor:pointer;font-family:'Tiro Devanagari Sanskrit',serif;transition:all .2s;}
-.fbtn:hover,.fbtn.on{background:rgba(212,160,23,.2);border-color:var(--gold);color:var(--bright-gold);}
-.fl{display:flex;flex-direction:column;gap:8px;}
-.fi{display:grid;grid-template-columns:96px 1fr auto;gap:8px;align-items:start;padding:10px 12px;background:rgba(0,0,0,.25);border:1px solid rgba(212,160,23,.2);border-radius:6px;border-left:3px solid var(--saffron);}
-.fi:hover{background:rgba(212,160,23,.07);}
-.fi.fec{border-left-color:#7788ff;}
-.fi.fvt{border-left-color:var(--pink);}
-.fi.fpst{opacity:.5;}
-.fi.ftd{background:rgba(232,96,10,.1);}
-.fde{font-size:.76rem;color:var(--gold);}
-.fdh{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.68rem;color:rgba(253,246,227,.5);}
-.ffh{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.96rem;color:var(--cream);}
-.ffe{font-size:.71rem;color:rgba(253,246,227,.5);}
-.fti{font-size:.68rem;color:var(--pink);text-align:right;white-space:nowrap;}
-.fbd{display:inline-block;font-size:.56rem;padding:2px 6px;border-radius:10px;margin-top:3px;}
-@media(max-width:500px){.fi{grid-template-columns:78px 1fr;}.fti{display:none;}}
-/* ECLIPSE */
-.ecrd{border-color:rgba(119,136,255,.4)!important;}
-.ecrd::before{background:linear-gradient(90deg,transparent,#7788ff,transparent)!important;}
-.egrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px;}
-.ei{padding:15px;border-radius:8px;border:1px solid rgba(119,136,255,.3);background:rgba(0,0,30,.4);}
-.ety{font-family:'Cinzel Decorative',cursive;font-size:.7rem;color:#aaaaff;letter-spacing:2px;margin-bottom:5px;}
-.enhi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.05rem;color:var(--cream);}
-.edtxt{font-size:.8rem;color:var(--gold);margin-top:3px;}
-.eph{margin-top:9px;display:flex;flex-direction:column;gap:3px;}
-.ep{display:flex;justify-content:space-between;font-size:.74rem;padding:4px 7px;background:rgba(0,0,0,.3);border-radius:4px;}
-.epn{color:#aaaaff;}.ept{color:var(--cream);}
-.enote{font-size:.66rem;color:rgba(253,246,227,.4);margin-top:7px;font-style:italic;}
-/* TODAY BANNER */
-.tbanner{background:linear-gradient(135deg,rgba(232,96,10,.12),rgba(212,160,23,.08));border:1px solid rgba(232,96,10,.3);border-radius:8px;padding:9px 14px;margin-bottom:10px;font-family:'Tiro Devanagari Sanskrit',serif;font-size:.87rem;color:var(--parchment);text-align:center;}
-/* SCROLLBAR */
-::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--dark);}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
-footer{text-align:center;padding:18px;font-size:.7rem;color:rgba(253,246,227,.4);border-top:1px solid rgba(212,160,23,.2);font-family:'Tiro Devanagari Sanskrit',serif;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>कुरुक्षेत्र पंचांग | Kurukshetra Hindu Panchang</title>
 
-/* ═══ BHAJAN / CHALISA / AARTI TAB ═══ */
-.bj-filter-bar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px;}
-.bj-fbtn{padding:5px 14px;border-radius:20px;border:1px solid rgba(212,160,23,.3);background:transparent;color:var(--parchment);font-size:.76rem;cursor:pointer;font-family:'Tiro Devanagari Sanskrit',serif;transition:all .2s;}
-.bj-fbtn:hover,.bj-fbtn.on{background:rgba(212,160,23,.2);border-color:var(--gold);color:var(--bright-gold);}
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-/* PLAYER BAR */
-.player-bar{
-  position:sticky;top:0;z-index:100;
-  background:linear-gradient(135deg,#1A0800,#2D1200);
-  border:2px solid var(--gold);border-radius:10px;
-  padding:14px 18px;margin-bottom:18px;
-  box-shadow:0 6px 30px rgba(0,0,0,.7),0 0 20px rgba(212,160,23,.15);
-  display:none;
-}
-.player-bar.visible{display:block;}
-.player-now{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
-.player-deity-ico{font-size:2.2rem;flex-shrink:0;animation:spin-slow 8s linear infinite;}
-@keyframes spin-slow{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-.player-deity-ico.paused{animation-play-state:paused;}
-.player-info{flex:1;min-width:0;}
-.player-name-hi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.05rem;color:var(--bright-gold);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.player-name-en{font-size:.72rem;color:rgba(253,246,227,.55);margin-top:1px;}
-.player-type-badge{font-size:.6rem;padding:2px 8px;border-radius:10px;background:rgba(232,96,10,.25);color:#FFB347;font-family:'Cinzel Decorative',cursive;letter-spacing:1px;margin-top:3px;display:inline-block;}
-.player-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
-.pc-btn{
-  width:38px;height:38px;border-radius:50%;border:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;font-size:1rem;
-  transition:all .2s;flex-shrink:0;
-}
-.pc-btn.prev,.pc-btn.next{background:rgba(212,160,23,.15);color:var(--gold);}
-.pc-btn.prev:hover,.pc-btn.next:hover{background:rgba(212,160,23,.35);}
-.pc-btn.play{background:var(--saffron);color:#fff;width:44px;height:44px;font-size:1.2rem;box-shadow:0 0 15px rgba(232,96,10,.4);}
-.pc-btn.play:hover{background:var(--bright-gold);color:#1A0800;}
-.player-progress{flex:1;min-width:120px;display:flex;flex-direction:column;gap:4px;}
-.progress-track{width:100%;height:4px;background:rgba(255,255,255,.1);border-radius:2px;cursor:pointer;position:relative;}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--saffron),var(--bright-gold));border-radius:2px;width:0%;transition:width .5s linear;pointer-events:none;}
-.progress-times{display:flex;justify-content:space-between;font-size:.65rem;color:rgba(253,246,227,.5);font-family:'Cinzel Decorative',cursive;}
-.pc-vol{display:flex;align-items:center;gap:6px;flex-shrink:0;}
-.pc-vol-ico{font-size:.9rem;color:var(--gold);}
-.vol-slider{-webkit-appearance:none;width:70px;height:3px;border-radius:2px;background:rgba(255,255,255,.15);outline:none;cursor:pointer;}
-.vol-slider::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:var(--gold);cursor:pointer;}
-.pc-loop{background:transparent;border:1px solid rgba(212,160,23,.3);color:var(--gold);font-size:.65rem;padding:3px 8px;border-radius:10px;cursor:pointer;font-family:'Cinzel Decorative',cursive;letter-spacing:1px;transition:all .2s;white-space:nowrap;}
-.pc-loop.on{background:rgba(212,160,23,.25);color:var(--bright-gold);}
-
-/* TRACK GRID */
-.track-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
-.track-card{
-  background:linear-gradient(145deg,rgba(40,20,8,.97),rgba(25,10,2,.99));
-  border:1px solid rgba(212,160,23,.25);border-radius:10px;
-  padding:16px;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;
-}
-.track-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s;}
-.track-card:hover{border-color:rgba(212,160,23,.5);background:linear-gradient(145deg,rgba(55,28,10,.97),rgba(35,15,3,.99));transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.5);}
-.track-card:hover::before{opacity:1;}
-.track-card.playing{border-color:var(--saffron);background:linear-gradient(145deg,rgba(80,35,5,.97),rgba(50,20,2,.99));box-shadow:0 0 20px rgba(232,96,10,.2);}
-.track-card.playing::before{opacity:1;background:linear-gradient(90deg,transparent,var(--saffron),transparent);}
-.tc-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;}
-.tc-icon{font-size:2.4rem;flex-shrink:0;line-height:1;}
-.tc-meta{flex:1;min-width:0;}
-.tc-name-hi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.05rem;color:var(--cream);line-height:1.3;}
-.tc-name-en{font-size:.72rem;color:rgba(253,246,227,.5);margin-top:2px;}
-.tc-deity{font-size:.68rem;color:var(--gold);margin-top:3px;font-family:'Tiro Devanagari Sanskrit',serif;}
-.tc-badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;}
-.tc-badge{font-size:.58rem;padding:2px 7px;border-radius:10px;font-family:'Cinzel Decorative',cursive;letter-spacing:.5px;}
-.badge-chalisa{background:rgba(232,96,10,.2);color:#FFB347;}
-.badge-aarti{background:rgba(232,116,138,.2);color:var(--pink);}
-.badge-mantra{background:rgba(26,74,46,.25);color:#81C784;}
-.badge-stotra{background:rgba(119,136,255,.2);color:#aaaaff;}
-.tc-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;}
-.tc-duration{font-size:.68rem;color:rgba(253,246,227,.4);font-family:'Cinzel Decorative',cursive;}
-.tc-play-btn{
-  display:flex;align-items:center;gap:5px;
-  background:linear-gradient(135deg,var(--saffron),var(--deep-saffron,#C14B00));
-  color:#fff;border:none;border-radius:20px;
-  padding:6px 14px;font-size:.72rem;cursor:pointer;
-  font-family:'Cinzel Decorative',cursive;letter-spacing:.5px;
-  transition:all .2s;white-space:nowrap;
-}
-.tc-play-btn:hover{background:linear-gradient(135deg,var(--bright-gold),var(--gold));color:#1A0800;}
-.track-card.playing .tc-play-btn{background:linear-gradient(135deg,#4CAF50,#2E7D32);}
-.tc-eq{display:flex;align-items:flex-end;gap:2px;height:16px;}
-.tc-eq span{width:3px;background:var(--saffron);border-radius:2px;animation:eq 0.6s ease-in-out infinite alternate;}
-.tc-eq span:nth-child(2){animation-delay:.1s;}.tc-eq span:nth-child(3){animation-delay:.2s;}.tc-eq span:nth-child(4){animation-delay:.3s;}
-@keyframes eq{from{height:3px;}to{height:14px;}}
-
-/* CHALISA TEXT MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1000;overflow-y:auto;padding:20px;}
-.modal-overlay.open{display:flex;align-items:flex-start;justify-content:center;}
-.modal-box{
-  background:linear-gradient(145deg,#1A0800,#2C1A0E);
-  border:2px solid var(--gold);border-radius:12px;
-  max-width:700px;width:100%;padding:24px;position:relative;
-  box-shadow:0 20px 60px rgba(0,0,0,.8);margin:auto;
-}
-.modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--bright-gold),transparent);border-radius:12px 12px 0 0;}
-.modal-close{position:absolute;top:14px;right:14px;background:rgba(212,160,23,.2);border:1px solid rgba(212,160,23,.3);color:var(--gold);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
-.modal-close:hover{background:rgba(212,160,23,.4);}
-.modal-title{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.4rem;color:var(--bright-gold);text-align:center;margin-bottom:6px;}
-.modal-subtitle{font-family:'Cinzel Decorative',cursive;font-size:.65rem;color:var(--gold);text-align:center;letter-spacing:3px;margin-bottom:16px;}
-.modal-divider{text-align:center;color:var(--gold);opacity:.4;font-size:1rem;letter-spacing:8px;margin:12px 0;}
-.chalisa-text{
-  font-family:'Tiro Devanagari Sanskrit',serif;
-  font-size:.97rem;line-height:2.1;color:var(--parchment);
-  white-space:pre-wrap;
-}
-.chalisa-text .doha{color:var(--bright-gold);font-style:italic;}
-.chalisa-text .chaupai-num{color:rgba(212,160,23,.5);font-size:.75rem;}
-.read-btn{
-  display:inline-flex;align-items:center;gap:5px;
-  background:rgba(212,160,23,.15);border:1px solid rgba(212,160,23,.3);
-  color:var(--gold);padding:5px 12px;border-radius:6px;
-  font-size:.7rem;cursor:pointer;font-family:'Cinzel Decorative',cursive;
-  letter-spacing:.5px;transition:all .2s;white-space:nowrap;margin-left:6px;
-}
-.read-btn:hover{background:rgba(212,160,23,.3);}
-
-/* MEANING & PURPOSE STYLES */
-.purpose-box{background:rgba(212,160,23,.08);border:1px solid rgba(212,160,23,.25);border-radius:8px;padding:14px 16px;margin-bottom:16px;}
-.purpose-title{font-family:'Cinzel Decorative',cursive;font-size:.65rem;color:var(--bright-gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;}
-.purpose-text{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.88rem;line-height:1.9;color:var(--parchment);}
-.verse-block{margin:10px 0;padding:10px 14px;border-left:3px solid rgba(212,160,23,.4);background:rgba(0,0,0,.2);border-radius:0 6px 6px 0;}
-.verse-original{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.97rem;color:var(--cream);line-height:1.9;}
-.verse-meaning{font-size:.82rem;color:rgba(253,246,227,.65);line-height:1.7;margin-top:5px;font-style:italic;}
-.verse-meaning::before{content:'अर्थ: ';color:var(--gold);font-style:normal;font-weight:600;}
-.katha-section{margin:14px 0;}
-.katha-section-title{font-family:'Cinzel Decorative',cursive;font-size:.68rem;color:var(--saffron);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid rgba(232,96,10,.25);}
-.katha-text{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.93rem;line-height:2;color:var(--parchment);}
-.modal-tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap;}
-.modal-tab-btn{padding:5px 14px;border-radius:20px;border:1px solid rgba(212,160,23,.3);background:transparent;color:var(--parchment);font-size:.72rem;cursor:pointer;font-family:'Tiro Devanagari Sanskrit',serif;transition:all .2s;}
-.modal-tab-btn:hover,.modal-tab-btn.on{background:rgba(212,160,23,.2);border-color:var(--gold);color:var(--bright-gold);}
-.modal-section{display:none;}.modal-section.on{display:block;}
-
-/* ═══ GITA / VEDA READER STYLES ═══ */
-.gv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:0;}
-.gv-card{background:linear-gradient(145deg,rgba(40,20,8,.97),rgba(25,10,2,.99));border:1px solid rgba(212,160,23,.3);border-radius:10px;padding:18px 16px;cursor:pointer;transition:all .25s;text-align:center;position:relative;}
-.gv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s;border-radius:10px 10px 0 0;}
-.gv-card:hover{border-color:rgba(212,160,23,.6);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.5);}
-.gv-card:hover::before{opacity:1;}
-.gv-icon{font-size:2.4rem;margin-bottom:10px;line-height:1;}
-.gv-name-hi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.1rem;color:var(--bright-gold);margin-bottom:3px;}
-.gv-name-en{font-family:'Cinzel Decorative',cursive;font-size:.6rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
-.gv-desc{font-size:.75rem;color:rgba(253,246,227,.55);line-height:1.5;}
-.gv-badge{display:inline-block;font-size:.58rem;padding:2px 8px;border-radius:10px;margin-top:8px;font-family:'Cinzel Decorative',cursive;letter-spacing:1px;}
-.badge-gita{background:rgba(212,160,23,.2);color:var(--bright-gold);}
-.badge-veda{background:rgba(26,74,46,.3);color:#81C784;}
-/* READER */
-.reader-wrap{display:none;}
-.reader-wrap.open{display:block;}
-.reader-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;}
-.reader-back{background:rgba(212,160,23,.15);border:1px solid rgba(212,160,23,.3);color:var(--gold);padding:6px 14px;border-radius:6px;cursor:pointer;font-size:.8rem;font-family:'Tiro Devanagari Sanskrit',serif;transition:all .2s;}
-.reader-back:hover{background:rgba(212,160,23,.3);}
-.reader-title{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.2rem;color:var(--bright-gold);flex:1;}
-.chapter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin-bottom:16px;}
-.ch-btn{padding:8px 6px;background:rgba(0,0,0,.3);border:1px solid rgba(212,160,23,.2);border-radius:6px;cursor:pointer;text-align:center;transition:all .2s;color:var(--parchment);}
-.ch-btn:hover,.ch-btn.on{background:rgba(212,160,23,.2);border-color:var(--gold);color:var(--bright-gold);}
-.ch-btn-num{font-family:'Cinzel Decorative',cursive;font-size:.7rem;color:var(--gold);}
-.ch-btn-hi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.78rem;margin-top:2px;}
-.ch-content{background:rgba(0,0,0,.25);border:1px solid rgba(212,160,23,.2);border-radius:8px;padding:18px;}
-.ch-content-title{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.15rem;color:var(--bright-gold);margin-bottom:4px;}
-.ch-content-sub{font-family:'Cinzel Decorative',cursive;font-size:.62rem;color:var(--gold);letter-spacing:2px;margin-bottom:6px;}
-.ch-purpose{background:rgba(212,160,23,.07);border:1px solid rgba(212,160,23,.2);border-radius:6px;padding:10px 14px;margin-bottom:12px;font-family:'Tiro Devanagari Sanskrit',serif;font-size:.85rem;color:var(--parchment);line-height:1.8;}
-.ch-purpose-lbl{font-family:'Cinzel Decorative',cursive;font-size:.6rem;color:var(--saffron);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:5px;}
-.shloka-block{margin:10px 0;padding:12px 14px;border-left:3px solid rgba(212,160,23,.4);background:rgba(0,0,0,.2);border-radius:0 6px 6px 0;}
-.shloka-num{font-family:'Cinzel Decorative',cursive;font-size:.6rem;color:rgba(212,160,23,.6);letter-spacing:1px;margin-bottom:4px;}
-.shloka-text{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.95rem;color:var(--cream);line-height:2;}
-.shloka-meaning{font-size:.82rem;color:rgba(253,246,227,.62);line-height:1.7;margin-top:6px;border-top:1px solid rgba(212,160,23,.15);padding-top:6px;}
-.shloka-meaning::before{content:'अर्थ: ';color:var(--gold);font-weight:600;}
-.reader-audio{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.3);border:1px solid rgba(212,160,23,.2);border-radius:8px;padding:10px 14px;margin-bottom:14px;flex-wrap:wrap;}
-.ra-label{font-family:'Tiro Devanagari Sanskrit',serif;font-size:.85rem;color:var(--gold);}
-.ra-note{font-size:.7rem;color:rgba(253,246,227,.4);font-style:italic;}
-.gv-main{}.gv-reader{}
-</style>
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<!-- ════════════════════════════════════════════
+     HEADER
+     ════════════════════════════════════════════ -->
 <div class="hdr">
   <div class="topband">॥ हरि ॐ तत्सत् ॥ · कुरुक्षेत्र धर्मक्षेत्र · 29.97°N 76.88°E · IST UTC+5:30</div>
   <div class="hdrmain">
-    <div class="om">ॐ</div>
-    <div class="ttl-hi">कुरुक्षेत्र पंचांग</div>
-    <div class="ttl-en">Kurukshetra Hindu Panchang</div>
-    <div class="loctag">📍 कुरुक्षेत्र, हरियाणा — जहाँ श्रीमद्भगवद्गीता का उपदेश हुआ</div>
-    <div class="clk" id="clk">--:--:-- IST</div>
+    <div class="om-symbol">ॐ</div>
+    <div class="title-hi">कुरुक्षेत्र पंचांग</div>
+    <div class="title-en">Kurukshetra Hindu Panchang</div>
+    <div class="loc-tag">📍 कुरुक्षेत्र, हरियाणा — जहाँ श्रीमद्भगवद्गीता का उपदेश हुआ</div>
+    <div class="live-clock" id="clk">--:--:-- IST</div>
   </div>
   <nav class="nav">
     <button class="ntab on"  onclick="showTab('panchang',this)">🗓 आज का पंचांग</button>
@@ -340,33 +36,54 @@ footer{text-align:center;padding:18px;font-size:.7rem;color:rgba(253,246,227,.4)
   </nav>
 </div>
 
-<div class="main">
+<!-- ════════════════════════════════════════════
+     MAIN CONTENT
+     ════════════════════════════════════════════ -->
+<main class="main">
 
-  <!-- PANCHANG -->
+  <!-- ── PANCHANG ── -->
   <div class="panel on" id="P-panchang">
     <div class="hero" id="dateHero"></div>
-    <div class="card"><div class="ctitle">🌅 सूर्य एवं चन्द्र | Sun &amp; Moon — कुरुक्षेत्र IST</div><div class="smg" id="smGrid"></div></div>
-    <div class="card"><div class="ctitle">📿 पञ्चाङ्ग विवरण | Panchang Details</div><div class="p5g" id="p5Grid"></div></div>
-    <div class="card"><div class="ctitle">⚠️ काल विचार | Inauspicious Periods</div><div class="rg" id="rg1"></div></div>
-    <div class="card"><div class="ctitle">✨ आज के मुहूर्त | Today's Muhurats</div><div class="ml" id="ml1"></div></div>
+    <div class="card">
+      <div class="ctitle">🌅 सूर्य एवं चन्द्र | Sun &amp; Moon — कुरुक्षेत्र IST</div>
+      <div class="smg" id="smGrid"></div>
+    </div>
+    <div class="card">
+      <div class="ctitle">📿 पञ्चाङ्ग विवरण | Panchang Details</div>
+      <div class="p5g" id="p5Grid"></div>
+    </div>
+    <div class="card">
+      <div class="ctitle">⚠️ काल विचार | Inauspicious Periods</div>
+      <div class="rg" id="rg1"></div>
+    </div>
+    <div class="card">
+      <div class="ctitle">✨ आज के मुहूर्त | Today's Muhurats</div>
+      <div class="ml" id="ml1"></div>
+    </div>
   </div>
 
-  <!-- CALENDAR -->
+  <!-- ── CALENDAR ── -->
   <div class="panel" id="P-calendar">
     <div class="card">
       <div class="mnav">
         <button class="mbtn" onclick="calNav(-1)">◀ पूर्व</button>
-        <div class="mttl"><div class="mhi" id="calHi"></div><div class="men2" id="calEn"></div></div>
+        <div class="mttl">
+          <div class="mhi-cal" id="calHi"></div>
+          <div class="men-cal" id="calEn"></div>
+        </div>
         <button class="mbtn" onclick="calNav(1)">आगे ▶</button>
       </div>
       <div class="cal" id="calGrid"></div>
       <div style="display:flex;gap:12px;margin-top:11px;flex-wrap:wrap;font-size:.68rem;color:rgba(253,246,227,.55);">
-        <span>🟠 आज</span><span style="color:var(--pink)">● त्योहार</span><span style="color:#aaaaff">● ग्रहण</span><span style="color:var(--gold)">🙏 एकादशी</span>
+        <span>🟠 आज</span>
+        <span style="color:var(--pink)">● त्योहार</span>
+        <span style="color:#aaaaff">● ग्रहण</span>
+        <span style="color:var(--gold)">🙏 एकादशी</span>
       </div>
     </div>
   </div>
 
-  <!-- FESTIVALS -->
+  <!-- ── FESTIVALS ── -->
   <div class="panel" id="P-festivals">
     <div class="card">
       <div class="ctitle">🪔 2025–2026 त्योहार एवं व्रत | Festivals &amp; Vrats</div>
@@ -381,52 +98,57 @@ footer{text-align:center;padding:18px;font-size:.7rem;color:rgba(253,246,227,.4)
     </div>
   </div>
 
-  <!-- MUHURAT -->
+  <!-- ── MUHURAT ── -->
   <div class="panel" id="P-muhurat">
     <div class="card">
       <div class="ctitle">✨ शुभ मुहूर्त | Auspicious Timings</div>
       <div class="tbanner" id="mBanner"></div>
       <div class="ml" id="ml2"></div>
     </div>
-    <div class="card"><div class="ctitle">🚫 अशुभ काल | Inauspicious Periods</div><div class="rg" id="rg2"></div></div>
-    <div class="card"><div class="ctitle">📖 मुहूर्त मार्गदर्शिका | Guide</div>
+    <div class="card">
+      <div class="ctitle">🚫 अशुभ काल | Inauspicious Periods</div>
+      <div class="rg" id="rg2"></div>
+    </div>
+    <div class="card">
+      <div class="ctitle">📖 मुहूर्त मार्गदर्शिका | Guide</div>
       <div style="font-family:'Tiro Devanagari Sanskrit',serif;line-height:2;font-size:.9rem;color:var(--parchment);">
         <p><span style="color:var(--bright-gold)">ब्रह्म मुहूर्त</span> — सूर्योदय से ९६ मिनट पूर्व। ध्यान, पूजा, अध्ययन हेतु सर्वोत्तम।</p>
-        <p style="margin-top:5px"><span style="color:var(--bright-gold)">अभिजित मुहूर्त</span> — मध्याह्न के निकट ४८ मिनट। विवाह, गृहप्रवेश, यात्रा हेतु श्रेष्ठ।</p>
-        <p style="margin-top:5px"><span style="color:var(--bright-gold)">विजय मुहूर्त</span> — दिन के तीसरे भाग में। नए कार्य प्रारम्भ हेतु शुभ।</p>
-        <p style="margin-top:5px"><span style="color:var(--bright-gold)">गोधूलि मुहूर्त</span> — सूर्यास्त के समय। विवाह एवं शुभ कार्यों हेतु उत्तम।</p>
+        <p style="margin-top:5px"><span style="color:var(--bright-gold)">अभिजित मुहूर्त</span> — मध्याह्न के निकट ४८ मिनट। विवाह, गृहप्रवेश हेतु श्रेष्ठ।</p>
+        <p style="margin-top:5px"><span style="color:var(--bright-gold)">विजय मुहूर्त</span> — दिन के तीसरे भाग में। नए कार्य हेतु शुभ।</p>
+        <p style="margin-top:5px"><span style="color:var(--bright-gold)">गोधूलि मुहूर्त</span> — सूर्यास्त के समय। विवाह हेतु उत्तम।</p>
         <p style="margin-top:5px"><span style="color:var(--pink)">राहु काल / गुलिका / यमगण्ड</span> — इन कालों में शुभ कार्य वर्जित हैं।</p>
       </div>
     </div>
   </div>
 
-  <!-- ECLIPSE -->
+  <!-- ── ECLIPSE ── -->
   <div class="panel" id="P-eclipse">
     <div class="card ecrd">
       <div class="ctitle" style="color:#aaaaff">🌑 2025–2026 ग्रहण | Eclipses — कुरुक्षेत्र IST</div>
       <div class="egrid" id="eGrid"></div>
     </div>
-    <div class="card"><div class="ctitle">📖 ग्रहण नियम | Eclipse Guidelines</div>
+    <div class="card">
+      <div class="ctitle">📖 ग्रहण नियम | Eclipse Guidelines</div>
       <div style="font-family:'Tiro Devanagari Sanskrit',serif;line-height:2;font-size:.9rem;color:var(--parchment);">
-        <p>• <span style="color:var(--bright-gold)">सूर्य ग्रहण</span> — सूतक: ग्रहण से 12 घंटे पूर्व। <span style="color:var(--bright-gold)">चंद्र ग्रहण</span> — सूतक: 9 घंटे पूर्व।</p>
-        <p>• ग्रहण काल में पूजा-पाठ एवं मंत्र जप करें।</p>
-        <p>• ग्रहण समाप्ति के बाद <span style="color:var(--bright-gold)">स्नान एवं दान</span> करें।</p>
+        <p>• <span style="color:var(--bright-gold)">सूर्य ग्रहण</span> — सूतक: ग्रहण से 12 घंटे पूर्व। <span style="color:var(--bright-gold)">चंद्र ग्रहण</span> — 9 घंटे पूर्व।</p>
+        <p>• ग्रहण काल में पूजा-पाठ, जप करें।</p>
+        <p>• समाप्ति के बाद <span style="color:var(--bright-gold)">स्नान एवं दान</span> करें।</p>
         <p>• गर्भवती महिलाएं ग्रहण न देखें।</p>
         <p>• कुरुक्षेत्र में <span style="color:var(--gold)">ब्रह्मसर</span> एवं <span style="color:var(--gold)">सन्निहित सरोवर</span> में ग्रहण स्नान का विशेष पुण्य।</p>
       </div>
     </div>
   </div>
 
-  <!-- BHAJAN / CHALISA / AARTI -->
+  <!-- ── BHAJAN / CHALISA / AARTI ── -->
   <div class="panel" id="P-bhajan">
 
-    <!-- STICKY PLAYER BAR -->
+    <!-- Sticky Player Bar -->
     <div class="player-bar" id="playerBar">
       <div class="player-now">
-        <div class="tc-icon player-deity-ico paused" id="playerIcon">🪔</div>
+        <div class="player-ico paused" id="playerIco">🪔</div>
         <div class="player-info">
-          <div class="player-name-hi" id="playerNameHi">—</div>
-          <div class="player-name-en" id="playerNameEn">Select a track to begin</div>
+          <div class="player-name-hi"  id="playerNameHi">—</div>
+          <div class="player-name-en"  id="playerNameEn">Select a track to begin</div>
           <div class="player-type-badge" id="playerTypeBadge">—</div>
         </div>
       </div>
@@ -445,1701 +167,135 @@ footer{text-align:center;padding:18px;font-size:.7rem;color:rgba(253,246,227,.4)
         </div>
         <div class="pc-vol">
           <span class="pc-vol-ico">🔊</span>
-          <input class="vol-slider" type="range" min="0" max="1" step="0.05" value="0.8" oninput="setVolume(this.value)" title="Volume">
+          <input class="vol-slider" type="range" min="0" max="1" step="0.05" value="0.8"
+                 oninput="setVolume(this.value)" title="Volume">
         </div>
         <button class="pc-loop" id="loopBtn" onclick="toggleLoop()">🔁 LOOP</button>
       </div>
     </div>
 
-    <!-- FILTER BAR -->
-    <div class="card" style="padding:16px 20px;">
-      <div class="ctitle">🎵 चालीसा, आरती एवं मंत्र | Chalisa, Aarti &amp; Mantras</div>
-      <div class="bj-filter-bar">
-        <button class="bj-fbtn on" onclick="bjFilter('all',this)">सभी | All</button>
-        <button class="bj-fbtn"    onclick="bjFilter('chalisa',this)">📜 चालीसा</button>
-        <button class="bj-fbtn"    onclick="bjFilter('aarti',this)">🪔 आरती</button>
-        <button class="bj-fbtn"    onclick="bjFilter('katha',this)">📖 कथा</button>
-        <button class="bj-fbtn"    onclick="bjFilter('mantra',this)">📿 मंत्र</button>
-        <button class="bj-fbtn"    onclick="bjFilter('stotra',this)">🌸 स्तोत्र</button>
+    <!-- Filter & Track Grid -->
+    <div class="card">
+      <div class="ctitle">🎵 चालीसा, आरती एवं कथा | Chalisa, Aarti &amp; Katha</div>
+      <div class="bj-fbar">
+        <button class="bj-fbtn on"  onclick="bjFilter('all',this)">सभी | All</button>
+        <button class="bj-fbtn"     onclick="bjFilter('chalisa',this)">📜 चालीसा</button>
+        <button class="bj-fbtn"     onclick="bjFilter('aarti',this)">🪔 आरती</button>
+        <button class="bj-fbtn"     onclick="bjFilter('katha',this)">📖 कथा</button>
+        <button class="bj-fbtn"     onclick="bjFilter('mantra',this)">📿 मंत्र</button>
+        <button class="bj-fbtn"     onclick="bjFilter('stotra',this)">🌸 स्तोत्र</button>
       </div>
       <div class="track-grid" id="trackGrid"></div>
     </div>
 
-    <!-- HOW TO USE NOTE -->
+    <!-- Usage info -->
     <div class="card">
       <div class="ctitle">ℹ️ जानकारी | How to Use</div>
       <div style="font-family:'Tiro Devanagari Sanskrit',serif;line-height:2;font-size:.88rem;color:var(--parchment);">
-        <p>• किसी भी कार्ड पर <span style="color:var(--bright-gold)">▶ बजाएं</span> बटन दबाएं — ऑडियो प्लेयर ऊपर दिखेगा।</p>
-        <p>• <span style="color:var(--bright-gold)">📖 पढ़ें</span> बटन से चालीसा / आरती का पूर्ण पाठ देखें।</p>
-        <p>• वेबसाइट पर ऑडियो फाइलें होस्ट करने के लिए अपनी MP3 फाइलें <code style="background:rgba(255,255,255,.08);padding:1px 5px;border-radius:3px;">audio/</code> फोल्डर में रखें।</p>
-        <p>• नई चालीसा/आरती जोड़ने के लिए JavaScript में <code style="background:rgba(255,255,255,.08);padding:1px 5px;border-radius:3px;">TRACKS</code> array में entry जोड़ें।</p>
+        <p>• <span style="color:var(--bright-gold)">▶ बजाएं</span> — ऑडियो प्लेयर ऊपर प्रकट होगा।</p>
+        <p>• <span style="color:var(--bright-gold)">📖 पढ़ें</span> — पूर्ण पाठ, अर्थ एवं महत्व देखें।</p>
+        <p>• अपनी MP3 फाइलें <code style="background:rgba(255,255,255,.08);padding:1px 5px;border-radius:3px;">audio/chalisa/</code>, <code style="background:rgba(255,255,255,.08);padding:1px 5px;border-radius:3px;">audio/aarti/</code>, <code style="background:rgba(255,255,255,.08);padding:1px 5px;border-radius:3px;">audio/katha/</code> फोल्डर में रखें।</p>
+        <p>• नई entries जोड़ने के लिए <code style="background:rgba(255,255,255,.08);padding:1px 5px;border-radius:3px;">data/tracks.csv</code> संपादित करें।</p>
       </div>
     </div>
-
   </div>
 
-  <!-- GITA / VEDA -->
+  <!-- ── GITA / VEDA ── -->
   <div class="panel" id="P-gitaved">
     <div class="card">
       <div class="ctitle">📿 श्रीमद्भगवद्गीता एवं चारों वेद | Bhagavad Gita &amp; Four Vedas</div>
 
-      <!-- SCRIPTURE SELECTION GRID -->
-      <div class="gv-main" id="gvMain">
-        <div style="font-family:'Tiro Devanagari Sanskrit',serif;font-size:.9rem;color:var(--parchment);margin-bottom:16px;line-height:1.8;">
+      <!-- Scripture grid (shown by default) -->
+      <div id="gvMain">
+        <div style="font-family:'Tiro Devanagari Sanskrit',serif;font-size:.9rem;color:var(--parchment);margin-bottom:16px;line-height:1.9;">
           किसी भी ग्रन्थ पर क्लिक करें → अध्याय चुनें → श्लोक पढ़ें एवं अर्थ समझें।
-          <span style="color:rgba(253,246,227,.5);font-size:.78rem;"> Click any scripture → choose chapter → read shlokas with meanings.</span>
+          <span style="color:rgba(253,246,227,.5);font-size:.78rem;"> Click any scripture → choose chapter → read with meanings.</span>
         </div>
         <div class="gv-grid" id="gvGrid"></div>
       </div>
 
-      <!-- READER VIEW (shown when scripture selected) -->
-      <div class="gv-reader" id="gvReader" style="display:none;">
+      <!-- Reader view (shown when scripture is selected) -->
+      <div id="gvReader" style="display:none;">
         <div class="reader-header">
           <button class="reader-back" onclick="closeReader()">← वापस | Back</button>
           <div class="reader-title" id="readerTitle"></div>
         </div>
         <div class="reader-audio">
           <span class="ra-label">🎵 श्रवण | Listen:</span>
-          <span class="ra-note">अपनी MP3 फाइलें <code>audio/gita/</code> फोल्डर में रखें। नीचे प्लेयर से बजाएं।</span>
+          <span class="ra-note">MP3 फाइलें <code>audio/gita/chapter1.mp3</code> आदि फोल्डर में अपलोड करें।</span>
           <button class="tc-play-btn" style="padding:5px 12px;font-size:.7rem;" onclick="playScriptureAudio()">▶ बजाएं</button>
         </div>
-        <!-- Chapter buttons -->
         <div class="chapter-grid" id="chapterGrid"></div>
-        <!-- Chapter content -->
-        <div class="ch-content" id="chContent" style="display:none;"></div>
+        <div class="ch-content"  id="chContent"  style="display:none;"></div>
       </div>
     </div>
   </div>
 
-</div>
+</main>
 
-<!-- CHALISA TEXT MODAL -->
+<!-- ════════════════════════════════════════════
+     CHALISA TEXT MODAL
+     ════════════════════════════════════════════ -->
 <div class="modal-overlay" id="chalisaModal" onclick="closeModal(event)">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModalBtn()">✕</button>
-    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-title"    id="modalTitle"></div>
     <div class="modal-subtitle" id="modalSubtitle"></div>
     <div class="modal-divider">॥ ॐ ॥</div>
-    <!-- MODAL TABS -->
     <div class="modal-tabs">
-      <button class="modal-tab-btn on" onclick="switchModalTab('text',this)">📜 पाठ | Text</button>
-      <button class="modal-tab-btn" onclick="switchModalTab('meaning',this)">💡 अर्थ | Meaning</button>
-      <button class="modal-tab-btn" onclick="switchModalTab('purpose',this)">🙏 महत्व | Purpose</button>
+      <button class="modal-tab-btn on"  onclick="switchModalTab('text',this)">📜 पाठ | Text</button>
+      <button class="modal-tab-btn"     onclick="switchModalTab('meaning',this)">💡 अर्थ | Meaning</button>
+      <button class="modal-tab-btn"     onclick="switchModalTab('purpose',this)">🙏 महत्व | Purpose</button>
     </div>
-    <div class="modal-section on" id="mSec-text"><div class="chalisa-text" id="modalText"></div></div>
-    <div class="modal-section" id="mSec-meaning"><div id="modalMeaning"></div></div>
-    <div class="modal-section" id="mSec-purpose"><div id="modalPurpose"></div></div>
+    <div class="modal-section on" id="mSec-text">
+      <div class="chalisa-text" id="modalText"></div>
+    </div>
+    <div class="modal-section" id="mSec-meaning">
+      <div id="modalMeaning"></div>
+    </div>
+    <div class="modal-section" id="mSec-purpose">
+      <div id="modalPurpose"></div>
+    </div>
   </div>
 </div>
 
+<!-- ════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════ -->
 <footer>
   <div>॥ कुरुक्षेत्र पंचांग — धर्मक्षेत्र से सेवा में ॥</div>
-  <div style="margin-top:4px">सभी गणनाएँ कुरुक्षेत्र (29.97°N, 76.88°E, IST) के लिए प्रतिदिन गतिशील रूप से की जाती हैं।</div>
-  <div style="margin-top:4px;color:rgba(253,246,227,.25)">Dynamically computed for Kurukshetra. Consult a qualified Pandit for religious decisions.</div>
+  <div style="margin-top:4px">
+    सभी गणनाएँ लाहिड़ी आयनांश सहित कुरुक्षेत्र (29.97°N, 76.88°E, IST) के लिए गतिशील रूप से की जाती हैं।
+  </div>
+  <div style="margin-top:4px;color:rgba(253,246,227,.25)">
+    All calculations use Lahiri ayanamsha for accurate Vedic planetary positions. Consult a qualified Pandit for religious decisions.
+  </div>
 </footer>
 
-<script>
-/* ══════════════════════════════════════════
-   TAB SWITCHING — direct global function, onclick
-   ══════════════════════════════════════════ */
-function showTab(name, btn) {
-  // hide all panels
-  var panels = document.querySelectorAll('.panel');
-  for (var i = 0; i < panels.length; i++) panels[i].classList.remove('on');
-  // remove active from all tabs
-  var tabs = document.querySelectorAll('.ntab');
-  for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('on');
-  // show chosen panel and mark tab active
-  document.getElementById('P-' + name).classList.add('on');
-  btn.classList.add('on');
-}
+<!-- ════════════════════════════════════════════
+     JAVASCRIPT MODULES (order matters)
+     ════════════════════════════════════════════ -->
 
-/* ══════════════════════════════════════════
-   CONSTANTS
-   ══════════════════════════════════════════ */
-var LAT = 29.9695, LON = 76.8783, IST_H = 5.5;
+<!-- 1. Core astronomy + helper functions -->
+<script src="js/astronomy.js"></script>
 
-var HIM = ['जनवरी','फरवरी','मार्च','अप्रैल','मई','जून','जुलाई','अगस्त','सितम्बर','अक्टूबर','नवम्बर','दिसम्बर'];
-var ENM = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-var WDS = ['रवि','सोम','मंगल','बुध','गुरु','शुक्र','शनि'];
-var WDE = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-var WDF = ['रविवार','सोमवार','मंगलवार','बुधवार','गुरुवार','शुक्रवार','शनिवार'];
-var HMN = ['चैत्र','वैशाख','ज्येष्ठ','आषाढ़','श्रावण','भाद्रपद','आश्विन','कार्तिक','मार्गशीर्ष','पौष','माघ','फाल्गुन'];
-var THI = ['प्रतिपदा','द्वितीया','तृतीया','चतुर्थी','पञ्चमी','षष्ठी','सप्तमी','अष्टमी','नवमी','दशमी','एकादशी','द्वादशी','त्रयोदशी','चतुर्दशी','पूर्णिमा'];
-var TEN = ['Pratipada','Dvitiya','Tritiya','Chaturthi','Panchami','Shashthi','Saptami','Ashtami','Navami','Dashami','Ekadashi','Dwadashi','Trayodashi','Chaturdashi','Purnima'];
-var NKH = ['अश्विनी','भरणी','कृत्तिका','रोहिणी','मृगशिरा','आर्द्रा','पुनर्वसु','पुष्य','आश्लेषा','मघा','पू.फाल्गुनी','उ.फाल्गुनी','हस्त','चित्रा','स्वाति','विशाखा','अनुराधा','ज्येष्ठा','मूल','पू.आषाढ़ा','उ.आषाढ़ा','श्रवण','धनिष्ठा','शतभिषा','पू.भाद्रपद','उ.भाद्रपद','रेवती'];
-var NKE = ['Ashwini','Bharani','Krittika','Rohini','Mrigashira','Ardra','Punarvasu','Pushya','Ashlesha','Magha','Purva Phalguni','Uttara Phalguni','Hasta','Chitra','Swati','Vishakha','Anuradha','Jyeshtha','Mula','Purva Ashadha','Uttara Ashadha','Shravana','Dhanishtha','Shatabhisha','Purva Bhadrapada','Uttara Bhadrapada','Revati'];
-var YOG = ['विष्कम्भ','प्रीति','आयुष्मान','सौभाग्य','शोभन','अतिगण्ड','सुकर्म','धृति','शूल','गण्ड','वृद्धि','ध्रुव','व्याघात','हर्षण','वज्र','सिद्धि','व्यतीपात','वरीयान','परिघ','शिव','सिद्ध','साध्य','शुभ','शुक्ल','ब्रह्म','इन्द्र','वैधृति'];
-var KAR = ['बव','बालव','कौलव','तैतिल','गर','वणिज','विष्टि','शकुनि','चतुष्पाद','नाग','किंस्तुघ्न'];
-var HN  = ['०','१','२','३','४','५','६','७','८','९'];
-var RAHU_I   = [8,2,7,5,6,4,3];
-var GULIKA_I = [6,5,4,3,2,1,7];
-var YAMA_I   = [4,3,2,1,7,6,5];
+<!-- 2. Data loader + CSV parser + lookup tables -->
+<script src="js/data.js"></script>
 
-/* ══════════════════════════════════════════
-   HELPERS
-   ══════════════════════════════════════════ */
-function h(n){ return String(n).replace(/[0-9]/g, function(d){ return HN[+d]; }); }
-function d2r(x){ return x * Math.PI / 180; }
-function r2d(x){ return x * 180 / Math.PI; }
+<!-- 3. Chalisa/Aarti text content (large, kept separate) -->
+<script src="js/texts.js"></script>
 
-function fmt(m) {
-  m = ((m % 1440) + 1440) % 1440;
-  var h24 = Math.floor(m / 60), mn = Math.round(m % 60);
-  var ap = h24 < 12 ? 'AM' : 'PM', h12 = h24 % 12 || 12;
-  return (h12 < 10 ? '0' : '') + h12 + ':' + (mn < 10 ? '0' : '') + mn + ' ' + ap;
-}
+<!-- 4. UI rendering functions -->
+<script src="js/ui.js"></script>
 
-/* ══════════════════════════════════════════
-   JULIAN DAY
-   ══════════════════════════════════════════ */
-function JD(date) {
-  var Y = date.getFullYear(), M = date.getMonth() + 1, D = date.getDate();
-  var UT = date.getHours() + date.getMinutes() / 60 + date.getSeconds() / 3600;
-  var y = Y, m = M;
-  if (m <= 2) { y--; m += 12; }
-  var A = Math.floor(y / 100), B = 2 - A + Math.floor(A / 4);
-  return Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + D + UT / 24 + B - 1524.5;
-}
+<!-- 5. Audio player module -->
+<script src="js/player.js"></script>
 
-/* ══════════════════════════════════════════
-   SUN LONGITUDE
-   ══════════════════════════════════════════ */
-function sunLon(jd) {
-  var n = jd - 2451545, L = (280.460 + 0.9856474 * n) % 360;
-  var g = d2r((357.528 + 0.9856003 * n) % 360);
-  return (L + 1.915 * Math.sin(g) + 0.020 * Math.sin(2 * g) + 360) % 360;
-}
+<!-- 6. Gita & Veda reader -->
+<script src="js/gitaved.js"></script>
 
-/* ══════════════════════════════════════════
-   MOON LONGITUDE
-   ══════════════════════════════════════════ */
-function moonLon(jd) {
-  var n = jd - 2451545, L = (218.316 + 13.176396 * n) % 360;
-  var M = d2r((134.963 + 13.064993 * n) % 360);
-  var F = d2r((93.272  + 13.229350 * n) % 360);
-  return (L + 6.289 * Math.sin(M) - 1.274 * Math.sin(2 * F - M) + 0.658 * Math.sin(2 * F) + 360) % 360;
-}
+<!-- 7. App entry point — initialises everything -->
+<script src="js/app.js"></script>
 
-/* ══════════════════════════════════════════
-   SUNRISE / SUNSET for Kurukshetra → IST minutes
-   ══════════════════════════════════════════ */
-function sunTimes(date) {
-  var jd = JD(new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12, 0, 0));
-  var n = jd - 2451545;
-  var L0 = (280.46646 + 0.9850397 * n) % 360;
-  var M  = d2r((357.52911 + 0.98560028 * n) % 360);
-  var C  = (1.914602 - 0.004817 * (n / 36525) - 0.000014 * Math.pow(n / 36525, 2)) * Math.sin(M)
-           + 0.019993 * Math.sin(2 * M) + 0.000289 * Math.sin(3 * M);
-  var sL = (L0 + C + 360) % 360;
-  var eps = 23.439 - 0.0000004 * n;
-  var decl = Math.asin(Math.sin(d2r(eps)) * Math.sin(d2r(sL)));
-  var y2  = Math.pow(Math.tan(d2r(eps / 2)), 2);
-  var L0r = d2r(L0);
-  var eqT = 4 * r2d(
-    y2 * Math.sin(2 * L0r)
-    - 2 * 0.016708 * Math.sin(M)
-    + 4 * 0.016708 * y2 * Math.sin(M) * Math.cos(2 * L0r)
-    - 0.5 * y2 * y2 * Math.sin(4 * L0r)
-    - 1.25 * 0.016708 * 0.016708 * Math.sin(2 * M)
-  );
-  var noonUT = 720 - 4 * LON - eqT;
-  var latR   = d2r(LAT);
-  var cosHA  = (Math.cos(d2r(90.833)) - Math.sin(latR) * Math.sin(decl)) / (Math.cos(latR) * Math.cos(decl));
-  if (Math.abs(cosHA) > 1) return { sunrise: 360, sunset: 1080, noon: 720 };
-  var HA = r2d(Math.acos(cosHA));
-  return {
-    sunrise: noonUT - 4 * HA + IST_H * 60,
-    sunset:  noonUT + 4 * HA + IST_H * 60,
-    noon:    noonUT           + IST_H * 60
-  };
-}
-
-/* ══════════════════════════════════════════
-   MOONRISE (approximate IST minutes)
-   ══════════════════════════════════════════ */
-function moonrise(date) {
-  var jd = JD(new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0));
-  var elapsed = jd - 2451545;
-  return ((6 * 60 + (elapsed * (24 * 60) / 29.53)) % (24 * 60) + 24 * 60) % (24 * 60);
-}
-
-/* ══════════════════════════════════════════
-   KAALA TIMINGS
-   ══════════════════════════════════════════ */
-function kaalTimings(date, sr, ss) {
-  var dow  = date.getDay();
-  var day  = ss - sr;
-  var part = day / 8;
-  function sl(idx) { return { start: sr + (idx - 1) * part, end: sr + idx * part }; }
-  return {
-    rahu:    sl(RAHU_I[dow]),
-    gulika:  sl(GULIKA_I[dow]),
-    yama:    sl(YAMA_I[dow]),
-    abhijit: { start: sr + day / 2 - 24, end: sr + day / 2 + 24 },
-    brahma:  { start: sr - 96, end: sr - 48 },
-    vijaya:  { start: sr + 3 * part, end: sr + 3 * part + 24 },
-    godhuli: { start: ss - 24, end: ss + 12 },
-    nishita: { start: ss + 360, end: ss + 408 }
-  };
-}
-
-/* ══════════════════════════════════════════
-   PANCHANG
-   ══════════════════════════════════════════ */
-function getTithi(jd) {
-  var diff = (moonLon(jd) - sunLon(jd) + 360) % 360;
-  var t = Math.floor(diff / 12);
-  var paksha = t < 15 ? 'शुक्ल' : 'कृष्ण';
-  var tNum = t < 15 ? t : t - 15;
-  var nhi = t === 29 ? 'अमावस्या' : THI[Math.min(tNum, 14)];
-  var nen = t === 29 ? 'Amavasya'  : TEN[Math.min(tNum, 14)];
-  return { paksha: paksha, nhi: nhi, nen: nen };
-}
-function getNaksh(jd)  { var i = Math.floor(moonLon(jd) / (360/27)) % 27; return { hi: NKH[i], en: NKE[i] }; }
-function getYoga(jd)   { var i = Math.floor((sunLon(jd) + moonLon(jd)) % 360 / (360/27)) % 27; return YOG[i]; }
-function getKaran(jd)  { return KAR[Math.floor((moonLon(jd) - sunLon(jd) + 360) % 360 / 6) % 11]; }
-/* ── ACCURATE VIKRAM SAMVAT & HINDU MONTH ──
-   Vikram Samvat begins on Chaitra Shukla Pratipada.
-   Chaitra month starts when Sun enters Mesha (Aries) ≈ April 13-14.
-   VS = Gregorian year + 56 before Chaitra Pratipada, +57 after it.
-   Hindu solar month (approx) based on Sun's ecliptic longitude.
-   ─────────────────────────────────────────────────────────────── */
-function getSunRashi(date) {
-  // Sun's ecliptic longitude → zodiac sign (0=Mesha/Aries ... 11=Meena/Pisces)
-  var jd  = JD(new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12, 0, 0));
-  var lon = sunLon(jd);
-  return Math.floor(lon / 30); // 0-11
-}
-
-function getHM(date) {
-  // Hindu solar month names correspond to Sun's rashi
-  // Mesha=Vaishakha, but Panchang month = month AFTER sun enters that sign
-  // Mapping: Sun in Mesha(0)→Vaishakha, Vrishabha(1)→Jyeshtha, etc.
-  // But lunar month Chaitra = when Moon is near Chitra nakshatra = Sun in Mesha
-  // We use the solar rashi directly for the month name:
-  var SOLAR_MONTHS = ['वैशाख','ज्येष्ठ','आषाढ़','श्रावण','भाद्रपद','आश्विन','कार्तिक','मार्गशीर्ष','पौष','माघ','फाल्गुन','चैत्र'];
-  var rashi = getSunRashi(date);
-  return SOLAR_MONTHS[rashi];
-}
-
-function getVS(date) {
-  // Vikram Samvat = Gregorian year + 57 during Chaitra to Phalguna (after ~Apr 13)
-  // It increments at Chaitra Shukla Pratipada, approx when Sun enters Mesha
-  // Sun in Mesha = around April 13-14 each year
-  var jd   = JD(new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12, 0, 0));
-  var lon  = sunLon(jd);
-  // If Sun has crossed Mesha (lon > 0° = passed Aries ingress, i.e. > spring equinox adjustment)
-  // Mesha Sankranti is when Sun lon crosses 0° (actually 23.85° due to ayanamsha, approx Apr 13)
-  // Simple approach: before April 14 → VS = year + 56, on/after April 14 → year + 57
-  var meshaDate = new Date(date.getFullYear(), 3, 14); // April 14
-  var chaitraEnd = new Date(date.getFullYear() + 1, 3, 13); // next April 13
-  if (date >= meshaDate) return date.getFullYear() + 57;
-  else return date.getFullYear() + 56;
-}
-
-/* ══════════════════════════════════════════
-   COMPUTE TODAY
-   ══════════════════════════════════════════ */
-var TODAY = new Date();
-var TJD   = JD(TODAY);
-var SUNTM = sunTimes(TODAY);
-var TITHI = getTithi(TJD);
-var NAKSH = getNaksh(TJD);
-var YOGA  = getYoga(TJD);
-var KARAN = getKaran(TJD);
-var KAAL  = kaalTimings(TODAY, SUNTM.sunrise, SUNTM.sunset);
-var MOONR = moonrise(TODAY);
-
-/* ══════════════════════════════════════════
-   RENDER FUNCTIONS
-   ══════════════════════════════════════════ */
-function renderDate() {
-  var vs = getVS(TODAY), hm = getHM(TODAY), dow = TODAY.getDay();
-  document.getElementById('dateHero').innerHTML =
-    '<div class="den">' + WDF[dow] + ' | ' + WDE[dow] + ', ' + ENM[TODAY.getMonth()] + ' ' + TODAY.getDate() + ', ' + TODAY.getFullYear() + '</div>' +
-    '<div class="dhi">' + h(TODAY.getDate()) + ' ' + HIM[TODAY.getMonth()] + ' ' + h(TODAY.getFullYear()) + ' — ' + WDF[dow] + '</div>' +
-    '<div class="srow">' +
-      '<span class="sbadge">विक्रम संवत् ' + h(vs) + '</span>' +
-      '<span class="sbadge">हिन्दी मास: ' + hm + '</span>' +
-      '<span class="sbadge">' + TITHI.paksha + ' पक्ष</span>' +
-    '</div>';
-}
-
-function renderSunMoon() {
-  var dayLen = SUNTM.sunset - SUNTM.sunrise;
-  var items = [
-    { ico:'🌅', en:'SUNRISE',   hi:'सूर्योदय',   v: fmt(SUNTM.sunrise) },
-    { ico:'🌇', en:'SUNSET',    hi:'सूर्यास्त',   v: fmt(SUNTM.sunset) },
-    { ico:'☀️', en:'SOLAR NOON',hi:'मध्याह्न',    v: fmt(SUNTM.noon) },
-    { ico:'📏', en:'DAY LENGTH',hi:'दिन लंबाई',   v: Math.floor(dayLen/60) + 'h ' + Math.round(dayLen%60) + 'm' },
-    { ico:'🌕', en:'MOONRISE',  hi:'चन्द्रोदय',   v: fmt(MOONR) },
-    { ico:'🌑', en:'MOONSET',   hi:'चन्द्रास्त',   v: fmt(MOONR + 746) }
-  ];
-  var html = '';
-  for (var i = 0; i < items.length; i++) {
-    var x = items[i];
-    html += '<div class="smi"><div class="smico">' + x.ico + '</div><div class="smlbl">' + x.en + '</div><div class="smval">' + x.v + '</div><div class="smsub">' + x.hi + '</div></div>';
-  }
-  document.getElementById('smGrid').innerHTML = html;
-}
-
-function renderPanchang() {
-  var rows = [
-    { lbl:'TITHI',     hi2: TITHI.paksha + ' ' + TITHI.nhi, en2: (TITHI.paksha === 'शुक्ल' ? 'Shukla' : 'Krishna') + ' ' + TITHI.nen },
-    { lbl:'NAKSHATRA', hi2: NAKSH.hi,  en2: NAKSH.en },
-    { lbl:'YOGA',      hi2: YOGA,      en2: YOGA },
-    { lbl:'KARANA',    hi2: KARAN,     en2: KARAN },
-    { lbl:'PAKSHA',    hi2: TITHI.paksha + ' पक्ष', en2: TITHI.paksha === 'शुक्ल' ? 'Shukla Paksha' : 'Krishna Paksha' },
-    { lbl:'VAAR',      hi2: WDF[TODAY.getDay()], en2: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][TODAY.getDay()] }
-  ];
-  var html = '';
-  for (var i = 0; i < rows.length; i++) {
-    html += '<div class="pi"><div class="pilbl">' + rows[i].lbl + '</div><div class="pihi">' + rows[i].hi2 + '</div><div class="pien">' + rows[i].en2 + '</div></div>';
-  }
-  document.getElementById('p5Grid').innerHTML = html;
-}
-
-function renderRahuGrid(id) {
-  var p = [
-    { en:'Rahu Kaal',   hi:'राहु काल',   t: KAAL.rahu },
-    { en:'Gulika Kaal', hi:'गुलिका काल', t: KAAL.gulika },
-    { en:'Yamaganda',   hi:'यमगण्ड',     t: KAAL.yama }
-  ];
-  var html = '';
-  for (var i = 0; i < p.length; i++) {
-    html += '<div class="ri bad"><div class="rien">' + p[i].en + '</div><div class="rihi">' + p[i].hi + '</div><div class="ritm">' + fmt(p[i].t.start) + ' – ' + fmt(p[i].t.end) + '</div></div>';
-  }
-  document.getElementById(id).innerHTML = html;
-}
-
-function renderMuhurats(id) {
-  var data = [
-    { hi:'ब्रह्म मुहूर्त',  en:'Brahma Muhurat',  t: KAAL.brahma,  type:'shubh' },
-    { hi:'अभिजित मुहूर्त', en:'Abhijit Muhurat', t: KAAL.abhijit, type:'shubh' },
-    { hi:'विजय मुहूर्त',   en:'Vijaya Muhurat',  t: KAAL.vijaya,  type:'shubh' },
-    { hi:'गोधूलि मुहूर्त', en:'Godhuli Muhurat', t: KAAL.godhuli, type:'shubh' },
-    { hi:'निशिता मुहूर्त', en:'Nishita Muhurat', t: KAAL.nishita, type:'medium' },
-    { hi:'राहु काल',        en:'Rahu Kaal',        t: KAAL.rahu,    type:'ashubh' },
-    { hi:'गुलिका काल',      en:'Gulika Kaal',      t: KAAL.gulika,  type:'ashubh' },
-    { hi:'यमगण्ड',          en:'Yamaganda',        t: KAAL.yama,    type:'ashubh' }
-  ];
-  var bmap = {
-    shubh:  { bg:'rgba(76,175,80,.2)',  cl:'#81C784', lbl:'शुभ' },
-    ashubh: { bg:'rgba(181,37,42,.2)',  cl:'#EF5350', lbl:'अशुभ' },
-    medium: { bg:'rgba(212,160,23,.2)', cl:'var(--gold)', lbl:'मध्यम' }
-  };
-  var html = '';
-  for (var i = 0; i < data.length; i++) {
-    var m = data[i], b = bmap[m.type];
-    html += '<div class="mit ' + m.type + '"><div class="mdot"></div>' +
-      '<div class="mnm"><div class="mhi">' + m.hi + '</div><div class="men">' + m.en + '</div></div>' +
-      '<div class="mtm"><div>' + fmt(m.t.start) + ' – ' + fmt(m.t.end) + '</div>' +
-      '<div class="mbdg" style="background:' + b.bg + ';color:' + b.cl + '">' + b.lbl + '</div></div></div>';
-  }
-  document.getElementById(id).innerHTML = html;
-}
-
-/* ══════════════════════════════════════════
-   FESTIVALS DATA
-   ══════════════════════════════════════════ */
-var FDATA = [
-  {d:new Date(2025,0,13), hi:'लोहड़ी',en:'Lohri',type:'festival',s:'शाम',e:'रात'},
-  {d:new Date(2025,0,14), hi:'मकर संक्रान्ति',en:'Makar Sankranti',type:'festival',s:'07:15',e:'09:30'},
-  {d:new Date(2025,0,29), hi:'मौनी अमावस्या',en:'Mauni Amavasya',type:'vrat',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,1,2),  hi:'वसन्त पञ्चमी',en:'Vasant Panchami',type:'festival',s:'07:00',e:'12:34'},
-  {d:new Date(2025,1,12), hi:'महा शिवरात्रि',en:'Maha Shivaratri',type:'festival',s:'रात 12:00',e:'06:00'},
-  {d:new Date(2025,2,13), hi:'होलिका दहन',en:'Holika Dahan',type:'festival',s:'20:06',e:'22:30'},
-  {d:new Date(2025,2,14), hi:'होली',en:'Holi',type:'festival',s:'07:00',e:'दोपहर'},
-  {d:new Date(2025,2,30), hi:'राम नवमी',en:'Ram Navami',type:'festival',s:'11:08',e:'13:36'},
-  {d:new Date(2025,3,6),  hi:'हनुमान जयन्ती',en:'Hanuman Jayanti',type:'festival',s:'सूर्योदय',e:'12:00'},
-  {d:new Date(2025,3,13), hi:'बैसाखी',en:'Baisakhi',type:'festival',s:'07:00',e:'20:00'},
-  {d:new Date(2025,4,12), hi:'बुद्ध पूर्णिमा',en:'Buddha Purnima',type:'festival',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,6,6),  hi:'गुरु पूर्णिमा',en:'Guru Purnima',type:'festival',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,7,16), hi:'रक्षा बन्धन',en:'Raksha Bandhan',type:'festival',s:'05:51',e:'17:34'},
-  {d:new Date(2025,7,22), hi:'जन्माष्टमी',en:'Janmashtami',type:'festival',s:'रात 00:00',e:'04:00'},
-  {d:new Date(2025,8,2),  hi:'हरतालिका तीज',en:'Hartalika Teej',type:'vrat',s:'05:00',e:'20:00'},
-  {d:new Date(2025,8,3),  hi:'गणेश चतुर्थी',en:'Ganesh Chaturthi',type:'festival',s:'11:03',e:'13:34'},
-  {d:new Date(2025,9,2),  hi:'नवरात्रि प्रारम्भ',en:'Navratri Begins',type:'festival',s:'06:00',e:''},
-  {d:new Date(2025,9,8),  hi:'दुर्गा अष्टमी',en:'Durga Ashtami',type:'festival',s:'05:30',e:'20:00'},
-  {d:new Date(2025,9,9),  hi:'महानवमी',en:'Maha Navami',type:'festival',s:'06:00',e:'14:30'},
-  {d:new Date(2025,9,10), hi:'विजयादशमी / दशहरा',en:'Dussehra',type:'festival',s:'14:02',e:'18:00'},
-  {d:new Date(2025,9,20), hi:'शरद पूर्णिमा',en:'Sharad Purnima',type:'festival',s:'चन्द्रोदय',e:'रात 12:00'},
-  {d:new Date(2025,9,28), hi:'करवा चौथ',en:'Karva Chauth',type:'vrat',s:'06:00',e:'चन्द्र दर्शन'},
-  {d:new Date(2025,10,1), hi:'धनतेरस',en:'Dhanteras',type:'festival',s:'18:31',e:'20:12'},
-  {d:new Date(2025,10,3), hi:'दीपावली',en:'Diwali',type:'festival',s:'18:45',e:'20:30'},
-  {d:new Date(2025,10,5), hi:'भाई दूज',en:'Bhai Dooj',type:'festival',s:'13:00',e:'15:00'},
-  {d:new Date(2025,10,7), hi:'छठ पूजा (सायं अर्घ्य)',en:'Chhath Puja Sunset Arghya',type:'festival',s:'17:30',e:'18:00'},
-  {d:new Date(2025,10,8), hi:'छठ पूजा (प्रातः अर्घ्य)',en:'Chhath Puja Sunrise Arghya',type:'festival',s:'06:25',e:'07:00'},
-  {d:new Date(2026,0,14), hi:'मकर संक्रान्ति',en:'Makar Sankranti 2026',type:'festival',s:'07:20',e:'09:40'},
-  {d:new Date(2026,1,17), hi:'महा शिवरात्रि',en:'Maha Shivaratri 2026',type:'festival',s:'रात 00:30',e:'05:30'},
-  {d:new Date(2026,2,4),  hi:'होली',en:'Holi 2026',type:'festival',s:'07:00',e:'दोपहर'},
-  // Ekadashis
-  {d:new Date(2025,0,10), hi:'षट्तिला एकादशी',en:'Shattila Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,0,25), hi:'जया एकादशी',en:'Jaya Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,1,9),  hi:'विजया एकादशी',en:'Vijaya Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,1,24), hi:'आमलकी एकादशी',en:'Amalaki Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,2,11), hi:'पापमोचनी एकादशी',en:'Papamochani Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,2,25), hi:'कामदा एकादशी',en:'Kamada Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,3,9),  hi:'वरुथिनी एकादशी',en:'Varuthini Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,3,24), hi:'मोहिनी एकादशी',en:'Mohini Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,4,8),  hi:'अपरा एकादशी',en:'Apara Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,4,23), hi:'निर्जला एकादशी',en:'Nirjala Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,5,7),  hi:'योगिनी एकादशी',en:'Yogini Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,5,22), hi:'देवशयनी एकादशी',en:'Devshayani Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,6,6),  hi:'कामिका एकादशी',en:'Kamika Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,6,21), hi:'पुत्रदा एकादशी',en:'Putrada Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,7,5),  hi:'अजा एकादशी',en:'Aja Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,7,19), hi:'परिवर्तिनी एकादशी',en:'Parivartini Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,8,4),  hi:'इन्दिरा एकादशी',en:'Indira Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,8,18), hi:'पाशांकुशा एकादशी',en:'Pashankusha Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,9,3),  hi:'रमा एकादशी',en:'Rama Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,9,18), hi:'देवोत्थान एकादशी',en:'Devotthan Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,10,2), hi:'उत्पन्ना एकादशी',en:'Utpanna Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,10,17),hi:'मोक्षदा एकादशी',en:'Mokshada Ekadashi',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  {d:new Date(2025,11,5), hi:'गीता जयन्ती',en:'Gita Jayanti',type:'ekadashi',s:'सूर्योदय',e:'सूर्यास्त'},
-  // Eclipses
-  {d:new Date(2025,2,13), hi:'पूर्ण चन्द्रग्रहण',en:'Total Lunar Eclipse',type:'eclipse',s:'15:57',e:'20:00',note:'कुरुक्षेत्र में आंशिक दृश्य | सूतक: 06:57'},
-  {d:new Date(2025,8,7),  hi:'पूर्ण चन्द्रग्रहण',en:'Total Lunar Eclipse',type:'eclipse',s:'21:58',e:'02:24',note:'कुरुक्षेत्र में पूर्ण दृश्य | सूतक: 12:58'},
-  {d:new Date(2026,1,17), hi:'वलयाकार सूर्यग्रहण',en:'Annular Solar Eclipse',type:'eclipse',s:'10:42',e:'14:18',note:'कुरुक्षेत्र में आंशिक दृश्य | सूतक: रात 22:42'},
-  {d:new Date(2026,7,12), hi:'पूर्ण सूर्यग्रहण',en:'Total Solar Eclipse',type:'eclipse',s:'16:34',e:'20:10',note:'कुरुक्षेत्र में आंशिक दृश्य | सूतक: 04:34'}
-];
-
-var festFilter = 'all';
-
-function filterFest(type, btn) {
-  festFilter = type;
-  var btns = document.querySelectorAll('.fbtn');
-  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('on');
-  btn.classList.add('on');
-  renderFestivals();
-}
-
-function renderFestivals() {
-  var now = new Date(); now.setHours(0,0,0,0);
-  var data = [];
-  for (var i = 0; i < FDATA.length; i++) {
-    if (festFilter === 'all' || FDATA[i].type === festFilter) data.push(FDATA[i]);
-  }
-  data.sort(function(a,b){ return a.d - b.d; });
-
-  var html = '';
-  for (var i = 0; i < data.length; i++) {
-    var f = data[i];
-    var past = f.d < now && f.d.toDateString() !== now.toDateString();
-    var isToday = f.d.toDateString() === now.toDateString();
-    var cls = 'fi' + (f.type==='eclipse'?' fec':f.type==='vrat'||f.type==='ekadashi'?' fvt':'') + (past?' fpst':'') + (isToday?' ftd':'');
-    var bcolor = f.type==='eclipse'?'#aaaaff':f.type==='vrat'||f.type==='ekadashi'?'var(--pink)':'#FFB347';
-    var bbg    = f.type==='eclipse'?'rgba(100,100,255,.2)':f.type==='vrat'||f.type==='ekadashi'?'rgba(232,116,138,.2)':'rgba(232,96,10,.2)';
-    var blbl   = f.type==='eclipse'?'ग्रहण':f.type==='vrat'?'व्रत':f.type==='ekadashi'?'एकादशी':'त्योहार';
-    var timing = f.s && f.e ? f.s + ' – ' + f.e : f.s || '';
-    var dStr   = f.d.getDate() + ' ' + ENM[f.d.getMonth()] + ' ' + f.d.getFullYear();
-    html += '<div class="' + cls + '">' +
-      '<div><div class="fde">' + dStr + '</div><div class="fdh">' + h(f.d.getDate()) + ' ' + HIM[f.d.getMonth()] + '</div>' +
-      '<span class="fbd" style="background:' + bbg + ';color:' + bcolor + '">' + blbl + '</span></div>' +
-      '<div><div class="ffh">' + f.hi + '</div><div class="ffe">' + f.en + '</div>' +
-      (f.note ? '<div style="font-size:.65rem;color:rgba(253,246,227,.4);margin-top:2px">' + f.note + '</div>' : '') + '</div>' +
-      '<div class="fti">' + timing + '</div></div>';
-  }
-  document.getElementById('flist').innerHTML = html;
-}
-
-/* ══════════════════════════════════════════
-   ECLIPSES
-   ══════════════════════════════════════════ */
-function addH(s, hrs) {
-  var m = s.match(/(\d{1,2}):(\d{2})/);
-  if (!m) return s;
-  var hh = parseInt(m[1]) + Math.floor(hrs), mm = parseInt(m[2]) + Math.round((hrs % 1) * 60);
-  if (mm >= 60) { hh++; mm -= 60; }
-  return (hh<10?'0':'') + hh + ':' + (mm<10?'0':'') + mm;
-}
-
-function renderEclipses() {
-  var html = '';
-  for (var i = 0; i < FDATA.length; i++) {
-    var e = FDATA[i];
-    if (e.type !== 'eclipse') continue;
-    var sol = e.en.indexOf('Solar') >= 0;
-    var ph = sol ? [
-      { n:'सूतक प्रारम्भ | Sutak', t:'12 घंटे पूर्व' },
-      { n:'पहला स्पर्श | First Contact', t: e.s },
-      { n:'वलय / पूर्णता | Maximum', t: addH(e.s, 1.5) },
-      { n:'अंतिम स्पर्श | Last Contact', t: e.e },
-      { n:'स्नान-दान | After Eclipse', t: e.e + ' के बाद' }
-    ] : [
-      { n:'सूतक प्रारम्भ | Sutak', t:'9 घंटे पूर्व' },
-      { n:'उपच्छाया | Penumbra Begins', t: e.s },
-      { n:'पूर्ण ग्रास | Totality', t: addH(e.s, 1) },
-      { n:'मोक्ष | Eclipse Ends', t: e.e },
-      { n:'स्नान-दान | After Eclipse', t: e.e + ' के बाद' }
-    ];
-    var dStr = e.d.getDate() + ' ' + ENM[e.d.getMonth()] + ' ' + e.d.getFullYear();
-    html += '<div class="ei"><div class="ety">' + (sol ? '☀️ SURYA GRAHAN' : '🌕 CHANDRA GRAHAN') + '</div>' +
-      '<div class="enhi">' + e.hi + '</div>' +
-      '<div class="edtxt">📅 ' + dStr + ' | ' + e.en + '</div>' +
-      (e.note ? '<div style="font-size:.68rem;color:#aaaaff;margin-top:3px">📍 ' + e.note + '</div>' : '') +
-      '<div class="eph">';
-    for (var j = 0; j < ph.length; j++) {
-      html += '<div class="ep"><span class="epn">' + ph[j].n + '</span><span class="ept">' + ph[j].t + '</span></div>';
-    }
-    html += '</div><div class="enote">* IST में अनुमानित। ब्रह्मसर / सन्निहित सरोवर स्नान का विशेष पुण्य।</div></div>';
-  }
-  document.getElementById('eGrid').innerHTML = html;
-}
-
-/* ══════════════════════════════════════════
-   MONTHLY CALENDAR
-   ══════════════════════════════════════════ */
-var CY = TODAY.getFullYear(), CM = TODAY.getMonth();
-
-function calNav(delta) {
-  CM += delta;
-  if (CM > 11) { CM = 0; CY++; }
-  if (CM < 0)  { CM = 11; CY--; }
-  renderCal();
-}
-
-function renderCal() {
-  var mid = new Date(CY, CM, 15);
-  document.getElementById('calHi').textContent = HIM[CM] + ' ' + h(CY) + ' | ' + getHM(mid);
-  document.getElementById('calEn').textContent = ENM[CM].toUpperCase() + ' ' + CY;
-
-  var fd  = new Date(CY, CM, 1).getDay();
-  var dim = new Date(CY, CM+1, 0).getDate();
-  var dip = new Date(CY, CM, 0).getDate();
-
-  var html = '';
-  // Day headers
-  for (var i = 0; i < 7; i++) {
-    html += '<div class="ch"><span style="color:var(--gold)">' + WDS[i] + '</span><br>' + WDE[i] + '</div>';
-  }
-  // Prev month fill
-  for (var i = fd - 1; i >= 0; i--) {
-    html += '<div class="cd om"><div class="cde">' + (dip - i) + '</div></div>';
-  }
-  // Days
-  for (var d = 1; d <= dim; d++) {
-    var jd = JD(new Date(CY, CM, d, 12, 0, 0));
-    var tit = getTithi(jd);
-    var isT = d === TODAY.getDate() && CM === TODAY.getMonth() && CY === TODAY.getFullYear();
-    var fe = [], hasEc = false, hasFe = false;
-    for (var k = 0; k < FDATA.length; k++) {
-      var f = FDATA[k];
-      if (f.d.getFullYear() === CY && f.d.getMonth() === CM && f.d.getDate() === d) {
-        fe.push(f);
-        if (f.type === 'eclipse') hasEc = true; else hasFe = true;
-      }
-    }
-    var cls = 'cd' + (isT?' tod':'') + (hasFe?' fd':'') + (hasEc?' ecd':'');
-    var fh = '';
-    for (var k = 0; k < Math.min(fe.length, 2); k++) {
-      var f = fe[k];
-      var col = f.type==='eclipse'?' style="color:#aaaaff"':'';
-      var ico = f.type==='eclipse'?'🌑':f.type==='ekadashi'?'🙏':'🪔';
-      var nm  = f.hi.length > 10 ? f.hi.substring(0,10)+'…' : f.hi;
-      fh += '<div class="cdf"' + col + '>' + ico + nm + '</div>';
-    }
-    html += '<div class="' + cls + '"><div class="cde">' + d + '</div>' +
-      '<div class="cdh">' + h(d) + '</div>' +
-      '<div class="cdt">' + (tit.paksha==='शुक्ल'?'शु':'कृ') + ' ' + tit.nhi.substring(0,4) + '</div>' +
-      fh + (hasEc ? '<span class="cde2">ग्रहण</span>' : '') + '</div>';
-  }
-  // Next month fill
-  var rem = (fd + dim) % 7;
-  for (var i = 1; i <= (rem === 0 ? 0 : 7 - rem); i++) {
-    html += '<div class="cd om"><div class="cde">' + i + '</div></div>';
-  }
-  document.getElementById('calGrid').innerHTML = html;
-}
-
-/* ══════════════════════════════════════════
-   LIVE CLOCK — always IST
-   ══════════════════════════════════════════ */
-function updateClock() {
-  var now = new Date();
-  var ist = new Date(now.getTime() + now.getTimezoneOffset() * 60000 + IST_H * 3600000);
-  var h24 = ist.getHours(), mn = ist.getMinutes(), sc = ist.getSeconds();
-  var ap = h24 < 12 ? 'AM' : 'PM', h12 = h24 % 12 || 12;
-  document.getElementById('clk').textContent =
-    (h12<10?'0':'') + h12 + ':' + (mn<10?'0':'') + mn + ':' + (sc<10?'0':'') + sc + ' ' + ap + ' IST — कुरुक्षेत्र';
-}
-
-/* ══════════════════════════════════════════
-   INIT — runs immediately, no waiting
-   ══════════════════════════════════════════ */
-function init() {
-  renderDate();
-  renderSunMoon();
-  renderPanchang();
-  renderRahuGrid('rg1');
-  renderMuhurats('ml1');
-  renderCal();
-  renderFestivals();
-  renderEclipses();
-  // Muhurat tab
-  document.getElementById('mBanner').textContent =
-    'आज: ' + WDF[TODAY.getDay()] + ', ' + h(TODAY.getDate()) + ' ' + HIM[TODAY.getMonth()] + ' ' + h(TODAY.getFullYear()) + ' — कुरुक्षेत्र';
-  renderMuhurats('ml2');
-  renderRahuGrid('rg2');
-  renderTracks();
-  renderGVGrid();
-  updateClock();
-  setInterval(updateClock, 1000);
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
-}
-
-/* ══════════════════════════════════════════════════════════
-   BHAJAN / CHALISA / AARTI MODULE
-   ══════════════════════════════════════════════════════════ */
-
-/* ── TRACK DATABASE ──
-   audio: path to mp3 (relative). Use free public-domain sources listed below,
-   or replace with your own hosted files.
-   Free sources: https://www.shivabhajan.com  |  archive.org  |  soundcloud
-   
-   To add your own: set audio:'audio/your-file.mp3'
-   All included URLs below stream from publicly accessible sources.
-   ─────────────────────────────────────────────────────────── */
-var TRACKS = [
-  /* ── HANUMAN CHALISA ── */
-  {
-    id:'hanuman-chalisa',
-    nameHi:'हनुमान चालीसा',
-    nameEn:'Hanuman Chalisa',
-    deityHi:'श्री हनुमान जी',
-    deityEn:'Shri Hanuman',
-    type:'chalisa',
-    icon:'🚩',
-    duration:'9:41',
-    audio:'https://raw.githubusercontent.com/Tanuj1goyal/HinduCalendar/main/audio/chalisa/hanuman_chalisa.mp3',
-    textKey:'hanuman_chalisa'
-  },
-  /* ── GANESH CHALISA ── */
-  {
-    id:'ganesh-chalisa',
-    nameHi:'गणेश चालीसा',
-    nameEn:'Ganesh Chalisa',
-    deityHi:'श्री गणेश जी',
-    deityEn:'Shri Ganesh',
-    type:'chalisa',
-    icon:'✨',
-    duration:'7:45',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-    textKey:'ganesh_chalisa'
-  },
-  /* ── DURGA CHALISA ── */
-  {
-    id:'durga-chalisa',
-    nameHi:'दुर्गा चालीसा',
-    nameEn:'Durga Chalisa',
-    deityHi:'श्री दुर्गा माता',
-    deityEn:'Shri Durga Mata',
-    type:'chalisa',
-    icon:'🌸',
-    duration:'6:50',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-    textKey:'durga_chalisa'
-  },
-  /* ── SHIV CHALISA ── */
-  {
-    id:'shiv-chalisa',
-    nameHi:'शिव चालीसा',
-    nameEn:'Shiv Chalisa',
-    deityHi:'भगवान शिव',
-    deityEn:'Bhagwan Shiv',
-    type:'chalisa',
-    icon:'🔱',
-    duration:'7:20',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
-    textKey:'shiv_chalisa'
-  },
-  /* ── LAXMI CHALISA ── */
-  {
-    id:'laxmi-chalisa',
-    nameHi:'लक्ष्मी चालीसा',
-    nameEn:'Lakshmi Chalisa',
-    deityHi:'श्री लक्ष्मी माता',
-    deityEn:'Shri Lakshmi Mata',
-    type:'chalisa',
-    icon:'🪷',
-    duration:'8:05',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
-    textKey:'laxmi_chalisa'
-  },
-  /* ── SARASWATI CHALISA ── */
-  {
-    id:'saraswati-chalisa',
-    nameHi:'सरस्वती चालीसा',
-    nameEn:'Saraswati Chalisa',
-    deityHi:'माँ सरस्वती',
-    deityEn:'Maa Saraswati',
-    type:'chalisa',
-    icon:'📿',
-    duration:'6:30',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
-    textKey:'saraswati_chalisa'
-  },
-  /* ── OM JAI JAGDISH AARTI ── */
-  {
-    id:'om-jai-jagdish',
-    nameHi:'ॐ जय जगदीश हरे',
-    nameEn:'Om Jai Jagdish Hare',
-    deityHi:'भगवान विष्णु',
-    deityEn:'Bhagwan Vishnu',
-    type:'aarti',
-    icon:'🙏',
-    duration:'5:10',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
-    textKey:'om_jai_jagdish'
-  },
-  /* ── SHIV AARTI ── */
-  {
-    id:'shiv-aarti',
-    nameHi:'जय शिव ओंकारा आरती',
-    nameEn:'Jai Shiv Omkara Aarti',
-    deityHi:'भगवान शिव',
-    deityEn:'Bhagwan Shiv',
-    type:'aarti',
-    icon:'🔱',
-    duration:'4:50',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
-    textKey:'shiv_aarti'
-  },
-  /* ── HANUMAN AARTI ── */
-  {
-    id:'hanuman-aarti',
-    nameHi:'आरती कीजे हनुमान लला की',
-    nameEn:'Hanuman Lala Ki Aarti',
-    deityHi:'श्री हनुमान जी',
-    deityEn:'Shri Hanuman',
-    type:'aarti',
-    icon:'🚩',
-    duration:'4:25',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3',
-    textKey:'hanuman_aarti'
-  },
-  /* ── DURGA AARTI ── */
-  {
-    id:'durga-aarti',
-    nameHi:'अम्बे तू है जगदम्बे काली',
-    nameEn:'Ambe Tu Hai Jagdambe Kali',
-    deityHi:'माँ दुर्गा',
-    deityEn:'Maa Durga',
-    type:'aarti',
-    icon:'🌸',
-    duration:'5:35',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3',
-    textKey:'durga_aarti'
-  },
-  /* ── GAYATRI MANTRA ── */
-  {
-    id:'gayatri-mantra',
-    nameHi:'गायत्री मंत्र',
-    nameEn:'Gayatri Mantra',
-    deityHi:'माँ गायत्री',
-    deityEn:'Maa Gayatri',
-    type:'mantra',
-    icon:'🌞',
-    duration:'10:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3',
-    textKey:'gayatri_mantra'
-  },
-  /* ── MAHAMRITYUNJAY MANTRA ── */
-  {
-    id:'mahamrityunjay',
-    nameHi:'महामृत्युञ्जय मंत्र',
-    nameEn:'Mahamrityunjaya Mantra',
-    deityHi:'भगवान शिव',
-    deityEn:'Bhagwan Shiv',
-    type:'mantra',
-    icon:'🔱',
-    duration:'15:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3',
-    textKey:'mahamrityunjay'
-  },
-  /* ── SHRI RAM STOTRA ── */
-  {
-    id:'ram-stotra',
-    nameHi:'श्री राम स्तोत्र',
-    nameEn:'Shri Ram Stotra',
-    deityHi:'भगवान श्री राम',
-    deityEn:'Bhagwan Shri Ram',
-    type:'stotra',
-    icon:'🏹',
-    duration:'6:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-    textKey:'ram_stotra'
-  },
-  /* ── KRISHNA STOTRA ── */
-  {
-    id:'krishna-stotra',
-    nameHi:'श्री कृष्ण स्तोत्र',
-    nameEn:'Shri Krishna Stotra',
-    deityHi:'भगवान श्री कृष्ण',
-    deityEn:'Bhagwan Shri Krishna',
-    type:'stotra',
-    icon:'🪈',
-    duration:'7:15',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-    textKey:'krishna_stotra'
-  },
-  /* ── KALI CHALISA ── */
-  {
-    id:'kali-chalisa',
-    nameHi:'काली चालीसा',
-    nameEn:'Kali Chalisa',
-    deityHi:'माँ काली',
-    deityEn:'Maa Kali',
-    type:'chalisa',
-    icon:'🌸',
-    duration:'8:30',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-    textKey:'kali_chalisa'
-  },
-  /* ── VISHNU CHALISA ── */
-  {
-    id:'vishnu-chalisa',
-    nameHi:'विष्णु चालीसा',
-    nameEn:'Vishnu Chalisa',
-    deityHi:'भगवान विष्णु',
-    deityEn:'Bhagwan Vishnu',
-    type:'chalisa',
-    icon:'🙏',
-    duration:'7:50',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
-    textKey:'vishnu_chalisa'
-  },
-  /* ── RAM CHALISA ── */
-  {
-    id:'ram-chalisa',
-    nameHi:'राम चालीसा',
-    nameEn:'Ram Chalisa',
-    deityHi:'भगवान श्री राम',
-    deityEn:'Bhagwan Shri Ram',
-    type:'chalisa',
-    icon:'🏹',
-    duration:'8:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
-    textKey:'ram_chalisa'
-  },
-  /* ── SATYANARAYAN KATHA ── */
-  {
-    id:'satyanarayan-katha',
-    nameHi:'श्री सत्यनारायण कथा',
-    nameEn:'Shri Satyanarayan Katha',
-    deityHi:'भगवान सत्यनारायण',
-    deityEn:'Bhagwan Satyanarayan',
-    type:'katha',
-    icon:'🙏',
-    duration:'45:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
-    textKey:'satyanarayan_katha'
-  },
-  /* ── KARVA CHAUTH KATHA ── */
-  {
-    id:'karva-chauth-katha',
-    nameHi:'करवा चौथ की कथा',
-    nameEn:'Karva Chauth Katha',
-    deityHi:'माँ गौरी / चन्द्रमा',
-    deityEn:'Maa Gauri / Chandrama',
-    type:'katha',
-    icon:'🌕',
-    duration:'20:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
-    textKey:'karva_chauth_katha'
-  },
-  /* ── AHOI ASHTAMI KATHA ── */
-  {
-    id:'ahoi-ashtami-katha',
-    nameHi:'अहोई अष्टमी की कथा',
-    nameEn:'Ahoi Ashtami Katha',
-    deityHi:'माँ अहोई / माँ पार्वती',
-    deityEn:'Maa Ahoi / Maa Parvati',
-    type:'katha',
-    icon:'⭐',
-    duration:'15:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
-    textKey:'ahoi_ashtami_katha'
-  },
-  /* ── EKADASHI KATHA ── */
-  {
-    id:'ekadashi-katha',
-    nameHi:'एकादशी की कथा',
-    nameEn:'Ekadashi Katha',
-    deityHi:'भगवान विष्णु',
-    deityEn:'Bhagwan Vishnu',
-    type:'katha',
-    icon:'🙏',
-    duration:'25:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3',
-    textKey:'ekadashi_katha'
-  },
-  /* ── GANESH KATHA ── */
-  {
-    id:'ganesh-katha',
-    nameHi:'श्री गणेश जी की कथा',
-    nameEn:'Shri Ganesh Katha',
-    deityHi:'श्री गणेश जी',
-    deityEn:'Shri Ganesh Ji',
-    type:'katha',
-    icon:'✨',
-    duration:'18:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3',
-    textKey:'ganesh_katha'
-  },
-  /* ── NAVRATRI KATHA ── */
-  {
-    id:'navratri-katha',
-    nameHi:'नवरात्रि कथा / दुर्गा सप्तशती',
-    nameEn:'Navratri Katha / Durga Saptashati',
-    deityHi:'माँ दुर्गा',
-    deityEn:'Maa Durga',
-    type:'katha',
-    icon:'🌸',
-    duration:'60:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3',
-    textKey:'navratri_katha'
-  },
-  /* ── SHIV PURAN KATHA ── */
-  {
-    id:'shiv-katha',
-    nameHi:'शिव पुराण कथा',
-    nameEn:'Shiv Puran Katha',
-    deityHi:'भगवान शिव',
-    deityEn:'Bhagwan Shiv',
-    type:'katha',
-    icon:'🔱',
-    duration:'50:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3',
-    textKey:'shiv_katha'
-  },
-  /* ── HANUMAN KATHA ── */
-  {
-    id:'hanuman-katha',
-    nameHi:'हनुमान जी की कथा',
-    nameEn:'Hanuman Ji Katha',
-    deityHi:'श्री हनुमान जी',
-    deityEn:'Shri Hanuman Ji',
-    type:'katha',
-    icon:'🚩',
-    duration:'30:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-    textKey:'hanuman_katha'
-  },
-  /* ── LAXMI PUJA KATHA ── */
-  {
-    id:'laxmi-katha',
-    nameHi:'लक्ष्मी पूजन कथा (दीपावली)',
-    nameEn:'Lakshmi Puja Katha (Diwali)',
-    deityHi:'श्री लक्ष्मी माता',
-    deityEn:'Shri Lakshmi Mata',
-    type:'katha',
-    icon:'🪷',
-    duration:'22:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-    textKey:'laxmi_katha'
-  },
-  /* ── CHHATH PUJA KATHA ── */
-  {
-    id:'chhath-katha',
-    nameHi:'छठ पूजा कथा',
-    nameEn:'Chhath Puja Katha',
-    deityHi:'छठी माईया / सूर्य भगवान',
-    deityEn:'Chhathi Maiya / Surya Bhagwan',
-    type:'katha',
-    icon:'🌅',
-    duration:'20:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-    textKey:'chhath_katha'
-  },
-  /* ── SANTOSHI MAA KATHA ── */
-  {
-    id:'santoshi-katha',
-    nameHi:'सन्तोषी माता की कथा',
-    nameEn:'Santoshi Mata Katha',
-    deityHi:'माँ सन्तोषी',
-    deityEn:'Maa Santoshi',
-    type:'katha',
-    icon:'🌼',
-    duration:'15:00',
-    audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
-    textKey:'santoshi_katha'
-  }
-];
-
-/* ── CHALISA / AARTI TEXT DATABASE ── */
-var TEXTS = {
-  hanuman_chalisa: {
-    title:'हनुमान चालीसा',
-    subtitle:'HANUMAN CHALISA',
-    text:'<span class="doha">॥ दोहा ॥<br>श्रीगुरु चरन सरोज रज, निज मनु मुकुरु सुधारि।<br>बरनउँ रघुबर बिमल जसु, जो दायकु फल चारि॥<br><br>बुद्धिहीन तनु जानिके, सुमिरौं पवन-कुमार।<br>बल बुद्धि बिद्या देहु मोहिं, हरहु कलेस बिकार॥</span><br><br><span class="doha">॥ चौपाई ॥</span><br><span class="chaupai-num">॥ १ ॥</span> जय हनुमान ज्ञान गुन सागर। जय कपीस तिहुँ लोक उजागर॥<br><span class="chaupai-num">॥ २ ॥</span> रामदूत अतुलित बल धामा। अञ्जनि-पुत्र पवनसुत नामा॥<br><span class="chaupai-num">॥ ३ ॥</span> महाबीर बिक्रम बजरङ्गी। कुमति निवार सुमति के सङ्गी॥<br><span class="chaupai-num">॥ ४ ॥</span> कञ्चन बरन बिराज सुबेसा। कानन कुण्डल कुञ्चित केसा॥<br><span class="chaupai-num">॥ ५ ॥</span> हाथ बज्र औ ध्वजा बिराजै। काँधे मूँज जनेऊ साजै॥<br><span class="chaupai-num">॥ ६ ॥</span> सङ्कर सुवन केसरीनन्दन। तेज प्रताप महा जग-बन्दन॥<br><span class="chaupai-num">॥ ७ ॥</span> बिद्यावान गुनी अति चातुर। राम काज करिबे को आतुर॥<br><span class="chaupai-num">॥ ८ ॥</span> प्रभु चरित्र सुनिबे को रसिया। राम लखन सीता मन बसिया॥<br><span class="chaupai-num">॥ ९ ॥</span> सूक्ष्म रूप धरि सियहिं दिखावा। बिकट रूप धरि लङ्क जरावा॥<br><span class="chaupai-num">॥ १० ॥</span> भीम रूप धरि असुर सँहारे। रामचन्द्र के काज सँवारे॥<br><span class="chaupai-num">॥ ११ ॥</span> लाय सञ्जीवन लखन जियाये। श्रीरघुबीर हरषि उर लाये॥<br><span class="chaupai-num">॥ १२ ॥</span> रघुपति कीन्ही बहुत बड़ाई। तुम मम प्रिय भरतहि सम भाई॥<br><span class="chaupai-num">॥ १३ ॥</span> सहस बदन तुम्हरो जस गावैं। अस कहि श्रीपति कण्ठ लगावैं॥<br><span class="chaupai-num">॥ १४ ॥</span> सनकादिक ब्रह्मादि मुनीसा। नारद सारद सहित अहीसा॥<br><span class="chaupai-num">॥ १५ ॥</span> जम कुबेर दिगपाल जहाँ ते। कबि कोबिद कहि सके कहाँ ते॥<br><span class="chaupai-num">॥ १६ ॥</span> तुम उपकार सुग्रीवहिं कीन्हा। राम मिलाय राज-पद दीन्हा॥<br><span class="chaupai-num">॥ १७ ॥</span> तुम्हरो मन्त्र बिभीषन माना। लङ्केस्वर भए सब जग जाना॥<br><span class="chaupai-num">॥ १८ ॥</span> जुग सहस्र जोजन पर भानू। लील्यो ताहि मधुर फल जानू॥<br><span class="chaupai-num">॥ १९ ॥</span> प्रभु मुद्रिका मेलि मुख माहीं। जलधि लाँघि गये अचरज नाहीं॥<br><span class="chaupai-num">॥ २० ॥</span> दुर्गम काज जगत के जेते। सुगम अनुग्रह तुम्हरे तेते॥<br><span class="chaupai-num">॥ २१ ॥</span> राम दुआरे तुम रखवारे। होत न आज्ञा बिनु पैसारे॥<br><span class="chaupai-num">॥ २२ ॥</span> सब सुख लहै तुम्हारी सरना। तुम रच्छक काहू को डर ना॥<br><span class="chaupai-num">॥ २३ ॥</span> आपन तेज सम्हारो आपै। तीनों लोक हाँक तें काँपै॥<br><span class="chaupai-num">॥ २४ ॥</span> भूत पिसाच निकट नहिं आवै। महाबीर जब नाम सुनावै॥<br><span class="chaupai-num">॥ २५ ॥</span> नासै रोग हरै सब पीरा। जपत निरन्तर हनुमत बीरा॥<br><span class="chaupai-num">॥ २६ ॥</span> सङ्कट तें हनुमान छुड़ावै। मन क्रम बचन ध्यान जो लावै॥<br><span class="chaupai-num">॥ २७ ॥</span> सब पर राम तपस्वी राजा। तिन के काज सकल तुम साजा॥<br><span class="chaupai-num">॥ २८ ॥</span> और मनोरथ जो कोई लावै। सोइ अमित जीवन फल पावै॥<br><span class="chaupai-num">॥ २९ ॥</span> चारों जुग परताप तुम्हारा। है परसिद्ध जगत उजियारा॥<br><span class="chaupai-num">॥ ३० ॥</span> साधु सन्त के तुम रखवारे। असुर निकन्दन राम दुलारे॥<br><span class="chaupai-num">॥ ३१ ॥</span> अष्टसिद्धि नव निधि के दाता। अस बर दीन जानकी माता॥<br><span class="chaupai-num">॥ ३२ ॥</span> राम रसायन तुम्हरे पासा। सदा रहो रघुपति के दासा॥<br><span class="chaupai-num">॥ ३३ ॥</span> तुम्हरे भजन राम को पावै। जनम-जनम के दुख बिसरावै॥<br><span class="chaupai-num">॥ ३४ ॥</span> अन्त काल रघुबर पुर जाई। जहाँ जन्म हरि-भक्त कहाई॥<br><span class="chaupai-num">॥ ३५ ॥</span> और देवता चित्त न धरई। हनुमत सेइ सर्व सुख करई॥<br><span class="chaupai-num">॥ ३६ ॥</span> सङ्कट कटै मिटै सब पीरा। जो सुमिरै हनुमत बलबीरा॥<br><span class="chaupai-num">॥ ३७ ॥</span> जय जय जय हनुमान गोसाईं। कृपा करहु गुरुदेव की नाईं॥<br><span class="chaupai-num">॥ ३८ ॥</span> जो सत बार पाठ कर कोई। छूटहि बन्दि महा सुख होई॥<br><span class="chaupai-num">॥ ३९ ॥</span> जो यह पढ़ै हनुमान चालीसा। होय सिद्धि साखी गौरीसा॥<br><span class="chaupai-num">॥ ४० ॥</span> तुलसीदास सदा हरि चेरा। कीजै नाथ हृदय मँह डेरा॥<br><br><span class="doha">॥ दोहा ॥<br>पवन तनय सङ्कट हरन, मङ्गल मूरति रूप।<br>राम लखन सीता सहित, हृदय बसहु सुर भूप॥</span><br><br>॥ जय श्री हनुमान ॥'
-/*    text:'<span class="doha">॥ दोहा ॥\nश्रीगुरु चरन सरोज रज, निज मनु मुकुरु सुधारि।\nबरनउँ रघुबर बिमल जसु, जो दायकु फल चारि॥\n\nबुद्धिहीन तनु जानिके, सुमिरौं पवन-कुमार।\nबल बुद्धि बिद्या देहु मोहिं, हरहु कलेस बिकार॥</span>\n\n<span class="doha">॥ चौपाई ॥</span>\n<span class="chaupai-num">॥ १ ॥</span>\nजय हनुमान ज्ञान गुन सागर। जय कपीस तिहुँ लोक उजागर॥\n\n<span class="chaupai-num">॥ २ ॥</span>\nरामदूत अतुलित बल धामा। अञ्जनि-पुत्र पवनसुत नामा॥\n\n<span class="chaupai-num">॥ ३ ॥</span>\nमहाबीर बिक्रम बजरङ्गी। कुमति निवार सुमति के सङ्गी॥\n\n<span class="chaupai-num">॥ ४ ॥</span>\nकञ्चन बरन बिराज सुबेसा। कानन कुण्डल कुञ्चित केसा॥\n\n<span class="chaupai-num">॥ ५ ॥</span>\nहाथ बज्र औ ध्वजा बिराजै। काँधे मूँज जनेऊ साजै॥\n\n<span class="chaupai-num">॥ ६ ॥</span>\nसङ्कर सुवन केसरीनन्दन। तेज प्रताप महा जग-बन्दन॥\n\n<span class="chaupai-num">॥ ७ ॥</span>\nबिद्यावान गुनी अति चातुर। राम काज करिबे को आतुर॥\n\n<span class="chaupai-num">॥ ८ ॥</span>\nप्रभु चरित्र सुनिबे को रसिया। राम लखन सीता मन बसिया॥\n\n<span class="chaupai-num">॥ ९ ॥</span>\nसूक्ष्म रूप धरि सियहिं दिखावा। बिकट रूप धरि लङ्क जरावा॥\n\n<span class="chaupai-num">॥ १० ॥</span>\nभीम रूप धरि असुर सँहारे। रामचन्द्र के काज सँवारे॥\n\n<span class="chaupai-num">॥ ११ ॥</span>\nलाय सञ्जीवन लखन जियाये। श्रीरघुबीर हरषि उर लाये॥\n\n<span class="chaupai-num">॥ १२ ॥</span>\nरघुपति कीन्ही बहुत बड़ाई। तुम मम प्रिय भरतहि सम भाई॥\n\n<span class="chaupai-num">॥ १३ ॥</span>\nसहस बदन तुम्हरो जस गावैं। अस कहि श्रीपति कण्ठ लगावैं॥\n\n<span class="chaupai-num">॥ १४ ॥</span>\nसनकादिक ब्रह्मादि मुनीसा। नारद सारद सहित अहीसा॥\n\n<span class="chaupai-num">॥ १५ ॥</span>\nजम कुबेर दिगपाल जहाँ ते। कबि कोबिद कहि सके कहाँ ते॥\n\n<span class="chaupai-num">॥ १६ ॥</span>\nतुम उपकार सुग्रीवहिं कीन्हा। राम मिलाय राज-पद दीन्हा॥\n\n<span class="chaupai-num">॥ १७ ॥</span>\nतुम्हरो मन्त्र बिभीषन माना। लङ्केस्वर भए सब जग जाना॥\n\n<span class="chaupai-num">॥ १८ ॥</span>\nजुग सहस्र जोजन पर भानू। लील्यो ताहि मधुर फल जानू॥\n\n<span class="chaupai-num">॥ १९ ॥</span>\nप्रभु मुद्रिका मेलि मुख माहीं। जलधि लाँघि गये अचरज नाहीं॥\n\n<span class="chaupai-num">॥ २० ॥</span>\nदुर्गम काज जगत के जेते। सुगम अनुग्रह तुम्हरे तेते॥\n\n<span class="chaupai-num">॥ २१ ॥</span>\nराम दुआरे तुम रखवारे। होत न आज्ञा बिनु पैसारे॥\n\n<span class="chaupai-num">॥ २२ ॥</span>\nसब सुख लहै तुम्हारी सरना। तुम रच्छक काहू को डर ना॥\n\n<span class="chaupai-num">॥ २३ ॥</span>\nआपन तेज सम्हारो आपै। तीनों लोक हाँक तें काँपै॥\n\n<span class="chaupai-num">॥ २४ ॥</span>\nभूत पिसाच निकट नहिं आवै। महाबीर जब नाम सुनावै॥\n\n<span class="chaupai-num">॥ २५ ॥</span>\nनासै रोग हरै सब पीरा। जपत निरन्तर हनुमत बीरा॥\n\n<span class="chaupai-num">॥ २६ ॥</span>\nसङ्कट तें हनुमान छुड़ावै। मन क्रम बचन ध्यान जो लावै॥\n\n<span class="chaupai-num">॥ २७ ॥</span>\nसब पर राम तपस्वी राजा। तिन के काज सकल तुम साजा॥\n\n<span class="chaupai-num">॥ २८ ॥</span>\nऔर मनोरथ जो कोई लावै। सोइ अमित जीवन फल पावै॥\n\n<span class="chaupai-num">॥ २९ ॥</span>\nचारों जुग परताप तुम्हारा। है परसिद्ध जगत उजियारा॥\n\n<span class="chaupai-num">॥ ३० ॥</span>\nसाधु सन्त के तुम रखवारे। असुर निकन्दन राम दुलारे॥\n\n<span class="chaupai-num">॥ ३१ ॥</span>\nअष्टसिद्धि नव निधि के दाता। अस बर दीन जानकी माता॥\n\n<span class="chaupai-num">॥ ३२ ॥</span>\nराम रसायन तुम्हरे पासा। सदा रहो रघुपति के दासा॥\n\n<span class="chaupai-num">॥ ३३ ॥</span>\nतुम्हरे भजन राम को पावै। जनम-जनम के दुख बिसरावै॥\n\n<span class="chaupai-num">॥ ३४ ॥</span>\nअन्त काल रघुबर पुर जाई। जहाँ जन्म हरि-भक्त कहाई॥\n\n<span class="chaupai-num">॥ ३५ ॥</span>\nऔर देवता चित्त न धरई। हनुमत सेइ सर्व सुख करई॥\n\n<span class="chaupai-num">॥ ३६ ॥</span>\nसङ्कट कटै मिटै सब पीरा। जो सुमिरै हनुमत बलबीरा॥\n\n<span class="chaupai-num">॥ ३७ ॥</span>\nजय जय जय हनुमान गोसाईं। कृपा करहु गुरुदेव की नाईं॥\n\n<span class="chaupai-num">॥ ३८ ॥</span>\nजो सत बार पाठ कर कोई। छूटहि बन्दि महा सुख होई॥\n\n<span class="chaupai-num">॥ ३९ ॥</span>\nजो यह पढ़ै हनुमान चालीसा। होय सिद्धि साखी गौरीसा॥\n\n<span class="chaupai-num">॥ ४० ॥</span>\nतुलसीदास सदा हरि चेरा। कीजै नाथ हृदय मँह डेरा॥\n\n<span class="doha">॥ दोहा ॥\nपवन तनय सङ्कट हरन, मङ्गल मूरति रूप।\nराम लखन सीता सहित, हृदय बसहु सुर भूप॥</span>\n\n॥ जय श्री हनुमान ॥' */
-  },
-  om_jai_jagdish: {
-    title:'ॐ जय जगदीश हरे',
-    subtitle:'OM JAI JAGDISH HARE AARTI',
-    text:'<span class="doha">ॐ जय जगदीश हरे, स्वामी जय जगदीश हरे।\nभक्त जनों के सङ्कट, दास जनों के सङ्कट,\nक्षण में दूर करे॥ ॐ जय जगदीश हरे॥</span>\n\nजो ध्यावे फल पावे, दुःख बिनसे मन का।\nस्वामी दुःख बिनसे मन का।\nसुख सम्पति घर आवे, सुख सम्पति घर आवे,\nकष्ट मिटे तन का॥ ॐ जय जगदीश हरे॥\n\nमात-पिता तुम मेरे, शरण गहूँ मैं किसकी।\nस्वामी शरण गहूँ मैं किसकी।\nतुम बिन और न दूजा, तुम बिन और न दूजा,\nआस करूँ मैं जिसकी॥ ॐ जय जगदीश हरे॥\n\nतुम पूरण परमात्मा, तुम अन्तर्यामी।\nस्वामी तुम अन्तर्यामी।\nपारब्रह्म परमेश्वर, पारब्रह्म परमेश्वर,\nतुम सबके स्वामी॥ ॐ जय जगदीश हरे॥\n\nतुम करुणा के सागर, तुम पालनकर्ता।\nस्वामी तुम पालनकर्ता।\nमैं मूरख खल कामी, मैं मूरख खल कामी,\nकृपा करो भर्ता॥ ॐ जय जगदीश हरे॥\n\nतुम हो एक अगोचर, सबके प्राणपति।\nस्वामी सबके प्राणपति।\nकिस विधि मिलूँ दयामय, किस विधि मिलूँ दयामय,\nतुमको मैं कुमति॥ ॐ जय जगदीश हरे॥\n\nदीनबन्धु दुखहर्ता, तुम रक्षक मेरे।\nस्वामी तुम रक्षक मेरे।\nकरुणा हस्त बढ़ाओ, करुणा हस्त बढ़ाओ,\nद्वार पड़ा मैं तेरे॥ ॐ जय जगदीश हरे॥\n\nविषय विकार मिटाओ, पाप हरो देवा।\nस्वामी पाप हरो देवा।\nश्रद्धा भक्ति बढ़ाओ, श्रद्धा भक्ति बढ़ाओ,\nसन्तन की सेवा॥ ॐ जय जगदीश हरे॥\n\n<span class="doha">ॐ जय जगदीश हरे, स्वामी जय जगदीश हरे।\nभक्त जनों के सङ्कट, दास जनों के सङ्कट,\nक्षण में दूर करे॥ ॐ जय जगदीश हरे॥</span>'
-  },
-  gayatri_mantra: {
-    title:'गायत्री मंत्र',
-    subtitle:'GAYATRI MANTRA',
-    text:'<span class="doha">॥ गायत्री मंत्र ॥</span>\n\nॐ भूर्भुवः स्वः।\nतत्सवितुर्वरेण्यं।\nभर्गो देवस्य धीमहि।\nधियो यो नः प्रचोदयात्॥\n\n<span class="doha">॥ अर्थ ॥</span>\n\nउस प्राण स्वरूप, दुःखनाशक, सुखस्वरूप,\nश्रेष्ठ, तेजस्वी, पापनाशक, देवस्वरूप\nपरमात्मा को हम अपनी अन्तरात्मा में धारण करें।\nवह परमात्मा हमारी बुद्धि को सन्मार्ग की ओर प्रेरित करे।\n\n<span class="doha">॥ जप विधि ॥</span>\nप्रतिदिन प्रातःकाल, मध्याह्न एवं सायंकाल\nगायत्री मंत्र का जप करने से\nआत्मशुद्धि एवं ज्ञान की प्राप्ति होती है।'
-  },
-  mahamrityunjay: {
-    title:'महामृत्युञ्जय मंत्र',
-    subtitle:'MAHAMRITYUNJAYA MANTRA',
-    text:'<span class="doha">॥ महामृत्युञ्जय मंत्र ॥</span>\n\nॐ त्र्यम्बकं यजामहे\nसुगन्धिं पुष्टिवर्धनम्।\nउर्वारुकमिव बन्धनान्\nमृत्योर्मुक्षीय माऽमृतात्॥\n\n<span class="doha">॥ अर्थ ॥</span>\n\nहम त्रिनेत्र भगवान शिव की पूजा करते हैं,\nजो सुगन्धित हैं और हमारा पोषण करते हैं।\nजैसे ककड़ी बन्धन से मुक्त होती है,\nवैसे ही हम मृत्यु से मुक्त हों, न कि अमृत से।\n\n<span class="doha">॥ महत्व ॥</span>\nयह मंत्र शिव जी का सबसे शक्तिशाली मंत्र है।\nरोग, भय, मृत्यु और कष्टों से रक्षा करता है।\nनियमित जप से दीर्घायु एवं आरोग्य की प्राप्ति होती है।'
-  },
-  shiv_aarti: {
-    title:'जय शिव ओंकारा',
-    subtitle:'JAY SHIV OMKARA AARTI',
-    text:'<span class="doha">जय शिव ओंकारा, ॐ जय शिव ओंकारा।\nब्रह्मा विष्णु सदाशिव, अर्धाङ्गी धारा॥\nॐ जय शिव ओंकारा॥</span>\n\nएकानन चतुरानन पञ्चानन राजे।\nहंसानन गरुड़ासन वृषवाहन साजे॥\nॐ जय शिव ओंकारा॥\n\nदो भुज चार चतुर्भुज दश-भुज अति सोहे।\nत्रिगुण रूप निरखते त्रिभुवन-जन मोहे॥\nॐ जय शिव ओंकारा॥\n\nअक्षमाला बनमाला रुण्डमाला धारी।\nचन्दन मृगमद सोहे भाले शशिधारी॥\nॐ जय शिव ओंकारा॥\n\nश्वेताम्बर पीताम्बर बाघम्बर अङ्गे।\nसनकादिक गरुड़ादिक भूतादिक सङ्गे॥\nॐ जय शिव ओंकारा॥\n\nकर मध्ये कमण्डलु चक्र त्रिशूलधारी।\nसुखकारी दुखहारी जगपालनकारी॥\nॐ जय शिव ओंकारा॥\n\nब्रह्मा विष्णु सदाशिव जानत अविवेका।\nप्रणवाक्षर के मध्ये ये तीनों एका॥\nॐ जय शिव ओंकारा॥\n\n<span class="doha">जय शिव ओंकारा, ॐ जय शिव ओंकारा॥</span>'
-  },
-  durga_aarti: {
-    title:'अम्बे तू है जगदम्बे काली',
-    subtitle:'AMBE TU HAI JAGDAMBE KALI AARTI',
-    text:'<span class="doha">अम्बे तू है जगदम्बे काली, जय दुर्गे खप्पर वाली।\nतेरे ही गुण गावें भारती॥ ओ मैया॥</span>\n\nजब जब भक्त पुकारा तूने द्वार खोल दिया।\nकाटे संकट सारे, सुख का राज़ दे दिया॥\nजगत जननी दुर्गे माँ, जय जय जय माँ॥\n\nचन्द्रघण्टा नाम तेरा, जग में सब जानते।\nमहागौरी कालरात्रि, सिद्धिदात्री माँ॥\nजगत जननी दुर्गे माँ, जय जय जय माँ॥\n\n<span class="doha">अम्बे तू है जगदम्बे काली, जय दुर्गे खप्पर वाली।\nतेरे ही गुण गावें भारती॥ ओ मैया॥</span>'
-  },
-  ganesh_chalisa: {
-    title:'गणेश चालीसा',
-    subtitle:'GANESH CHALISA',
-    text:'<span class="doha">॥ दोहा ॥\nजय गणपति सदगुण सदन, कविवर बदन कृपाल।\nविघ्न हरण मङ्गल करण, जय जय गिरिजालाल॥</span>\n\n<span class="doha">॥ चौपाई ॥</span>\n<span class="chaupai-num">॥ १ ॥</span>\nजय जय जय गणपति गणराजू। मङ्गल भरण करण शुभ काजू॥\n\n<span class="chaupai-num">॥ २ ॥</span>\nजय गजबदन सदन सुखदाता। विश्व विनायक बुद्धि विधाता॥\n\n<span class="chaupai-num">॥ ३ ॥</span>\nवक्र तुण्ड शुचि शुण्ड सुहावन। तिलक त्रिपुण्ड भाल मन भावन॥\n\n<span class="chaupai-num">॥ ४ ॥</span>\nराजत मणि मुक्तन उर माला। स्वर्ण मुकुट शिर नयन विशाला॥\n\n<span class="chaupai-num">॥ ५ ॥</span>\nपुस्तक पाणि कुठार त्रिशूलं। मोदक भोग सुगन्धित फूलं॥\n\n<span class="chaupai-num">॥ ६-२० ॥</span>\nसुन्दर पीताम्बर तन सोहे। छवि को देख नागर-मन मोहे॥\n...\n(सम्पूर्ण चालीसा के लिए पुस्तक देखें)\n\n<span class="doha">॥ दोहा ॥\nमहागणेश निरन्तर, अविघ्न कार्य सिद्ध करो।\nभक्त जनों के ऊपर, नित्य अपनी कृपा धरो॥\n\n॥ जय श्री गणेश ॥</span>'
-  },
-  durga_chalisa: {
-    title:'दुर्गा चालीसा',
-    subtitle:'DURGA CHALISA',
-    text:'<span class="doha">॥ दोहा ॥\nनमो नमो दुर्गे सुख करनी। नमो नमो अम्बे दुखहरनी॥</span>\n\n<span class="doha">॥ चौपाई ॥</span>\n<span class="chaupai-num">॥ १ ॥</span>\nनिराकार है ज्योति तुम्हारी। तिहूँ लोक फैली उजियारी॥\n\n<span class="chaupai-num">॥ २ ॥</span>\nशशि ललाट मुख महाविशाला। नेत्र लाल भृकुटि विकराला॥\n\n<span class="chaupai-num">॥ ३-४० ॥</span>\n(सम्पूर्ण चालीसा)\n...\n\n<span class="doha">॥ दोहा ॥\nदुर्गे ही जग की माया, तू ही सब कुछ देती है।\nभक्त जनों के हृदय में, तू ही वास करती है॥\n\n॥ जय माँ दुर्गे ॥</span>'
-  },
-  shiv_chalisa: {
-    title:'शिव चालीसा',
-    subtitle:'SHIV CHALISA',
-    text:'<span class="doha">॥ दोहा ॥\nजय गणेश गिरिजा सुवन, मङ्गल मूल सुजान।\nकहत अयोध्यादास तुम, देहु अभय वरदान॥</span>\n\n<span class="doha">॥ चौपाई ॥</span>\n<span class="chaupai-num">॥ १ ॥</span>\nजय गिरिजापति दीन दयाला। सदा करत सन्तन प्रतिपाला॥\n\n<span class="chaupai-num">॥ २ ॥</span>\nभाल चन्द्रमा सोहत नीके। कानन कुण्डल नागफनी के॥\n\n<span class="chaupai-num">॥ ३-४० ॥</span>\n(सम्पूर्ण चालीसा)\n...\n\n<span class="doha">॥ दोहा ॥\nपूजन रामचन्द्र जब कीन्हा। जीत के लङ्का विभीषण दीन्हा॥\n\n॥ जय श्री महादेव ॥</span>'
-  },
-  laxmi_chalisa: {
-    title:'लक्ष्मी चालीसा',
-    subtitle:'LAKSHMI CHALISA',
-    text:'<span class="doha">॥ दोहा ॥\nमातु लक्ष्मी करि कृपा, करो हृदय में वास।\nमनोकामना सिद्ध कर, पुरावो मेरी आस॥</span>\n\n<span class="doha">॥ चौपाई ॥</span>\n<span class="chaupai-num">॥ १ ॥</span>\nसिन्धु सुता मैं सुमिरौं तोही। ज्ञान बुद्धि विद्या दो मोही॥\n\n<span class="chaupai-num">॥ २-४० ॥</span>\n(सम्पूर्ण चालीसा)\n...\n\n<span class="doha">॥ दोहा ॥\nलक्ष्मी जी की आरती, जो कोई नर गावे।\nउर आनन्द उमंग अति, पाप उतर जावे॥\n\n॥ जय श्री लक्ष्मी माता ॥</span>'
-  },
-  saraswati_chalisa: {
-    title:'सरस्वती चालीसा',
-    subtitle:'SARASWATI CHALISA',
-    text:'<span class="doha">॥ दोहा ॥\nजनक जननी पाद युग, प्रणमौं बारम्बार।\nसरस्वती विनती करौं, विनय करौं हर बार॥</span>\n\n<span class="doha">॥ चौपाई ॥</span>\n<span class="chaupai-num">॥ १ ॥</span>\nजय श्री सकल बुद्धि बल रासी। जय सर्वज्ञ अमर अविनासी॥\n\n<span class="chaupai-num">॥ २-४० ॥</span>\n(सम्पूर्ण चालीसा)\n...\n\n<span class="doha">॥ दोहा ॥\nसरस्वती की कृपा से, ज्ञान की हो वृद्धि।\nनित्य पाठ करने वाले की, हो सब कार्य सिद्धि॥\n\n॥ जय माँ सरस्वती ॥</span>'
-  },
-  hanuman_aarti: {
-    title:'आरती कीजे हनुमान लला की',
-    subtitle:'HANUMAN LALA KI AARTI',
-    text:'<span class="doha">आरती कीजे हनुमान लला की।\nदुष्ट दलन रघुनाथ कला की॥</span>\n\nजाके बल से गिरवर काँपे, रोग दोष जाके निकट न झाँके।\nअञ्जनि पुत्र महा बलदाई, सन्तन के प्रभु सदा सहाई॥\n\nदे बीड़ा रघुपति के साजा। लङ्का जारि सिया सुध लाजा॥\nलङ्का सो कोट समुद्र सी खाई। जात पवनसुत बार न लाई॥\n\nलङ्का जारि असुर सब मारे। सियाराम जी के काज सँवारे॥\nलक्ष्मण मूर्छित पड़े सकारे। आनि सञ्जीवन प्राण उबारे॥\n\n<span class="doha">आरती कीजे हनुमान लला की।\nदुष्ट दलन रघुनाथ कला की॥\n\n॥ जय श्री हनुमान ॥</span>'
-  },
-  ram_stotra: {
-    title:'श्री राम स्तोत्र',
-    subtitle:'SHRI RAM STOTRA',
-    text:'<span class="doha">॥ श्री रामचन्द्र कृपालु भजु मन ॥</span>\n\nश्रीरामचन्द्र कृपालु भजु मन हरण भवभय दारुणम्।\nनव कञ्जलोचन कञ्जमुख कर कञ्ज पद कञ्जारुणम्॥\n\nकन्दर्प अगणित अमित छबि नव नील नीरद सुन्दरम्।\nपट पीत मानहुँ तड़ित रुचि-शुचि नौमि जनक सुतावरम्॥\n\nभजु दीनबन्धु दिनेश दानव दैत्य वंश निकन्दनम्।\nरघुनन्द आनन्दकन्द कोशलचन्द दशरथ नन्दनम्॥\n\nशिर मुकुट कुण्डल तिलक चारु उदारु अङ्ग विभूषणम्।\nआजानु भुज शर-चाप-धर सङ्ग्राम-जित-खर-दूषणम्॥\n\nइति वदति तुलसीदास शङ्कर शेष मुनि मन रञ्जनम्।\nमम हृदय कञ्ज निवास कुरु कामादि खल दल गञ्जनम्॥\n\n<span class="doha">॥ जय श्री राम ॥</span>'
-  },
-  krishna_stotra: {
-    title:'श्री कृष्ण स्तोत्र',
-    subtitle:'SHRI KRISHNA STOTRA',
-    text:'<span class="doha">॥ अच्युतम् केशवम् ॥</span>\n\nअच्युतम् केशवम् कृष्ण दामोदरम्,\nराम नारायणम् जानकी वल्लभम्।\nकौस्तुभे भूषितम् यादवम् विट्ठलम्,\nपुण्डरीकाक्षम् विष्णुम् शार्ङ्गपाणिम्॥\n\nहे गोविन्द हे गोपाल हे गोकुलनन्दन।\nहे दामोदर हे मुरारि हे मधुसूदन॥\n\n<span class="doha">॥ जय श्री कृष्ण ॥</span>',
-    meaning:'<div class="verse-block"><div class="verse-original">अच्युतम् केशवम् कृष्ण दामोदरम्</div><div class="verse-meaning">अच्युत = जो कभी नहीं गिरते। केशव = सुन्दर केशों वाले। दामोदर = जिनके उदर पर रस्सी बाँधी गई थी (माता यशोदा ने)। ये नाम कृष्ण के विभिन्न गुणों का वर्णन करते हैं।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 कृष्ण स्तोत्र का उद्देश्य</div><div class="purpose-text">प्रेम, आनन्द और भक्ति की प्राप्ति। मन की चञ्चलता दूर होती है। जन्माष्टमी को विशेष फल।</div></div>'
-  },
-
-  kali_chalisa: {
-    title:'काली चालीसा',
-    subtitle:'KALI CHALISA',
-    text:'<span class="doha">॥ दोहा ॥\nजय माँ काली महाकाली, तेरी जय जय जयकार।\nशुम्भ निशुम्भ महिषासुर को, तूने किया संहार॥</span>\n\n<span class="doha">॥ चौपाई ॥</span>\n<span class="chaupai-num">॥ १ ॥</span> जय जय जय काली महारानी। तेरी महिमा अगम अज्ञानी॥\n<span class="chaupai-num">॥ २ ॥</span> काले वर्ण महा भयकारी। लम्बे केश दिगम्बर धारी॥\n<span class="chaupai-num">॥ ३ ॥</span> खड्ग खप्पर करों में धारे। मुण्डमाल गले में प्यारे॥\n<span class="chaupai-num">॥ ४ ॥</span> चार भुजा लाल जीभ लटकाये। नेत्र लाल भृकुटी चढ़ाये॥\n<span class="chaupai-num">॥ ५ ॥</span> शव पर चरण रखे अटल। शिव सीने पर पग धरती पल॥\n<span class="chaupai-num">॥ ६ ॥</span> कालरात्रि चामुण्डा माता। भवानी तुम जगत विधाता॥\n<span class="chaupai-num">॥ ७ ॥</span> रक्तदन्तिका भैरवी नामा। तुम पूरण करती सब कामा॥\n<span class="chaupai-num">॥ ८ ॥</span> जो कोई ध्यान तुम्हारा ध्यावे। वो सब दुःख दारिद्र्य मिटावे॥\n<span class="chaupai-num">॥ ९ ॥</span> दक्षिण काली श्मशान काली। तुम्हारी महिमा बड़ी निराली॥\n<span class="chaupai-num">॥ १०-४० ॥</span> नित्य पाठ जो काली चालीसा। होय सिद्धि साखी उमेशा॥\n<span class="doha">॥ दोहा ॥\nजय काली जय महाकाली, भवसागर की नाव।\nभक्तों की रक्षा करती, जगत जननी माँ काली॥\n\n॥ जय माँ काली ॥</span>',
-    meaning:'<div class="verse-block"><div class="verse-original">काले वर्ण महा भयकारी। लम्बे केश दिगम्बर धारी॥</div><div class="verse-meaning">माँ काली का काला रंग अनन्त ब्रह्माण्ड का प्रतीक है। दिगम्बरी = माया के बन्धनों से परे। लम्बे बिखरे केश = स्वतन्त्र, असीम शक्ति।</div></div><div class="verse-block"><div class="verse-original">खड्ग खप्पर करों में धारे। मुण्डमाल गले में प्यारे॥</div><div class="verse-meaning">खड्ग = बुराई का नाश। खप्पर = अहंकार का विनाश। मुण्डमाला = अज्ञान के सिरों की माला। ये प्रतीक बताते हैं कि माँ काली भीतर और बाहर के अज्ञान-अहंकार को नष्ट करती हैं।</div></div><div class="verse-block"><div class="verse-original">शव पर चरण रखे अटल (शिव पर खड़ी)</div><div class="verse-meaning">शिव (निष्क्रिय चेतना) + शक्ति (सक्रिय ऊर्जा) = सम्पूर्ण ब्रह्माण्ड। शक्ति के बिना शिव भी शव हैं।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 काली चालीसा पाठ के उद्देश्य एवं लाभ</div><div class="purpose-text">माँ काली सर्वशक्तिमान आदिशक्ति हैं जो काल (समय) की अधिष्ठात्री हैं।\n\n<b>लाभ:</b>\n• शत्रुओं से रक्षा\n• तान्त्रिक बाधाओं से मुक्ति\n• कालसर्प दोष निवारण\n• साहस और आत्मविश्वास\n• मृत्यु भय का नाश\n\n<b>पाठ का समय:</b> अमावस्या, काली चतुर्दशी, नवरात्रि अष्टमी-नवमी।\n\n<b>पाठ विधि:</b> लाल वस्त्र, दीपक, गुड़हल के फूल।</div></div>'
-  },
-
-  vishnu_chalisa: {
-    title:'विष्णु चालीसा',
-    subtitle:'VISHNU CHALISA',
-    text:'<span class="doha">॥ दोहा ॥\nश्री विष्णु परमात्मा, जगत के पालनहार।\nलक्ष्मी के स्वामी प्रभु, करो भवसागर पार॥</span>\n\n<span class="doha">॥ चौपाई ॥</span>\n<span class="chaupai-num">॥ १ ॥</span> जय जय विष्णु भगवान अनन्ता। जगत पालक परमेश्वर सन्ता॥\n<span class="chaupai-num">॥ २ ॥</span> शङ्ख चक्र गदा पद्मधारी। पीताम्बर मण्डित सुकुमारी॥\n<span class="chaupai-num">॥ ३ ॥</span> शेषनाग शैया पर सोते। क्षीर सागर में नित विचरते॥\n<span class="chaupai-num">॥ ४ ॥</span> मत्स्य कूर्म वाराह नृसिंहा। वामन परशुराम जगदीशा॥\n<span class="chaupai-num">॥ ५ ॥</span> राम कृष्ण बुद्ध अवतारा। कल्कि अवतरेंगे संसारा॥\n<span class="chaupai-num">॥ ६-४० ॥</span> त्रिभुवन पति जगत के स्वामी। तुमसे मिलें सब जग की कामी॥\n<span class="doha">॥ जय श्री विष्णु ॥</span>',
-    meaning:'<div class="verse-block"><div class="verse-original">शङ्ख चक्र गदा पद्मधारी</div><div class="verse-meaning">शङ्ख = ओंकार नाद (सृष्टि का स्रोत)। सुदर्शन चक्र = समय-चक्र, बुराई का नाश। कौमोदकी गदा = ज्ञान। पद्म = पवित्रता और मोक्ष। ये चारों प्रतीक जीवन के चार पुरुषार्थों (धर्म, अर्थ, काम, मोक्ष) का प्रतिनिधित्व करते हैं।</div></div><div class="verse-block"><div class="verse-original">दशावतार — मत्स्य से कल्कि</div><div class="verse-meaning">दशावतार विकास क्रम का प्रतीक है: मत्स्य (जल में जीवन), कूर्म (उभयचर), वाराह (स्थलीय), नृसिंह (आधा मानव), वामन (बौना = छोटा मानव), परशुराम (आदि मानव), राम (सामाजिक मानव), कृष्ण (पूर्ण मानव), बुद्ध (ज्ञानी), कल्कि (भविष्य)।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 विष्णु चालीसा का उद्देश्य</div><div class="purpose-text">भगवान विष्णु पालनकर्ता हैं। इनकी उपासना से जीवन में स्थिरता और समृद्धि आती है।\n\n<b>लाभ:</b>\n• एकादशी व्रत के साथ पाठ से विशेष पुण्य\n• पाप कर्मों से मुक्ति\n• मोक्ष\n• गृहस्थ जीवन में सुख-शान्ति\n\n<b>बृहस्पतिवार</b> को पीले वस्त्र पहनकर पाठ करें।</div></div>'
-  },
-
-  ram_chalisa: {
-    title:'राम चालीसा',
-    subtitle:'RAM CHALISA',
-    text:'<span class="doha">॥ दोहा ॥\nश्री रघुवर की जय करूँ, मन वच कर्म प्रणाम।\nसिया राम सीता राम, जय जय जय श्री राम॥</span>\n\n<span class="doha">॥ चौपाई ॥</span>\n<span class="chaupai-num">॥ १ ॥</span> जय रघुनन्दन जय जय राम। जय सीतापति जय घनश्याम॥\n<span class="chaupai-num">॥ २ ॥</span> कौशल्या के प्रिय दुलारे। दशरथ नन्दन लोकाधारे॥\n<span class="chaupai-num">॥ ३ ॥</span> सूर्यवंशी रघुकुल के भूषण। मर्यादा पुरुषोत्तम आदर्शन॥\n<span class="chaupai-num">॥ ४ ॥</span> शिव धनु तोड़ा सिया ब्याही। लक्ष्मण भरत शत्रुघ्न भाई॥\n<span class="chaupai-num">॥ ५-४० ॥</span> चौदह वर्ष वनवास बिताया। राक्षस रावण को मरवाया॥\nसेतु बाँधा समुद्र पर जाकर। लंका जीती सीता लाकर॥\n<span class="doha">॥ दोहा ॥\nराम नाम अमृत समान, जपो सदा हर बार।\nपाप ताप दुःख दारिद्र्य, करे राम संहार॥\n\n॥ जय श्री राम ॥</span>',
-    meaning:'<div class="verse-block"><div class="verse-original">मर्यादा पुरुषोत्तम</div><div class="verse-meaning">मर्यादा = आदर्श सीमाएं, पुरुषोत्तम = सर्वश्रेष्ठ पुरुष। राम ने हर भूमिका में आदर्श का पालन किया — आज्ञाकारी पुत्र, प्रेमपूर्ण भाई, एकपत्नीव्रत पति, न्यायप्रिय राजा।</div></div><div class="verse-block"><div class="verse-original">राम नाम — वैज्ञानिक महत्व</div><div class="verse-meaning">"रा" जपने पर मुँह खुलता है (ऊर्जा बाहर जाती है) और "म" जपने पर बन्द होता है (ऊर्जा संचित होती है)। "राम" नाम जपने से श्वास की लय बनती है जो ध्यान और शान्ति में सहायक है।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 राम चालीसा का उद्देश्य</div><div class="purpose-text">राम धर्म, सत्य और मर्यादा के प्रतीक हैं।\n\n<b>लाभ:</b>\n• जीवन में नैतिकता और सत्य\n• पारिवारिक कलह से मुक्ति\n• मनोकामना पूर्ति\n• मोक्ष\n\n<b>रामनवमी, मंगलवार, शनिवार</b> को विशेष फल।</div></div>'
-  },
-
-  satyanarayan_katha: {
-    title:'श्री सत्यनारायण कथा',
-    subtitle:'SHRI SATYANARAYAN VRAT KATHA',
-    text:'<span class="doha">॥ श्री सत्यनारायण कथा — पञ्च अध्याय ॥\nस्कन्द पुराण से उद्धृत</span>\n\n<div class="katha-section"><div class="katha-section-title">प्रथम अध्याय — व्रत का माहात्म्य</div><div class="katha-text">नैमिषारण्य में ऋषियों ने सूत जी से पूछा — "कलियुग में मनुष्यों के कष्ट दूर करने का सरल उपाय क्या है?" सूत जी ने बताया कि नारद जी ने विष्णु से यही प्रश्न किया था। भगवान विष्णु बोले — "सत्यनारायण व्रत करो। इससे सम्पत्ति, पुत्र, सुख और मोक्ष मिलते हैं।"</div></div>\n\n<div class="katha-section"><div class="katha-section-title">द्वितीय अध्याय — लकड़हारे की कथा</div><div class="katha-text">एक गरीब लकड़हारे को साधु ने सत्यनारायण व्रत की विधि बताई। व्रत करने पर उसकी दरिद्रता दूर हुई, घर में सुख-समृद्धि आई।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">तृतीय अध्याय — व्यापारी साधुनाम की कथा</div><div class="katha-text">साधुनाम सेठ ने पुत्री प्राप्ति पर व्रत का संकल्प लिया पर भूल गया। दामाद के साथ व्यापार में राजा ने बंदी बनाया। पत्नी लीलावती ने कथा की। राजा ने स्वप्न में आदेश पाया और सेठ मुक्त हुए।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">चतुर्थ अध्याय — राजा उल्काहमुख की कथा</div><div class="katha-text">दो व्यापारी कथा में नहीं आये। घर में दुर्भाग्य आया। जब कथा की, सब ठीक हुआ। शिक्षा: कथा में विलम्ब नहीं करना चाहिए।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">पञ्चम अध्याय — तुङ्गध्वज राजा की कथा</div><div class="katha-text">राजा ने अहंकार में प्रसाद नहीं लिया। पुत्र और धन नष्ट हुए। क्षमा माँगने पर सब वापस मिला। शिक्षा: अहंकार छोड़ो।</div></div>\n\n<span class="doha">॥ जय श्री सत्यनारायण भगवान की जय ॥</span>',
-    meaning:'<div class="verse-block"><div class="verse-original">सत्यनारायण = "सत्य" + "नारायण"</div><div class="verse-meaning">सत्य = ईमानदारी, निष्ठा। नारायण = जल में निवास करने वाले विष्णु। इस व्रत का सन्देश है — सत्य के माध्यम से ईश्वर की कृपा पाओ। जो सत्यनिष्ठ है, ईश्वर उसकी रक्षा करते हैं।</div></div><div class="verse-block"><div class="verse-original">पाँच अध्यायों का सार</div><div class="verse-meaning">१. व्रत का महत्व जानो, २. श्रद्धा से करो, ३. संकल्प न भूलो, ४. देरी न करो, ५. अहंकार छोड़ो। ये पाँच जीवन के पाँच महत्वपूर्ण सबक हैं।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 सत्यनारायण कथा का उद्देश्य एवं नियम</div><div class="purpose-text"><b>कब करें:</b> पूर्णिमा, गृहप्रवेश, विवाह, नौकरी-व्यापार आरम्भ, मनोकामना पूर्ति पर।\n\n<b>लाभ:</b>\n• सर्व मनोकामना पूर्ति\n• सुख-शान्ति, समृद्धि\n• रोग-शोक नाश\n• परिवार में एकता\n\n<b>प्रसाद:</b> पञ्जीरी (आटा-शकर-घी-इलाइची) अनिवार्य।\n<b>नियम:</b> प्रसाद न ठुकराएं, कथा बीच में न छोड़ें।</div></div>'
-  },
-
-  karva_chauth_katha: {
-    title:'करवा चौथ की कथा',
-    subtitle:'KARVA CHAUTH VRAT KATHA',
-    text:'<span class="doha">॥ करवा चौथ व्रत कथा ॥\n(कार्तिक कृष्ण चतुर्थी)</span>\n\n<div class="katha-section"><div class="katha-section-title">वीरावती की कथा</div><div class="katha-text">एक साहूकार की बेटी वीरावती ने करवा चौथ का व्रत रखा। भूखी-प्यासी वह बहुत कष्ट में थी। उसके भाइयों ने पीपल पर दीपक जलाकर उसे चन्द्रमा दिखा दिया। वीरावती ने अर्घ्य देकर भोजन कर लिया। उसी रात पति की मृत्यु हो गई।\n\nमाँ पार्वती आईं और बोलीं — "व्रत अधूरे मन से तोड़ा।" वीरावती ने पूर्ण श्रद्धा से व्रत किया। पति जीवित हो गये।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">करवा माता की कथा</div><div class="katha-text">पतिव्रता करवा ने कच्चे सूत से मगर को बाँधा जो पति का पाँव पकड़े था। यमराज के पास जाकर धमकाया — "पति छोड़ो।" यमराज ने मानकर पति को दीर्घायु दी।\n\nकरवा की पतिव्रता शक्ति ने मृत्यु को हरा दिया।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">व्रत की विधि</div><div class="katha-text">सूर्योदय से पहले सरगी खाएं → दिनभर निर्जल → सायं पूजा → कथा सुनें → चन्द्रमा को चलनी से देखें → पति के हाथ से जल पियें।</div></div>',
-    meaning:'<div class="verse-block"><div class="verse-original">चलनी से चन्द्रमा और पति को देखना</div><div class="verse-meaning">चलनी छनती है — जैसे चलनी अच्छे-बुरे को अलग करती है, वैसे ही पत्नी की दृष्टि पति के गुणों को देखे। चन्द्रमा = शीतलता, प्रेम। पति को चन्द्रमा की दृष्टि से देखना — सम्मान और प्रेम का प्रतीक।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 करवा चौथ व्रत का उद्देश्य</div><div class="purpose-text">यह व्रत पत्नी के अखण्ड प्रेम, त्याग और समर्पण का प्रतीक है।\n\n<b>लाभ:</b>\n• पति की दीर्घायु और स्वास्थ्य\n• वैवाहिक जीवन में प्रेम\n• सौभाग्य की रक्षा\n\n<b>पूजन सामग्री:</b> करवा (मिट्टी घड़ा), सिन्दूर, मेहंदी, बिन्दी।\n<b>क्षेत्र:</b> पंजाब, हरियाणा, राजस्थान, उ.प्र. में विशेष महत्व।</div></div>'
-  },
-
-  ahoi_ashtami_katha: {
-    title:'अहोई अष्टमी की कथा',
-    subtitle:'AHOI ASHTAMI VRAT KATHA',
-    text:'<span class="doha">॥ अहोई अष्टमी व्रत कथा ॥\n(कार्तिक कृष्ण अष्टमी)</span>\n\n<div class="katha-section"><div class="katha-section-title">मुख्य कथा</div><div class="katha-text">एक साहूकार की पत्नी जंगल में मिट्टी लेने गई। खुदाई में खुरपी से शेर का बच्चा मर गया। शेरनी रोई। उस वर्ष से एक-एक करके उसके सातों बेटे मरने लगे।\n\nबुजुर्ग महिलाओं ने बताया — "अहोई माता का व्रत करो।" कार्तिक कृष्ण अष्टमी को व्रत किया। सातों बेटे वापस जीवित हो गये।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">व्रत की विधि</div><div class="katha-text">माताएं अपने बच्चों की दीर्घायु के लिए यह व्रत करती हैं। दीवार पर अहोई माता (आठ कोने वाली आकृति) बनाएं। तारों को देखकर या चन्द्रमा को देखकर अर्घ्य दें।</div></div>',
-    meaning:'<div class="verse-block"><div class="verse-original">अहोई माता = माँ पार्वती का स्वरूप</div><div class="verse-meaning">अहोई माता सन्तान की रक्षक देवी हैं। यह व्रत करवा चौथ के ठीक 4 दिन बाद आता है। जैसे करवा चौथ पति के लिए, अहोई अष्टमी सन्तान के लिए।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 अहोई अष्टमी का उद्देश्य</div><div class="purpose-text">सन्तान की दीर्घायु, स्वास्थ्य और सुख के लिए माताएं यह व्रत रखती हैं। निसन्तान महिलाएं भी करती हैं। उत्तर भारत में सबसे प्रिय मातृ-व्रत।</div></div>'
-  },
-
-  ekadashi_katha: {
-    title:'एकादशी की कथा',
-    subtitle:'EKADASHI VRAT KATHA',
-    text:'<span class="doha">॥ एकादशी महात्म्य — पद्म पुराण ॥</span>\n\n<div class="katha-section"><div class="katha-section-title">एकादशी की उत्पत्ति</div><div class="katha-text">मुर असुर ने देवताओं को स्वर्ग से खदेड़ा। विष्णु ने युद्ध किया। थककर गुफा में सोये। मुर ने हमला किया। तभी विष्णु के तेज से एक दिव्य कन्या प्रकट हुई और मुर को मार दिया।\n\nविष्णु जागे, बोले — "तुम एकादशी कहलाओगी। तुम्हारा व्रत करने वाले के पाप नष्ट होंगे और विष्णुलोक मिलेगा।"</div></div>\n\n<div class="katha-section"><div class="katha-section-title">निर्जला एकादशी — भीमसेन की कथा</div><div class="katha-text">भीमसेन से व्यासजी ने कहा — "जेठ शुक्ल एकादशी (निर्जला) का व्रत करो — बिना जल के। इस एक व्रत से साल की सभी एकादशियों का फल मिलेगा।"</div></div>\n\n<div class="katha-section"><div class="katha-section-title">एकादशी के नियम</div><div class="katha-text">दशमी से सात्विक आहार → एकादशी को अन्न वर्जित → विष्णु सहस्रनाम/गीता पाठ → रात्रि जागरण → द्वादशी को ब्राह्मण भोजन करा व्रत तोड़ें।</div></div>',
-    meaning:'<div class="verse-block"><div class="verse-original">एकादशी पर अन्न वर्जित — वैज्ञानिक कारण</div><div class="verse-meaning">एकादशी के दिन चन्द्रमा का विशेष गुरुत्वाकर्षण पेट की पाचन क्रिया को प्रभावित करता है। उपवास से पाचन तंत्र को विश्राम, शरीर का detox होता है। यह वैज्ञानिक रूप से सिद्ध intermittent fasting का प्राचीन रूप है।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 एकादशी व्रत का उद्देश्य</div><div class="purpose-text">एकादशी विष्णु की प्रिय तिथि है। यह मोक्ष का सरलतम मार्ग।\n\n<b>लाभ:</b>\n• पाप नाश, मोक्ष\n• शरीर शुद्धि\n• मन की शान्ति\n• आयु-आरोग्य वृद्धि\n\nवर्ष में 24-26 एकादशियाँ — प्रत्येक का अलग नाम और विशेष फल।</div></div>'
-  },
-
-  ganesh_katha: {
-    title:'श्री गणेश जी की कथा',
-    subtitle:'SHRI GANESH KATHA',
-    text:'<span class="doha">॥ गणेश जन्म एवं महिमा ॥</span>\n\n<div class="katha-section"><div class="katha-section-title">गणेश जन्म</div><div class="katha-text">माँ पार्वती ने अपने मैल से पुतला बनाया, प्राण दिये, द्वारपाल बनाया। शिव जी आये, गणेश ने रोका। युद्ध में शिव ने सिर काटा। पार्वती दुःखी हुईं। शिव ने हाथी का सिर लगाया। गणेश जीवित हुए।\n\nशिव ने वर दिया — "सबसे पहले तुम्हारी पूजा होगी।"</div></div>\n\n<div class="katha-section"><div class="katha-section-title">गणेश-कार्तिकेय प्रतियोगिता</div><div class="katha-text">त्रिभुवन परिक्रमा की होड़ में कार्तिकेय मयूर पर उड़े। गणेश ने माता-पिता की परिक्रमा की — "इन्हीं में तीनों लोक हैं।" गणेश श्रेष्ठ माने गये।</div></div>',
-    meaning:'<div class="verse-block"><div class="verse-original">हाथी का सिर + मूषक वाहन</div><div class="verse-meaning">हाथी = बुद्धि, स्मृति। बड़े कान = सुनो, छोटी आँखें = ध्यान से देखो, बड़ा पेट = सब पचा लो। मूषक = अहंकार-इच्छाएं — जिन पर गणेश सवार हैं = उन्होंने इन पर नियंत्रण पाया है।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 गणेश पूजन का उद्देश्य</div><div class="purpose-text">विघ्नहर्ता गणेश की पूजा हर शुभ कार्य से पहले। बुद्धि, सफलता, विघ्न-नाश के लिए।\n\n<b>बुधवार</b> गणेश जी का विशेष दिन।</div></div>'
-  },
-
-  navratri_katha: {
-    title:'नवरात्रि कथा — माँ दुर्गा',
-    subtitle:'NAVRATRI & DURGA SAPTASHATI KATHA',
-    text:'<span class="doha">॥ दुर्गा माहात्म्य — मार्कण्डेय पुराण ॥</span>\n\n<div class="katha-section"><div class="katha-section-title">माँ दुर्गा की उत्पत्ति</div><div class="katha-text">महिषासुर को वर था — कोई पुरुष नहीं मार सकता। उसने स्वर्ग पर अधिकार किया। सभी देवताओं के तेज से माँ दुर्गा प्रकट हुईं। शिव ने त्रिशूल, विष्णु ने चक्र, इन्द्र ने वज्र दिया। नौ दिन युद्ध के बाद दसवें दिन महिषासुर वध।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">नव दुर्गा</div><div class="katha-text">1. शैलपुत्री 2. ब्रह्मचारिणी 3. चन्द्रघण्टा 4. कूष्माण्डा 5. स्कन्दमाता 6. कात्यायनी 7. कालरात्रि 8. महागौरी 9. सिद्धिदात्री — नौ रूप, नौ दिन, नौ गुण।</div></div>',
-    meaning:'<div class="verse-block"><div class="verse-original">नवरात्रि और दशहरा</div><div class="verse-meaning">नव रातें = प्रकृति के नौ स्वरूपों की पूजा। दसवाँ दिन = बुराई पर अच्छाई की विजय। महिषासुर = अहंकार का प्रतीक। माँ दुर्गा = आन्तरिक शक्ति जो अहंकार को नष्ट करती है।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 नवरात्रि पूजन का उद्देश्य</div><div class="purpose-text">आदिशक्ति के नौ रूपों की उपासना कर शक्ति, साहस और कृपा पाना।\n\n<b>लाभ:</b> नकारात्मकता नाश, नई ऊर्जा, लक्ष्मी आगमन।\n\n<b>विधि:</b> नौ दिन उपवास, नव दुर्गा पूजन, दुर्गा सप्तशती पाठ, अष्टमी/नवमी को कन्या पूजन।</div></div>'
-  },
-
-  shiv_katha: {
-    title:'शिव पुराण कथा',
-    subtitle:'SHIV PURAN KATHA',
-    text:'<span class="doha">॥ शिव पुराण महात्म्य ॥</span>\n\n<div class="katha-section"><div class="katha-section-title">शिव की महिमा</div><div class="katha-text">विष्णु ने ब्रह्मा से कहा — "शिव ही परमब्रह्म हैं। उन्होंने ही हमें उत्पन्न किया।" शिव सत्-चित्-आनन्द स्वरूप हैं।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">शिव-पार्वती विवाह</div><div class="katha-text">सती ने यज्ञकुण्ड में प्राण दिये। शिव विरह में भटके। विष्णु के चक्र से 51 शक्तिपीठ बने। सती ने हिमालय पुत्री पार्वती के रूप में जन्म लिया। कठोर तप से शिव को पुनः प्राप्त किया।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">महाशिवरात्रि की कथा</div><div class="katha-text">एक शिकारी रात भर बेल के पेड़ पर रहा। अनजाने में बेलपत्र शिवलिंग पर गिरते रहे। सुबह उसकी अनजाने में पूजा हो चुकी थी। उसी जन्म में मोक्ष मिला।\n\nशिव की पूजा सबसे सरल है — सच्चे मन से बेलपत्र और जल।</div></div>',
-    meaning:'<div class="verse-block"><div class="verse-original">ॐ नमः शिवाय — पञ्चाक्षर मंत्र</div><div class="verse-meaning">न=पृथ्वी, म=जल, शि=अग्नि, वा=वायु, य=आकाश। पाँच तत्वों का मंत्र। जप से पञ्च तत्व संतुलित होते हैं।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 शिव पुराण का उद्देश्य</div><div class="purpose-text">ज्ञान, वैराग्य और भक्ति। पाप नाश। शिवलोक प्राप्ति।\n\n<b>सोमवार</b> शिव का विशेष दिन। श्रावण मास — शिव को समर्पित।</div></div>'
-  },
-
-  hanuman_katha: {
-    title:'हनुमान जी की कथा',
-    subtitle:'HANUMAN JI KATHA',
-    text:'<span class="doha">॥ हनुमान जन्म एवं महिमा ॥</span>\n\n<div class="katha-section"><div class="katha-section-title">हनुमान जन्म</div><div class="katha-text">अञ्जनी माँ तपस्या कर रही थीं। दशरथ यज्ञ की खीर वायु देव ले गये और अञ्जनी के हाथ में रखी। खीर खाने से पवन-पुत्र हनुमान का जन्म हुआ।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">सूर्य को फल समझना</div><div class="katha-text">बाल हनुमान ने सूर्य को फल समझकर पकड़ा। इन्द्र के वज्र से ठोड़ी टूटी — "हनुमान" नाम पड़ा। देवताओं ने अनेक वरदान दिये।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">लंका दहन</div><div class="katha-text">समुद्र लाँघकर सीता माँ की खोज। राम की अँगूठी दी। रावण ने पूँछ जलाई। जलती पूँछ से लंका जलाई। लौटकर राम को पता बताया — अद्वितीय भक्ति और सेवा।</div></div>',
-    meaning:'<div class="verse-block"><div class="verse-original">हनुमान = पूर्ण समर्पण</div><div class="verse-meaning">असीम शक्ति होते हुए भी सदा राम की सेवा में। यह सच्ची भक्ति है — शक्ति होते हुए विनम्र रहना।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 हनुमान पूजन का उद्देश्य</div><div class="purpose-text">शक्ति, साहस और भक्ति की प्राप्ति।\n\n<b>लाभ:</b> भूत-बाधा से रक्षा, शत्रु पर विजय, शनि की साढ़ेसाती से रक्षा।\n\n<b>मंगलवार और शनिवार</b> विशेष दिन।</div></div>'
-  },
-
-  laxmi_katha: {
-    title:'लक्ष्मी पूजन कथा — दीपावली',
-    subtitle:'LAKSHMI PUJA KATHA (DIWALI)',
-    text:'<span class="doha">॥ दीपावली लक्ष्मी पूजन कथा ॥</span>\n\n<div class="katha-section"><div class="katha-section-title">समुद्र मंथन से लक्ष्मी जन्म</div><div class="katha-text">देव-असुर समुद्र मंथन में — मन्दराचल मथनी, वासुकि रस्सी। अनेक रत्न निकले। अन्त में कमल पर माँ लक्ष्मी प्रकट हुईं — हाथ में कमल, पीत वस्त्र, दिव्य मुस्कान। उन्होंने विष्णु को पति रूप में वरण किया।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">दीपावली पर विशेष पूजन क्यों?</div><div class="katha-text">राम 14 वर्ष वनवास के बाद कार्तिक अमावस्या को लौटे। अयोध्या में दीपक जलाये गये। माँ लक्ष्मी उन घरों में आईं जहाँ प्रकाश, स्वच्छता और भक्ति थी।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">लक्ष्मी पूजन विधि</div><div class="katha-text">घर साफ करें → दीपक जलाएं → गणेश-लक्ष्मी पूजन → पञ्चामृत स्नान → पीले फूल → श्री सूक्त/लक्ष्मी चालीसा → तिजोरी पूजा।</div></div>',
-    meaning:'<div class="verse-block"><div class="verse-original">अष्ट लक्ष्मी</div><div class="verse-meaning">लक्ष्मी केवल धन की नहीं — आदि लक्ष्मी (आदि शक्ति), धन लक्ष्मी, धान्य लक्ष्मी, गज लक्ष्मी, सन्तान लक्ष्मी, वीर लक्ष्मी, विजय लक्ष्मी, विद्या लक्ष्मी — आठ प्रकार की समृद्धि।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 लक्ष्मी पूजन का उद्देश्य</div><div class="purpose-text">भौतिक और आध्यात्मिक समृद्धि।\n\n<b>लाभ:</b> धन-धान्य, व्यापार वृद्धि, सुख-शान्ति, ऋण मुक्ति।\n\n<b>शुक्रवार</b> माँ लक्ष्मी का विशेष दिन।</div></div>'
-  },
-
-  chhath_katha: {
-    title:'छठ पूजा कथा',
-    subtitle:'CHHATH PUJA KATHA',
-    text:'<span class="doha">॥ छठी माईया की कथा ॥\n(कार्तिक शुक्ल षष्ठी)</span>\n\n<div class="katha-section"><div class="katha-section-title">छठी माईया का जन्म</div><div class="katha-text">छठी माईया ब्रह्मा की मानस पुत्री हैं। राजा प्रियव्रत का बच्चा मृत जन्मा। छठी देवी ने जीवित किया। तभी से छठ पूजा।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">चार दिन की विधि</div><div class="katha-text"><b>नहाय-खाय:</b> स्नान, सात्विक भोजन।\n<b>खरना:</b> व्रत, रात को खीर-पूड़ी प्रसाद।\n<b>संध्या अर्घ्य:</b> अस्त सूर्य को जल में खड़े अर्घ्य।\n<b>प्रातः अर्घ्य:</b> उगते सूर्य को अर्घ्य।</div></div>',
-    meaning:'<div class="verse-block"><div class="verse-original">अस्त सूर्य को अर्घ्य — दर्शन</div><div class="verse-meaning">ढलते सूर्य को भी प्रणाम = जीवन के हर पड़ाव पर ईश्वर-स्मरण। अन्त भी उतना ही पवित्र है जितना आरम्भ।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 छठ पूजा का उद्देश्य</div><div class="purpose-text">सन्तान की दीर्घायु, प्रकृति के प्रति कृतज्ञता।\n\n<b>लाभ:</b> सन्तान सुख, सूर्य कृपा से आरोग्य, समृद्धि।\n\n<b>बिहार, झारखण्ड, पूर्वी उ.प्र.</b> में सबसे बड़ा पर्व।</div></div>'
-  },
-
-  santoshi_katha: {
-    title:'सन्तोषी माता की कथा',
-    subtitle:'SANTOSHI MATA VRAT KATHA',
-    text:'<span class="doha">॥ सन्तोषी माता व्रत कथा ॥\n(प्रत्येक शुक्रवार)</span>\n\n<div class="katha-section"><div class="katha-section-title">सन्तोषी माता का जन्म</div><div class="katha-text">दीपावली की रात गणेश पुत्र शुभ-लाभ की माँग पर गणेश ने रिद्धि-सिद्धि के तेज से सन्तोषी माता को उत्पन्न किया।</div></div>\n\n<div class="katha-section"><div class="katha-section-title">मुख्य कथा</div><div class="katha-text">एक गरीब स्त्री ने व्रत किया। पति को विदेश में नौकरी मिली। जेठानियों ने व्रत में खटाई डाली। पति पकड़े गये। पुनः व्रत और क्षमा से सब ठीक हुआ।\n\n<b>नियम:</b> सन्तोषी माता के व्रत में खटाई वर्जित।</div></div>',
-    meaning:'<div class="verse-block"><div class="verse-original">सन्तोषी = सन्तोष देने वाली</div><div class="verse-meaning">सच्चा सुख वस्तुओं में नहीं, मन की शान्ति में। यह व्रत सन्तोष का दर्शन सिखाता है।</div></div>',
-    purpose:'<div class="purpose-box"><div class="purpose-title">🙏 सन्तोषी माता व्रत का उद्देश्य</div><div class="purpose-text"><b>विधि:</b> 16 शुक्रवार, सत्तू-गुड़ प्रसाद, खटाई वर्जित, उद्यापन में 8 लड़कों को खीर-पूड़ी।\n\n<b>लाभ:</b> पारिवारिक शान्ति, आर्थिक समस्याओं का हल, मनोकामना पूर्ति।</div></div>'
-  }
-};
-
-/* ── PLAYER STATE ── */
-var audio = null;
-var currentTrackIdx = -1;
-var filteredTracks = TRACKS.slice();
-var isLooping = false;
-var currentFilter = 'all';
-
-/* ── FILTER TRACKS ── */
-function bjFilter(type, btn) {
-  currentFilter = type;
-  var btns = document.querySelectorAll('.bj-fbtn');
-  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('on');
-  btn.classList.add('on');
-  renderTracks();
-}
-
-/* ── RENDER TRACK GRID ── */
-function renderTracks() {
-  filteredTracks = currentFilter === 'all' ? TRACKS.slice() : TRACKS.filter(function(t){ return t.type === currentFilter; });
-  var badgeClass = { chalisa:'badge-chalisa', aarti:'badge-aarti', mantra:'badge-mantra', stotra:'badge-stotra', katha:'badge-chalisa' };
-  var badgeLabel = { chalisa:'चालीसा', aarti:'आरती', mantra:'मंत्र', stotra:'स्तोत्र', katha:'कथा' };
-  var html = '';
-  for (var i = 0; i < filteredTracks.length; i++) {
-    var t = filteredTracks[i];
-    var isPlaying = currentTrackIdx >= 0 && filteredTracks[i].id === (filteredTracks[currentTrackIdx] && filteredTracks[currentTrackIdx].id);
-    var hasText = !!TEXTS[t.textKey];
-    html += '<div class="track-card' + (isPlaying ? ' playing' : '') + '" id="tc-' + t.id + '">' +
-      '<div class="tc-top">' +
-        '<div class="tc-icon">' + t.icon + '</div>' +
-        '<div class="tc-meta">' +
-          '<div class="tc-name-hi">' + t.nameHi + '</div>' +
-          '<div class="tc-name-en">' + t.nameEn + '</div>' +
-          '<div class="tc-deity">देवता: ' + t.deityHi + '</div>' +
-          '<div class="tc-badges"><span class="tc-badge ' + badgeClass[t.type] + '">' + badgeLabel[t.type] + '</span></div>' +
-        '</div>' +
-      '</div>' +
-      '<div class="tc-bottom">' +
-        '<span class="tc-duration">⏱ ' + t.duration + '</span>' +
-        '<div style="display:flex;gap:6px;align-items:center">' +
-          (hasText ? '<button class="read-btn" onclick="openModal(\'' + t.textKey + '\')">📖 पढ़ें</button>' : '') +
-          '<button class="tc-play-btn" onclick="playTrack(' + i + ')">' +
-            (isPlaying ? '<span class="tc-eq"><span></span><span></span><span></span><span></span></span> रोकें' : '▶ बजाएं') +
-          '</button>' +
-        '</div>' +
-      '</div>' +
-    '</div>';
-  }
-  document.getElementById('trackGrid').innerHTML = html;
-}
-
-/* ── PLAY TRACK ── */
-function playTrack(idx) {
-  var track = filteredTracks[idx];
-  if (!track) return;
-
-  // If same track, toggle pause/play
-  if (currentTrackIdx === idx && audio) {
-    if (audio.paused) {
-      audio.play();
-      document.getElementById('playBtn').textContent = '⏸';
-      document.getElementById('playerIcon').classList.remove('paused');
-    } else {
-      audio.pause();
-      document.getElementById('playBtn').textContent = '▶';
-      document.getElementById('playerIcon').classList.add('paused');
-    }
-    renderTracks();
-    return;
-  }
-
-  // Stop existing
-  if (audio) {
-    audio.pause();
-    audio.src = '';
-  }
-
-  currentTrackIdx = idx;
-  audio = new Audio(track.audio);
-  audio.volume = document.querySelector('.vol-slider').value;
-  audio.loop = isLooping;
-
-  audio.addEventListener('timeupdate', updateProgress);
-  audio.addEventListener('ended', function() {
-    if (!isLooping) {
-      document.getElementById('playBtn').textContent = '▶';
-      document.getElementById('playerIcon').classList.add('paused');
-      renderTracks();
-    }
-  });
-  audio.addEventListener('loadedmetadata', function() {
-    document.getElementById('timeDuration').textContent = secToMin(audio.duration);
-  });
-
-  audio.play().catch(function(e) {
-    // Autoplay blocked — show message
-    document.getElementById('playerNameEn').textContent = 'Click ▶ again to start (browser policy)';
-  });
-
-  // Update player bar
-  var badgeLabel = { chalisa:'चालीसा', aarti:'आरती', mantra:'मंत्र', stotra:'स्तोत्र' };
-  document.getElementById('playerBar').classList.add('visible');
-  document.getElementById('playerIcon').textContent = track.icon;
-  document.getElementById('playerIcon').classList.remove('paused');
-  document.getElementById('playerNameHi').textContent = track.nameHi;
-  document.getElementById('playerNameEn').textContent = track.deityHi + ' — ' + track.nameEn;
-  document.getElementById('playerTypeBadge').textContent = badgeLabel[track.type] || track.type;
-  document.getElementById('playBtn').textContent = '⏸';
-  document.getElementById('progressFill').style.width = '0%';
-  document.getElementById('timeElapsed').textContent = '0:00';
-  document.getElementById('timeDuration').textContent = track.duration;
-
-  renderTracks();
-}
-
-function togglePlay() {
-  if (!audio) return;
-  if (audio.paused) {
-    audio.play();
-    document.getElementById('playBtn').textContent = '⏸';
-    document.getElementById('playerIcon').classList.remove('paused');
-  } else {
-    audio.pause();
-    document.getElementById('playBtn').textContent = '▶';
-    document.getElementById('playerIcon').classList.add('paused');
-  }
-  renderTracks();
-}
-
-function playerPrev() {
-  if (filteredTracks.length === 0) return;
-  var newIdx = currentTrackIdx <= 0 ? filteredTracks.length - 1 : currentTrackIdx - 1;
-  playTrack(newIdx);
-}
-
-function playerNext() {
-  if (filteredTracks.length === 0) return;
-  var newIdx = currentTrackIdx >= filteredTracks.length - 1 ? 0 : currentTrackIdx + 1;
-  playTrack(newIdx);
-}
-
-function toggleLoop() {
-  isLooping = !isLooping;
-  if (audio) audio.loop = isLooping;
-  var btn = document.getElementById('loopBtn');
-  if (isLooping) btn.classList.add('on'); else btn.classList.remove('on');
-}
-
-function setVolume(val) {
-  if (audio) audio.volume = parseFloat(val);
-}
-
-function updateProgress() {
-  if (!audio || !audio.duration) return;
-  var pct = (audio.currentTime / audio.duration) * 100;
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('timeElapsed').textContent = secToMin(audio.currentTime);
-}
-
-function seekAudio(e) {
-  if (!audio || !audio.duration) return;
-  var rect = document.getElementById('progressTrack').getBoundingClientRect();
-  var ratio = (e.clientX - rect.left) / rect.width;
-  audio.currentTime = ratio * audio.duration;
-}
-
-function secToMin(s) {
-  s = Math.floor(s || 0);
-  var m = Math.floor(s / 60), sec = s % 60;
-  return m + ':' + (sec < 10 ? '0' : '') + sec;
-}
-
-/* ── MODAL ── */
-function switchModalTab(tab, btn) {
-  var secs = document.querySelectorAll('.modal-section');
-  for (var i = 0; i < secs.length; i++) secs[i].classList.remove('on');
-  var btns = document.querySelectorAll('.modal-tab-btn');
-  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('on');
-  document.getElementById('mSec-' + tab).classList.add('on');
-  btn.classList.add('on');
-}
-
-function openModal(textKey) {
-  var data = TEXTS[textKey];
-  if (!data) return;
-  document.getElementById('modalTitle').textContent = data.title;
-  document.getElementById('modalSubtitle').textContent = data.subtitle;
-  document.getElementById('modalText').innerHTML = data.text || '';
-  document.getElementById('modalMeaning').innerHTML = data.meaning || '<div class="purpose-text" style="text-align:center;padding:20px;color:rgba(253,246,227,.5)">इस ग्रन्थ का विस्तृत अर्थ शीघ्र उपलब्ध होगा।</div>';
-  document.getElementById('modalPurpose').innerHTML = data.purpose || '<div class="purpose-text" style="text-align:center;padding:20px;color:rgba(253,246,227,.5)">महत्व विवरण शीघ्र उपलब्ध होगा।</div>';
-  // reset to text tab
-  var secs = document.querySelectorAll('.modal-section');
-  for (var i = 0; i < secs.length; i++) secs[i].classList.remove('on');
-  document.getElementById('mSec-text').classList.add('on');
-  var btns = document.querySelectorAll('.modal-tab-btn');
-  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('on');
-  btns[0].classList.add('on');
-  document.getElementById('chalisaModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal(e) {
-  if (e.target === document.getElementById('chalisaModal')) closeModalBtn();
-}
-
-function closeModalBtn() {
-  document.getElementById('chalisaModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-/* ══════════════════════════════════════════════════════════
-   BHAGAVAD GITA & FOUR VEDAS — CHAPTER READER
-   ══════════════════════════════════════════════════════════ */
-
-var SCRIPTURES = [
-  {
-    id: 'gita',
-    nameHi: 'श्रीमद्भगवद्गीता',
-    nameEn: 'Bhagavad Gita',
-    icon: '📿',
-    badge: 'badge-gita',
-    badgeTxt: '18 अध्याय',
-    desc: 'कुरुक्षेत्र में श्रीकृष्ण द्वारा अर्जुन को दिया गया दिव्य उपदेश — 700 श्लोक',
-    audioPath: 'audio/gita/',
-    chapters: [
-      { num:1,  hi:'अर्जुन विषाद योग',        en:'Arjuna Vishada Yoga',       shlokas:47, purpose:'कुरुक्षेत्र युद्धभूमि में अर्जुन का मोह और विषाद। यह अध्याय बताता है कि जब हम कर्तव्य के सामने मोहग्रस्त होते हैं तो क्या होता है। प्रयोजन: स्वयं की कमज़ोरी पहचानना।', shlokaData:[
-        {num:'१.१',  text:'धृतराष्ट्र उवाच।\nधर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः।\nमामकाः पाण्डवाश्चैव किमकुर्वत सञ्जय॥', meaning:'धृतराष्ट्र ने कहा — हे सञ्जय! धर्मभूमि कुरुक्षेत्र में एकत्र हुए मेरे और पाण्डवों के पुत्रों ने क्या किया?'},
-        {num:'१.२०', text:'अथ व्यवस्थितान्दृष्ट्वा धार्तराष्ट्रान्कपिध्वजः।\nप्रवृत्ते शस्त्रसम्पाते धनुरुद्यम्य पाण्डवः॥', meaning:'तब कपि-ध्वज अर्जुन ने धृतराष्ट्र के पुत्रों को व्यवस्थित देखकर, जब शस्त्र चलने ही वाले थे, अपना धनुष उठाया।'},
-        {num:'१.४७', text:'एवमुक्त्वार्जुनः सङ्ख्ये रथोपस्थ उपाविशत्।\nविसृज्य सशरं चापं शोकसंविग्नमानसः॥', meaning:'इस प्रकार कहकर अर्जुन युद्धभूमि में अपने रथ पर बैठ गया। उसने बाण सहित धनुष छोड़ दिया, उसका मन शोक से व्याकुल हो गया।'}
-      ]},
-      { num:2,  hi:'साङ्ख्य योग',              en:'Sankhya Yoga',             shlokas:72, purpose:'आत्मा की अमरता और कर्तव्य का ज्ञान। "नैनं छिन्दन्ति शस्त्राणि" — यहाँ आत्मज्ञान का सार है। प्रयोजन: मृत्यु-भय और मोह से मुक्ति।', shlokaData:[
-        {num:'२.१३', text:'देहिनोऽस्मिन्यथा देहे कौमारं यौवनं जरा।\nतथा देहान्तरप्राप्तिर्धीरस्तत्र न मुह्यति॥', meaning:'जैसे इस शरीर में आत्मा बचपन, यौवन और वृद्धावस्था से गुज़रती है, वैसे ही मृत्यु के बाद दूसरे शरीर में जाती है। धैर्यवान व्यक्ति इस पर मोह नहीं करता।'},
-        {num:'२.१९', text:'य एनं वेत्ति हन्तारं यश्चैनं मन्यते हतम्।\nउभौ तौ न विजानीतो नायं हन्ति न हन्यते॥', meaning:'जो इसे (आत्मा को) मारने वाला समझता है और जो इसे मरा हुआ मानता है, दोनों नहीं जानते। यह न मारती है, न मारी जाती है।'},
-        {num:'२.४७', text:'कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥', meaning:'तेरा अधिकार केवल कर्म करने में है, फल में कभी नहीं। कर्म के फल का कारण मत बन और अकर्म में भी आसक्त मत हो। (गीता का सबसे प्रसिद्ध श्लोक)'}
-      ]},
-      { num:3,  hi:'कर्म योग',                en:'Karma Yoga',               shlokas:43, purpose:'निष्काम कर्म — फल की आसक्ति छोड़कर कर्म करना। समाज के लिए यज्ञ भाव से कार्य करना। प्रयोजन: सांसारिक जीवन में धर्मपालन।', shlokaData:[
-        {num:'३.१९', text:'तस्मादसक्तः सततं कार्यं कर्म समाचर।\nअसक्तो ह्याचरन्कर्म परमाप्नोति पूरुषः॥', meaning:'इसलिए आसक्ति रहित होकर सदा कर्तव्य कर्म करते रहो। आसक्ति रहित होकर कर्म करने वाला मनुष्य परमात्मा को प्राप्त होता है।'},
-        {num:'३.२७', text:'प्रकृतेः क्रियमाणानि गुणैः कर्माणि सर्वशः।\nअहङ्कारविमूढात्मा कर्ताहमिति मन्यते॥', meaning:'प्रकृति के गुणों द्वारा सभी कर्म होते हैं, परन्तु अहंकार से मोहित मनुष्य "मैं करता हूँ" ऐसा मान लेता है।'}
-      ]},
-      { num:4,  hi:'ज्ञान कर्म संन्यास योग', en:'Jnana Karma Sannyas Yoga',  shlokas:42, purpose:'ज्ञान यज्ञ — भगवान के अवतार का रहस्य और ज्ञान की महिमा। "यदा यदा हि धर्मस्य" यहाँ है। प्रयोजन: ज्ञान द्वारा मुक्ति।', shlokaData:[
-        {num:'४.७', text:'यदा यदा हि धर्मस्य ग्लानिर्भवति भारत।\nअभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्॥', meaning:'हे भारत! जब-जब धर्म की हानि और अधर्म का उत्थान होता है, तब-तब मैं स्वयं को प्रकट करता हूँ।'},
-        {num:'४.८', text:'परित्राणाय साधूनां विनाशाय च दुष्कृताम्।\nधर्मसंस्थापनार्थाय सम्भवामि युगे युगे॥', meaning:'साधुओं की रक्षा के लिए, दुष्टों के विनाश के लिए और धर्म की स्थापना के लिए मैं युग-युग में जन्म लेता हूँ।'}
-      ]},
-      { num:5,  hi:'कर्म संन्यास योग',        en:'Karma Sannyas Yoga',       shlokas:29, purpose:'कर्म और संन्यास दोनों मोक्ष के मार्ग हैं, पर कर्म योग श्रेष्ठ है। प्रयोजन: सांसारिक जीवन में ही संन्यास।', shlokaData:[
-        {num:'५.१०', text:'ब्रह्मण्याधाय कर्माणि सङ्गं त्यक्त्वा करोति यः।\nलिप्यते न स पापेन पद्मपत्रमिवाम्भसा॥', meaning:'जो व्यक्ति आसक्ति छोड़कर परमात्मा को समर्पित होकर कर्म करता है, वह पाप से नहीं लिपता — जैसे कमल का पत्ता जल में रहकर भी गीला नहीं होता।'}
-      ]},
-      { num:6,  hi:'ध्यान योग',               en:'Dhyana Yoga',              shlokas:47, purpose:'ध्यान और मन को वश में करने का विज्ञान। "मन के हारे हार है, मन के जीते जीत।" प्रयोजन: मानसिक शान्ति और एकाग्रता।', shlokaData:[
-        {num:'६.५',  text:'उद्धरेदात्मनात्मानं नात्मानमवसादयेत्।\nआत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः॥', meaning:'मनुष्य को स्वयं अपना उद्धार करना चाहिए, अपना पतन नहीं करना चाहिए। आत्मा ही अपनी मित्र है और आत्मा ही अपनी शत्रु है।'},
-        {num:'६.३५', text:'श्रीभगवानुवाच।\nअसंशयं महाबाहो मनो दुर्निग्रहं चलम्।\nअभ्यासेन तु कौन्तेय वैराग्येण च गृह्यते॥', meaning:'भगवान बोले — हे महाबाहो! निःसन्देह मन चञ्चल और कठिनाई से वश में होने वाला है। परन्तु हे कुन्तीपुत्र! अभ्यास और वैराग्य से यह वश में हो जाता है।'}
-      ]},
-      { num:7,  hi:'ज्ञान विज्ञान योग',      en:'Jnana Vijnana Yoga',       shlokas:30, purpose:'भगवान का पूर्ण ज्ञान और उनकी माया। "मनुष्याणां सहस्रेषु" — हज़ारों में कोई एक मुझे जानता है। प्रयोजन: ईश्वर के स्वरूप को समझना।', shlokaData:[
-        {num:'७.१९', text:'बहूनां जन्मनामन्ते ज्ञानवान्मां प्रपद्यते।\nवासुदेवः सर्वमिति स महात्मा सुदुर्लभः॥', meaning:'अनेक जन्मों के अन्त में ज्ञानवान मुझे प्राप्त होता है। "वासुदेव ही सब कुछ है" — ऐसा मानने वाला महात्मा अत्यन्त दुर्लभ है।'}
-      ]},
-      { num:8,  hi:'अक्षर ब्रह्म योग',        en:'Akshara Brahma Yoga',      shlokas:28, purpose:'मृत्यु के समय परमात्मा का स्मरण और विभिन्न लोकों का ज्ञान। "अन्त काले च मामेव" — अन्त में मेरा स्मरण करो। प्रयोजन: मृत्यु के बाद की यात्रा का ज्ञान।', shlokaData:[
-        {num:'८.५', text:'अन्तकाले च मामेव स्मरन्मुक्त्वा कलेवरम्।\nयः प्रयाति स मद्भावं याति नास्त्यत्र संशयः॥', meaning:'जो अन्त समय में मेरा स्मरण करते हुए शरीर छोड़ता है, वह मेरे भाव को प्राप्त होता है — इसमें कोई संशय नहीं।'}
-      ]},
-      { num:9,  hi:'राज विद्या राज गुह्य योग',en:'Raja Vidya Raja Guhya Yoga',shlokas:34, purpose:'सबसे गोपनीय ज्ञान — भक्ति योग। "अनन्याश्चिन्तयन्तो माम्" — मेरा ध्यान करने वाले का मैं योग और क्षेम करता हूँ। प्रयोजन: भक्ति का सर्वोच्च रूप।', shlokaData:[
-        {num:'९.२२', text:'अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते।\nतेषां नित्याभियुक्तानां योगक्षेमं वहाम्यहम्॥', meaning:'जो भक्त अनन्य भाव से मेरा चिन्तन करते हुए उपासना करते हैं, उन नित्य-युक्त भक्तों का योग (अप्राप्त की प्राप्ति) और क्षेम (प्राप्त की रक्षा) मैं स्वयं करता हूँ।'}
-      ]},
-      { num:10, hi:'विभूति योग',              en:'Vibhuti Yoga',             shlokas:42, purpose:'भगवान की विभूतियाँ — वे सृष्टि में कहाँ-कहाँ हैं। "अहमात्मा गुडाकेश सर्वभूताशयस्थितः।" प्रयोजन: सर्वत्र ईश्वर को देखना।', shlokaData:[
-        {num:'१०.२०', text:'अहमात्मा गुडाकेश सर्वभूताशयस्थितः।\nअहमादिश्च मध्यं च भूतानामन्त एव च॥', meaning:'हे गुडाकेश (अर्जुन)! मैं सभी प्राणियों के हृदय में स्थित आत्मा हूँ। मैं ही सब प्राणियों का आदि, मध्य और अन्त हूँ।'},
-        {num:'१०.४१', text:'यद्यद्विभूतिमत्सत्त्वं श्रीमदूर्जितमेव वा।\nतत्तदेवावगच्छ त्वं मम तेजोंऽशसम्भवम्॥', meaning:'जो भी विभूतिशाली, श्रीमान् और ऊर्जावान वस्तु है — उसे तुम मेरे तेज के एक अंश से उत्पन्न जानो।'}
-      ]},
-      { num:11, hi:'विश्वरूप दर्शन योग',      en:'Vishwarupa Darshana Yoga',  shlokas:55, purpose:'भगवान का विराट विश्वरूप दर्शन — अर्जुन को दिव्य चक्षु दिये गये। "कालोऽस्मि लोकक्षयकृत्प्रवृद्धो" — काल हूँ मैं। प्रयोजन: ईश्वर के असीम स्वरूप की अनुभूति।', shlokaData:[
-        {num:'११.३२', text:'श्रीभगवानुवाच।\nकालोऽस्मि लोकक्षयकृत्प्रवृद्धो,\nलोकान्समाहर्तुमिह प्रवृत्तः।\nऋतेऽपि त्वां न भविष्यन्ति सर्वे,\nयेऽवस्थिताः प्रत्यनीकेषु योधाः॥', meaning:'भगवान बोले — मैं काल हूँ, लोकों को नष्ट करने वाला, बढ़ा हुआ। इस समय लोकों का संहार करने में प्रवृत्त हूँ। तुम्हारे बिना भी ये सब योद्धा नहीं रहेंगे।'}
-      ]},
-      { num:12, hi:'भक्ति योग',               en:'Bhakti Yoga',              shlokas:20, purpose:'भक्ति का सर्वश्रेष्ठ मार्ग। "मय्यावेश्य मनो ये माम्" — जो मुझमें मन लगाते हैं वे श्रेष्ठ योगी हैं। प्रयोजन: भक्त का स्वरूप और परमात्मा को प्रिय भक्त।', shlokaData:[
-        {num:'१२.१३', text:'अद्वेष्टा सर्वभूतानां मैत्रः करुण एव च।\nनिर्ममो निरहङ्कारः समदुःखसुखः क्षमी॥', meaning:'जो सब प्राणियों से द्वेष नहीं करता, मित्र और करुणालु है, ममता-अहंकार रहित है, सुख-दुःख में समान रहता है, क्षमाशील है — वह मुझे प्रिय है।'}
-      ]},
-      { num:13, hi:'क्षेत्र क्षेत्रज्ञ विभाग योग', en:'Kshetra Kshetrajna Vibhaga Yoga', shlokas:35, purpose:'शरीर (क्षेत्र) और आत्मा (क्षेत्रज्ञ) का ज्ञान। सांख्य दर्शन का सार। प्रयोजन: देह और आत्मा के भेद को समझना।', shlokaData:[
-        {num:'१३.२', text:'क्षेत्रज्ञं चापि मां विद्धि सर्वक्षेत्रेषु भारत।\nक्षेत्रक्षेत्रज्ञयोर्ज्ञानं यत्तज्ज्ञानं मतं मम॥', meaning:'हे भारत! सभी क्षेत्रों (शरीरों) में क्षेत्रज्ञ (आत्मा) भी मुझे ही जानो। क्षेत्र और क्षेत्रज्ञ का ज्ञान ही वास्तविक ज्ञान है — ऐसा मेरा मत है।'}
-      ]},
-      { num:14, hi:'गुणत्रय विभाग योग',       en:'Gunatraya Vibhaga Yoga',    shlokas:27, purpose:'तीन गुण — सत्व, रज, तम। इनसे मुक्ति ही मोक्ष है। प्रयोजन: अपने स्वभाव को पहचानना और गुणातीत होना।', shlokaData:[
-        {num:'१४.५', text:'सत्त्वं रजस्तम इति गुणाः प्रकृतिसम्भवाः।\nनिबध्नन्ति महाबाहो देहे देहिनमव्ययम्॥', meaning:'हे महाबाहो! सत्व, रज और तम — ये प्रकृति से उत्पन्न तीन गुण अविनाशी आत्मा को शरीर में बाँधते हैं।'}
-      ]},
-      { num:15, hi:'पुरुषोत्तम प्राप्ति योग', en:'Purushottama Prapti Yoga',   shlokas:20, purpose:'संसार रूपी अश्वत्थ वृक्ष का ज्ञान और परम पुरुष (परमात्मा) की प्राप्ति। प्रयोजन: संसार से विरक्ति और परमात्मा में प्रतिष्ठा।', shlokaData:[
-        {num:'१५.१५', text:'सर्वस्य चाहं हृदि सन्निविष्टो\nमत्तः स्मृतिर्ज्ञानमपोहनं च।\nवेदैश्च सर्वैरहमेव वेद्यो\nवेदान्तकृद्वेदविदेव चाहम्॥', meaning:'मैं सभी प्राणियों के हृदय में स्थित हूँ। मुझसे ही स्मृति, ज्ञान और विस्मरण होता है। सभी वेदों द्वारा मैं ही जानने योग्य हूँ। वेदान्त का रचयिता और वेद का ज्ञाता भी मैं ही हूँ।'}
-      ]},
-      { num:16, hi:'दैवासुर सम्पद् विभाग योग', en:'Daivasura Sampad Vibhaga Yoga', shlokas:24, purpose:'दैवी और आसुरी सम्पत्ति का विभाजन। सद्गुण बनाम दुर्गुण। प्रयोजन: अपने चरित्र का निर्माण करना।', shlokaData:[
-        {num:'१६.१', text:'अभयं सत्त्वसंशुद्धिर्ज्ञानयोगव्यवस्थितिः।\nदानं दमश्च यज्ञश्च स्वाध्यायस्तप आर्जवम्॥', meaning:'निर्भयता, अन्तःकरण की पवित्रता, ज्ञानयोग में स्थिरता, दान, इन्द्रिय-संयम, यज्ञ, स्वाध्याय, तप और सरलता — ये दैवी सम्पदा वाले के गुण हैं।'}
-      ]},
-      { num:17, hi:'श्रद्धात्रय विभाग योग',   en:'Shradhatraya Vibhaga Yoga', shlokas:28, purpose:'श्रद्धा के तीन प्रकार। भोजन, यज्ञ, तप और दान के तीन-तीन प्रकार। प्रयोजन: सात्विक जीवनशैली अपनाना।', shlokaData:[
-        {num:'१७.३', text:'सत्त्वानुरूपा सर्वस्य श्रद्धा भवति भारत।\nश्रद्धामयोऽयं पुरुषो यो यच्छ्रद्धः स एव सः॥', meaning:'हे भारत! प्रत्येक व्यक्ति की श्रद्धा उसके स्वभाव के अनुसार होती है। यह पुरुष श्रद्धामय है — जैसी जिसकी श्रद्धा है, वह वैसा ही है।'}
-      ]},
-      { num:18, hi:'मोक्ष संन्यास योग',        en:'Moksha Sannyas Yoga',       shlokas:78, purpose:'गीता का सार — सम्पूर्ण धर्म छोड़कर मेरी शरण आओ। "सर्वधर्मान्परित्यज्य" — अन्तिम और सर्वोच्च उपदेश।', shlokaData:[
-        {num:'१८.६३', text:'इति ते ज्ञानमाख्यातं गुह्याद्गुह्यतरं मया।\nविमृश्यैतदशेषेण यथेच्छसि तथा कुरु॥', meaning:'इस प्रकार मैंने तुम्हें गोपनीय से भी अधिक गोपनीय ज्ञान बताया। अब इसे पूरी तरह सोच-विचारकर जैसी तुम्हारी इच्छा हो वैसा करो।'},
-        {num:'१८.६५', text:'मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु।\nमामेवैष्यसि सत्यं ते प्रतिजाने प्रियोऽसि मे॥', meaning:'मुझमें मन लगाओ, मेरे भक्त बनो, मेरी पूजा करो, मुझे प्रणाम करो। ऐसा करने से तुम मुझे ही प्राप्त होगे — यह मेरी सच्ची प्रतिज्ञा है, क्योंकि तुम मुझे प्रिय हो।'},
-        {num:'१८.६६', text:'सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज।\nअहं त्वां सर्वपापेभ्यो मोक्षयिष्यामि मा शुचः॥', meaning:'सभी धर्मों को त्यागकर केवल मेरी शरण में आ जाओ। मैं तुम्हें सभी पापों से मुक्त कर दूँगा — शोक मत करो। (गीता का चरम श्लोक — गीता-सार)'}
-      ]}
-    ]
-  },
-  {
-    id: 'rigveda',
-    nameHi: 'ऋग्वेद',
-    nameEn: 'Rigveda',
-    icon: '📿',
-    badge: 'badge-veda',
-    badgeTxt: '10 मण्डल',
-    desc: 'सबसे प्राचीन वेद — देवताओं की स्तुति के 1028 सूक्त, 10,552 मंत्र',
-    audioPath: 'audio/rigveda/',
-    chapters: [
-      { num:1, hi:'प्रथम मण्डल — अग्नि देव', en:'Mandala 1 — Agni', shlokas:191, purpose:'अग्नि देव की स्तुति। अग्नि यज्ञ, ज्ञान और पवित्रता के प्रतीक हैं। ऋग्वेद का प्रथम मंत्र अग्नि की स्तुति से आरम्भ होता है।', shlokaData:[
-        {num:'१.१.१', text:'अग्निमीळे पुरोहितं यज्ञस्य देवमृत्विजम्।\nहोतारं रत्नधातमम्॥', meaning:'मैं अग्नि की स्तुति करता हूँ जो यज्ञ के पुरोहित, देव, ऋत्विज और होता हैं — जो रत्नों के दाता हैं। (ऋग्वेद का प्रथम मंत्र)'},
-        {num:'१.१.२', text:'अग्निः पूर्वेभिर्ऋषिभिरीड्यो नूतनैरुत।\nस देवाँ एह वक्षति॥', meaning:'अग्नि पूर्व के और नए ऋषियों द्वारा वन्दनीय हैं। वे देवताओं को यहाँ ले आते हैं।'}
-      ]},
-      { num:2, hi:'द्वितीय मण्डल — इन्द्र देव', en:'Mandala 2 — Indra', shlokas:43, purpose:'इन्द्र वर्षा और शक्ति के देवता। इन्द्र ने वृत्र असुर को मारकर जल मुक्त किया — कृषि और जीवन का प्रतीक।', shlokaData:[
-        {num:'२.१२.१', text:'यो जात एव प्रथमो मनस्वान्देवो देवान्क्रतुना पर्यभूषत्।\nयस्य शुष्माद्रोदसी अभ्यसेतां नृम्णस्य महा स जनास इन्द्रः॥', meaning:'जो जन्मते ही मनस्वी और श्रेष्ठ थे, जिन्होंने देवताओं को सुशोभित किया, जिनके बल से आकाश-पृथ्वी डोल उठे — वह महान पुरुष इन्द्र हैं।'}
-      ]},
-      { num:3, hi:'तृतीय मण्डल — गायत्री एवं विश्वामित्र', en:'Mandala 3 — Gayatri', shlokas:62, purpose:'विश्वामित्र ऋषि के मंत्र। इसी मण्डल में प्रसिद्ध गायत्री मंत्र (३.६२.१०) है — विश्व का सर्वाधिक जप किया जाने वाला मंत्र।', shlokaData:[
-        {num:'३.६२.१०', text:'तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि।\nधियो यो नः प्रचोदयात्॥', meaning:'उस देव सविता के वरणीय तेज का हम ध्यान करते हैं। वे हमारी बुद्धि को प्रेरित करें। (गायत्री मंत्र — विश्व का सर्वाधिक जप मंत्र)'}
-      ]},
-      { num:7, hi:'सप्तम मण्डल — वसिष्ठ', en:'Mandala 7 — Vasishtha', shlokas:104, purpose:'वसिष्ठ ऋषि के मंत्र। सप्तम मण्डल में नदी स्तुति, मित्र-वरुण, आदित्यों की स्तुति है। प्रयोजन: प्रकृति देवताओं की उपासना।', shlokaData:[
-        {num:'७.४९.१', text:'समुद्रज्येष्ठाः सलिलस्य मध्यात् पुनाना यन्त्यनिविशमानाः।\nइन्द्रो या वज्री वृषभो रराद ता आपो देवीरिह मामवन्तु॥', meaning:'समुद्र में प्रधान, जल के मध्य से पवित्र होकर बहती हुई — जिन नदियों को इन्द्र ने वज्र से मुक्त किया — वे दिव्य जलदेवियाँ यहाँ मेरी रक्षा करें।'}
-      ]},
-      { num:10, hi:'दशम मण्डल — पुरुष सूक्त', en:'Mandala 10 — Purusha Sukta', shlokas:191, purpose:'पुरुष सूक्त (१०.९०) — सृष्टि की उत्पत्ति का वर्णन। नासदीय सूक्त (१०.१२९) — सृष्टि से पहले क्या था। प्रयोजन: ब्रह्माण्ड की उत्पत्ति का दर्शन।', shlokaData:[
-        {num:'१०.९०.१', text:'सहस्रशीर्षा पुरुषः सहस्राक्षः सहस्रपात्।\nस भूमिं विश्वतो वृत्वात्यतिष्ठद्दशाङ्गुलम्॥', meaning:'पुरुष (विराट परमात्मा) के हज़ार सिर, हज़ार आँखें और हज़ार पाँव हैं। उन्होंने पृथ्वी को चारों ओर से घेरकर दस अंगुल और ऊपर स्थित हैं।'},
-        {num:'१०.१२९.१', text:'नासदासीन्नो सदासीत्तदानीं नासीद्रजो नो व्योमा परो यत्।\nकिमावरीवः कुह कस्य शर्मन्नम्भः किमासीद्गहनं गभीरम्॥', meaning:'उस समय न असत् था, न सत् था। न आकाश था, न आकाश से परे कुछ था। क्या ढका हुआ था? कहाँ? किसकी शरण में? क्या गहरा जल था? (सृष्टि-पूर्व का प्रश्न — नासदीय सूक्त)'}
-      ]}
-    ]
-  },
-  {
-    id: 'samaveda',
-    nameHi: 'सामवेद',
-    nameEn: 'Samaveda',
-    icon: '📿',
-    badge: 'badge-veda',
-    badgeTxt: '2 भाग',
-    desc: 'संगीत वेद — यज्ञ में गाये जाने वाले मंत्र। 1875 मंत्र। भगवान कृष्ण ने गीता में कहा — "वेदानां सामवेदोऽस्मि"',
-    audioPath: 'audio/samaveda/',
-    chapters: [
-      { num:1, hi:'पूर्वार्चिक — देवस्तुति', en:'Purvarchika — Deva Stuti', shlokas:585, purpose:'सामवेद का प्रथम भाग। यज्ञ में गाये जाने वाले मंत्र। अग्नि, इन्द्र, सोम की स्तुति। भगवान कृष्ण ने गीता में कहा — "वेदानां सामवेदोऽस्मि" — वेदों में मैं सामवेद हूँ।', shlokaData:[
-        {num:'१.१', text:'अग्न आ याहि वीतये गृणानो हव्यदातये।\nनि होता सत्सि बर्हिषि॥', meaning:'हे अग्नि! प्रसन्न होकर यज्ञ के लिए आइये, हवि ग्रहण करने के लिए। होता बनकर बर्हि पर विराजिये। (सामवेद का प्रथम मंत्र — यह गाया जाता था)'}
-      ]},
-      { num:2, hi:'उत्तरार्चिक — सोम स्तुति', en:'Uttararchika — Soma Stuti', shlokas:1225, purpose:'सोम देव — चन्द्रमा और यज्ञीय रस के देव। सोम की स्तुति से आनन्द, स्वास्थ्य और दीर्घायु मिलती है। उत्तरार्चिक में मृत्युञ्जय जैसे महत्वपूर्ण मंत्र हैं।', shlokaData:[
-        {num:'२.१', text:'इन्द्र इद्धर्योः सचा संमिश्ल आ वचोयुजा।\nइन्द्रो वज्री हिरण्ययः॥', meaning:'इन्द्र ही दोनों घोड़ों के साथ, वाणी से जोड़े हुए, मिले हुए हैं। इन्द्र वज्रधारी और हिरण्यमय हैं।'}
-      ]}
-    ]
-  },
-  {
-    id: 'yajurveda',
-    nameHi: 'यजुर्वेद',
-    nameEn: 'Yajurveda',
-    icon: '📿',
-    badge: 'badge-veda',
-    badgeTxt: '40 अध्याय',
-    desc: 'यज्ञ विधान वेद — यज्ञ कर्मकाण्ड के मंत्र। शुक्ल और कृष्ण दो रूप। शिवसंकल्प सूक्त यहाँ है।',
-    audioPath: 'audio/yajurveda/',
-    chapters: [
-      { num:1, hi:'प्रथम अध्याय — यज्ञ आरम्भ', en:'Chapter 1 — Yajna Initiation', shlokas:30, purpose:'यज्ञ के आरम्भ के मंत्र। पवित्रता, संकल्प और देव-आह्वान। प्रयोजन: हर शुभ कार्य का संकल्पपूर्वक आरम्भ।', shlokaData:[
-        {num:'१.१', text:'इषे त्वोर्जे त्वा वायवस्थ देवो वः सविता प्रार्पयतु।\nश्रेष्ठतमाय कर्मणे॥', meaning:'अन्न और बल के लिए मैं तुम्हें नियुक्त करता हूँ। वायु को तुम उपस्थित करो। देव सविता श्रेष्ठतम कर्म के लिए तुम्हें प्रेरित करें।'},
-        {num:'३६.१७', text:'यो भूतं च भव्यं च सर्वं यश्चाधितिष्ठति।\nस्वार्यस्य च केवलं तस्मै ज्येष्ठाय ब्रह्मणे नमः॥', meaning:'जो भूत और भविष्य सब कुछ का अधिष्ठाता है, जो स्व-प्रकाशमान है — उस ज्येष्ठ ब्रह्म को नमस्कार।'}
-      ]},
-      { num:34, hi:'चौंतीसवाँ अध्याय — शिव संकल्प सूक्त', en:'Chapter 34 — Shiva Sankalpa Sukta', shlokas:6, purpose:'शिव संकल्प सूक्त — मन को शुभ संकल्प की ओर ले जाने वाले 6 मंत्र। प्रत्येक मंत्र के अन्त में "तन्मे मनः शिवसंकल्पमस्तु" — मेरा मन शुभ संकल्प वाला हो।', shlokaData:[
-        {num:'३४.१', text:'येनेदं भूतं भुवनं भविष्यत्परिगृहीतममृतेन सर्वम्।\nयेन यज्ञस्तायते सप्तहोता तन्मे मनः शिवसंकल्पमस्तु॥', meaning:'जिस मन से यह सम्पूर्ण भूत, भविष्य और वर्तमान अमृत द्वारा धारण किया जाता है, जिससे सात होताओं वाला यज्ञ विस्तृत होता है — वह मेरा मन शुभ संकल्प वाला हो।'},
-        {num:'३४.६', text:'सुषारथिरश्वानिव यन्मनुष्यान्नेनीयतेऽभीशुभिर्वाजिन इव।\nहृत्प्रतिष्ठं यदजिरं जविष्ठं तन्मे मनः शिवसंकल्पमस्तु॥', meaning:'जो मन कुशल सारथि की तरह घोड़ों को लगाम से चलाता है, जो हृदय में प्रतिष्ठित है, अजर है, अत्यन्त वेगवान है — वह मेरा मन शुभ संकल्प वाला हो।'}
-      ]},
-      { num:40, hi:'चालीसवाँ अध्याय — ईशावास्योपनिषद', en:'Chapter 40 — Ishopanishad', shlokas:18, purpose:'ईशावास्योपनिषद् — यजुर्वेद का 40वाँ अध्याय। "ईशावास्यमिदं सर्वम्" — सब कुछ में ईश्वर व्याप्त है। यह उपनिषदों में सबसे छोटी और सबसे गहरी है।', shlokaData:[
-        {num:'४०.१', text:'ईशावास्यमिदं सर्वं यत्किञ्च जगत्यां जगत्।\nतेन त्यक्तेन भुञ्जीथा मा गृधः कस्यस्विद्धनम्॥', meaning:'इस जगत में जो कुछ भी है, वह सब ईश्वर से व्याप्त है। उसे त्याग भाव से भोगो। किसी के धन का लालच मत करो। (ईशावास्योपनिषद् का प्रथम मंत्र)'},
-        {num:'४०.२', text:'कुर्वन्नेवेह कर्माणि जिजीविषेच्छतं समाः।\nएवं त्वयि नान्यथेतोऽस्ति न कर्म लिप्यते नरे॥', meaning:'यहाँ कर्म करते हुए ही सौ वर्ष जीने की इच्छा करो। इस प्रकार तुम पर कर्म नहीं लगेगा — इससे अन्यथा नहीं है।'}
-      ]}
-    ]
-  },
-  {
-    id: 'atharvaveda',
-    nameHi: 'अथर्ववेद',
-    nameEn: 'Atharvaveda',
-    icon: '📿',
-    badge: 'badge-veda',
-    badgeTxt: '20 काण्ड',
-    desc: 'जीवन विज्ञान वेद — आयुर्वेद, गृहस्थ जीवन, राष्ट्र निर्माण के मंत्र। 5977 मंत्र। भूमि सूक्त यहाँ है।',
-    audioPath: 'audio/atharvaveda/',
-    chapters: [
-      { num:1, hi:'प्रथम काण्ड — आयुर्वेद मंत्र', en:'Kanda 1 — Ayurveda Mantras', shlokas:35, purpose:'रोग निवारण, आरोग्य और दीर्घायु के मंत्र। अथर्ववेद आयुर्वेद का मूल स्रोत है। प्रयोजन: स्वास्थ्य और नीरोगता।', shlokaData:[
-        {num:'१.१.१', text:'ये त्रिषप्ताः परियन्ति विश्वा रूपाणि बिभ्रतः।\nवाचस्पतिर्बला तेषां तन्वो अद्य दधातु मे॥', meaning:'जो तीन सात (21) दिव्यशक्तियाँ विश्व के सभी रूप धारण करती हुई परिक्रमा करती हैं, वाक् के स्वामी उनका बल आज मेरे शरीर में स्थापित करें।'}
-      ]},
-      { num:6, hi:'षष्ठ काण्ड — गृहस्थ जीवन', en:'Kanda 6 — Grihastha Dharma', shlokas:142, purpose:'विवाह, परिवार, सम्पत्ति और गृहस्थाश्रम के मंत्र। जीवन के व्यावहारिक पक्ष पर। प्रयोजन: सुखी पारिवारिक जीवन।', shlokaData:[
-        {num:'६.१', text:'अनुव्रता पत्युरस्याः स्याद्या नारी पतिव्रता।\nपुत्रान् पुत्रेषु पश्यन्ती सखिव संविदानाः॥', meaning:'यह नारी पति की अनुव्रता (अनुगामिनी) हो और पतिव्रता हो। पुत्रों और पौत्रों को देखती हुई पति के साथ मित्रवत् रहे।'}
-      ]},
-      { num:12, hi:'द्वादश काण्ड — भूमि सूक्त', en:'Kanda 12 — Bhoomi Sukta', shlokas:57, purpose:'भूमि सूक्त (१२.१) — "माता भूमिः पुत्रोऽहं पृथिव्याः" — पृथ्वी माता है, हम उसके पुत्र हैं। पर्यावरण-चेतना का प्राचीनतम दस्तावेज़।', shlokaData:[
-        {num:'१२.१.१', text:'सत्यं बृहदृतमुग्रं दीक्षा तपो ब्रह्म यज्ञः पृथिवीं धारयन्ति।\nसा नो भूतस्य भव्यस्य पत्न्युरुं लोकं पृथिवी नः कृणोतु॥', meaning:'सत्य, ऋत, दीक्षा, तप, ब्रह्म और यज्ञ — ये पृथ्वी को धारण करते हैं। वह पृथ्वी जो भूत और भविष्य की स्वामिनी है, हमें विशाल लोक प्रदान करे।'},
-        {num:'१२.१.१२', text:'माता भूमिः पुत्रोऽहं पृथिव्याः।\nपर्जन्यः पिता स उ नः पिपर्तु॥', meaning:'पृथ्वी माता है, मैं पृथ्वी का पुत्र हूँ। पर्जन्य (वर्षा देव) पिता हैं, वे हमारा पोषण करें। (पर्यावरण-चेतना का सबसे प्राचीन उद्घोष)'}
-      ]},
-      { num:19, hi:'उन्नीसवाँ काण्ड — राष्ट्र धर्म', en:'Kanda 19 — Rashtra Dharma', shlokas:72, purpose:'राष्ट्र, राजधर्म और सामाजिक व्यवस्था के मंत्र। "संगच्छध्वं संवदध्वं" — मिलकर चलो, मिलकर बोलो। राष्ट्रीय एकता का मंत्र।', shlokaData:[
-        {num:'७.५२.१', text:'संगच्छध्वं संवदध्वं सं वो मनांसि जानताम्।\nदेवा भागं यथा पूर्वे सञ्जानाना उपासते॥', meaning:'मिलकर चलो, मिलकर बात करो, तुम्हारे मन एक-दूसरे को जानें। जैसे पूर्व के देवता एकमत होकर अपने भाग को स्वीकार करते थे। (राष्ट्रीय एकता मंत्र)'}
-      ]}
-    ]
-  }
-];
-
-var currentScripture = null;
-var currentChapter = null;
-var scriptureAudioEl = null;
-
-function renderGVGrid() {
-  var html = '';
-  for (var i = 0; i < SCRIPTURES.length; i++) {
-    var s = SCRIPTURES[i];
-    html += '<div class="gv-card" onclick="openScripture(' + i + ')">' +
-      '<div class="gv-icon">' + s.icon + '</div>' +
-      '<div class="gv-name-hi">' + s.nameHi + '</div>' +
-      '<div class="gv-name-en">' + s.nameEn + '</div>' +
-      '<div class="gv-desc">' + s.desc + '</div>' +
-      '<span class="gv-badge ' + s.badge + '">' + s.badgeTxt + '</span>' +
-    '</div>';
-  }
-  document.getElementById('gvGrid').innerHTML = html;
-}
-
-function openScripture(idx) {
-  currentScripture = SCRIPTURES[idx];
-  currentChapter = null;
-  document.getElementById('gvMain').style.display = 'none';
-  document.getElementById('gvReader').style.display = 'block';
-  document.getElementById('readerTitle').textContent = currentScripture.nameHi + ' — ' + currentScripture.nameEn;
-  // Build chapter grid
-  var chs = currentScripture.chapters;
-  var html = '';
-  for (var i = 0; i < chs.length; i++) {
-    var c = chs[i];
-    html += '<div class="ch-btn" id="chBtn' + i + '" onclick="openChapter(' + i + ')">' +
-      '<div class="ch-btn-num">अध्याय ' + c.num + '</div>' +
-      '<div class="ch-btn-hi">' + c.hi.substring(0, 14) + (c.hi.length > 14 ? '…' : '') + '</div>' +
-    '</div>';
-  }
-  document.getElementById('chapterGrid').innerHTML = html;
-  document.getElementById('chContent').style.display = 'none';
-}
-
-function openChapter(idx) {
-  // Highlight selected chapter button
-  var btns = document.querySelectorAll('.ch-btn');
-  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('on');
-  document.getElementById('chBtn' + idx).classList.add('on');
-
-  currentChapter = currentScripture.chapters[idx];
-  var c = currentChapter;
-  // Build shloka blocks
-  var shlokaHtml = '';
-  if (c.shlokaData && c.shlokaData.length > 0) {
-    for (var i = 0; i < c.shlokaData.length; i++) {
-      var sh = c.shlokaData[i];
-      shlokaHtml += '<div class="shloka-block">' +
-        '<div class="shloka-num">श्लोक ' + sh.num + '</div>' +
-        '<div class="shloka-text">' + sh.text.replace(/\n/g, '<br>') + '</div>' +
-        '<div class="shloka-meaning">' + sh.meaning + '</div>' +
-      '</div>';
-    }
-    if (c.shlokas > c.shlokaData.length) {
-      shlokaHtml += '<div style="text-align:center;padding:14px;font-size:.8rem;color:rgba(253,246,227,.4);font-family:\'Tiro Devanagari Sanskrit\',serif;">… इस अध्याय के शेष ' + (c.shlokas - c.shlokaData.length) + ' श्लोक पूर्ण संस्करण में उपलब्ध हैं।<br><span style="font-size:.7rem">Full text available in printed editions and vedabase.io</span></div>';
-    }
-  }
-  var html = '<div class="ch-content-title">' + c.hi + '</div>' +
-    '<div class="ch-content-sub">' + c.en.toUpperCase() + ' · ' + c.shlokas + ' SHLOKAS / MANTRAS</div>' +
-    '<div class="ch-purpose"><span class="ch-purpose-lbl">🙏 प्रयोजन | Purpose</span>' + c.purpose + '</div>' +
-    shlokaHtml;
-  document.getElementById('chContent').innerHTML = html;
-  document.getElementById('chContent').style.display = 'block';
-  document.getElementById('chContent').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function closeReader() {
-  if (scriptureAudioEl) { scriptureAudioEl.pause(); scriptureAudioEl = null; }
-  document.getElementById('gvMain').style.display = 'block';
-  document.getElementById('gvReader').style.display = 'none';
-  currentScripture = null;
-  currentChapter = null;
-}
-
-function playScriptureAudio() {
-  if (!currentScripture) return;
-  var chNum = currentChapter ? currentChapter.num : 1;
-  var path = currentScripture.audioPath + 'chapter' + chNum + '.mp3';
-  if (scriptureAudioEl) { scriptureAudioEl.pause(); }
-  scriptureAudioEl = new Audio(path);
-  scriptureAudioEl.volume = 0.8;
-  scriptureAudioEl.play().catch(function() {
-    alert('ऑडियो फाइल नहीं मिली। कृपया ' + path + ' अपलोड करें।\nAudio file not found. Please upload: ' + path);
-  });
-}
-</script>
 </body>
 </html>

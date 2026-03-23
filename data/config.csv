@@ -1,0 +1,15 @@
+key,value
+site_name_hi,कुरुक्षेत्र पंचांग
+site_name_en,Kurukshetra Hindu Panchang
+location_name_hi,कुरुक्षेत्र
+location_name_en,Kurukshetra
+state_hi,हरियाणा
+state_en,Haryana
+latitude,29.9695
+longitude,76.8783
+timezone_offset_hours,5.5
+timezone_name,IST
+timezone_utc,UTC+5:30
+ayanamsha_system,Lahiri
+ayanamsha_base,23.85
+ayanamsha_annual_increment,1.3972

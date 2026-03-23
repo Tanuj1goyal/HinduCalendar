@@ -1,0 +1,475 @@
+/* ============================================================
+   KURUKSHETRA PANCHANG — MAIN STYLESHEET
+   File: css/style.css
+   Theme: Traditional Sanskrit / Temple Aesthetic
+   ============================================================ */
+
+/* ── CSS VARIABLES ── */
+:root {
+  --saffron:      #E8600A;
+  --deep-saffron: #C14B00;
+  --gold:         #D4A017;
+  --bright-gold:  #F5C518;
+  --cream:        #FDF6E3;
+  --parchment:    #F2E8C9;
+  --dark:         #2C1A0E;
+  --dark-2:       #1A0800;
+  --red:          #B5252A;
+  --pink:         #E8748A;
+  --green:        #1A4A2E;
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── BASE ── */
+body {
+  background-color: var(--dark);
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(232,96,10,.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(212,160,23,.1) 0%, transparent 50%);
+  color: var(--cream);
+  font-family: 'EB Garamond', serif;
+  min-height: 100vh;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.hdr {
+  background: linear-gradient(180deg, #1A0800 0%, #2C1A0E 60%, #3D2010 100%);
+  border-bottom: 3px solid var(--gold);
+  box-shadow: 0 4px 30px rgba(212,160,23,.3);
+}
+
+.topband {
+  background: var(--saffron);
+  text-align: center;
+  padding: 5px 10px;
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: .8rem;
+  color: #1A0800;
+  letter-spacing: 1px;
+}
+
+.hdrmain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 20px 12px;
+}
+
+.om-symbol {
+  font-size: 3rem;
+  color: var(--bright-gold);
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,100% { text-shadow: 0 0 20px rgba(245,197,24,.5); }
+  50%      { text-shadow: 0 0 50px rgba(245,197,24,.9), 0 0 90px rgba(232,96,10,.4); }
+}
+
+.title-hi {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: clamp(1.5rem, 4vw, 2.6rem);
+  color: var(--bright-gold);
+  margin-top: 6px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,.8);
+}
+
+.title-en {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(.6rem, 1.5vw, .85rem);
+  color: var(--gold);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.loc-tag {
+  margin-top: 8px;
+  background: rgba(212,160,23,.15);
+  border: 1px solid rgba(212,160,23,.4);
+  border-radius: 20px;
+  padding: 3px 14px;
+  font-size: .78rem;
+  color: var(--parchment);
+}
+
+.live-clock {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: .88rem;
+  color: var(--bright-gold);
+  margin-top: 8px;
+  letter-spacing: 2px;
+}
+
+/* ── NAV TABS ── */
+.nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: rgba(0,0,0,.45);
+  border-top: 1px solid rgba(212,160,23,.2);
+}
+
+.ntab {
+  padding: 11px 14px;
+  cursor: pointer;
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: .8rem;
+  color: var(--parchment);
+  border: none;
+  background: transparent;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: color .2s, background .2s, border-color .2s;
+}
+
+.ntab:hover { color: var(--bright-gold); background: rgba(212,160,23,.08); }
+.ntab.on    { color: var(--bright-gold); border-bottom-color: var(--saffron); background: rgba(232,96,10,.13); }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.main  { max-width: 1200px; margin: 0 auto; padding: 20px 14px 50px; }
+.panel { display: none; }
+.panel.on { display: block; }
+
+/* ── CARD ── */
+.card {
+  background: linear-gradient(145deg, rgba(45,25,12,.96), rgba(28,14,5,.99));
+  border: 1px solid rgba(212,160,23,.35);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  border-radius: 8px 8px 0 0;
+}
+
+.ctitle {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: .72rem;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ctitle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(212,160,23,.4), transparent);
+}
+
+/* ============================================================
+   PANCHANG TAB
+   ============================================================ */
+.hero {
+  background: linear-gradient(135deg, #1A0800, #2C1A0E);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 32px rgba(212,160,23,.2);
+}
+.hero::before {
+  content: '॥ श्री गणेशाय नमः ॥';
+  display: block;
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  color: rgba(212,160,23,.4);
+  font-size: .85rem;
+  margin-bottom: 8px;
+}
+
+.den { font-family: 'Cinzel Decorative', cursive; font-size: clamp(1rem, 2.8vw, 1.7rem); color: var(--bright-gold); }
+.dhi { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: clamp(.9rem, 2.2vw, 1.3rem); color: var(--parchment); margin-top: 4px; }
+.srow { margin-top: 10px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.sbadge { background: rgba(212,160,23,.15); border: 1px solid rgba(212,160,23,.3); border-radius: 4px; padding: 3px 10px; font-size: .77rem; color: var(--gold); font-family: 'Tiro Devanagari Sanskrit', serif; }
+
+/* Sun/Moon grid */
+.smg { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 10px; }
+.smi { text-align: center; padding: 11px; background: rgba(0,0,0,.25); border-radius: 8px; border: 1px solid rgba(212,160,23,.15); }
+.smico { font-size: 1.7rem; margin-bottom: 3px; }
+.smlbl { font-size: .64rem; color: var(--gold); letter-spacing: 1px; font-family: 'Cinzel Decorative', cursive; text-transform: uppercase; }
+.smval { font-size: 1.05rem; color: var(--cream); font-family: 'Tiro Devanagari Sanskrit', serif; }
+.smsub { font-size: .7rem; color: rgba(253,246,227,.5); }
+
+/* Panchang 5-grid */
+.p5g { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.pi { background: rgba(0,0,0,.3); border: 1px solid rgba(212,160,23,.2); border-radius: 8px; padding: 12px 14px; }
+.pilbl { font-size: .66rem; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-family: 'Cinzel Decorative', cursive; margin-bottom: 3px; }
+.pihi { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.02rem; color: var(--cream); }
+.pien { font-size: .73rem; color: rgba(253,246,227,.5); }
+
+/* Rahu grid */
+.rg { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px, 1fr)); gap: 10px; }
+.ri { padding: 12px; border-radius: 8px; text-align: center; border: 1px solid; }
+.bad { background: rgba(181,37,42,.15); border-color: rgba(181,37,42,.4); }
+.rien { font-size: .68rem; letter-spacing: 1px; font-family: 'Cinzel Decorative', cursive; margin-bottom: 3px; }
+.rihi { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .83rem; margin-bottom: 4px; }
+.ritm { font-size: .87rem; color: var(--cream); }
+
+/* Muhurat list */
+.ml { display: flex; flex-direction: column; gap: 8px; }
+.mit { display: flex; align-items: center; gap: 10px; padding: 9px 13px; border-radius: 6px; border-left: 3px solid; }
+.shubh  { background: rgba(26,74,46,.2);   border-color: #4CAF50; }
+.ashubh { background: rgba(181,37,42,.15); border-color: var(--red); }
+.medium { background: rgba(212,160,23,.1); border-color: var(--gold); }
+.mdot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.shubh  .mdot { background: #4CAF50; }
+.ashubh .mdot { background: var(--red); }
+.medium .mdot { background: var(--gold); }
+.mnm { flex: 1; }
+.mhi { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .93rem; }
+.men { font-size: .68rem; color: rgba(253,246,227,.55); }
+.mtm { font-size: .82rem; color: var(--parchment); text-align: right; white-space: nowrap; }
+.mbdg { font-size: .58rem; padding: 2px 6px; border-radius: 10px; display: inline-block; margin-top: 2px; }
+
+/* ============================================================
+   CALENDAR TAB
+   ============================================================ */
+.mnav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.mbtn { background: rgba(212,160,23,.15); border: 1px solid rgba(212,160,23,.4); color: var(--gold); padding: 7px 15px; border-radius: 4px; cursor: pointer; font-size: .95rem; transition: background .2s; }
+.mbtn:hover { background: rgba(212,160,23,.3); }
+.mttl { text-align: center; }
+.mhi-cal { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.2rem; color: var(--bright-gold); }
+.men-cal { font-family: 'Cinzel Decorative', cursive; font-size: .65rem; color: var(--gold); letter-spacing: 2px; }
+
+.cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.ch  { text-align: center; padding: 5px 2px; font-family: 'Cinzel Decorative', cursive; font-size: .56rem; color: var(--gold); }
+.cd  { min-height: 76px; padding: 5px; background: rgba(0,0,0,.3); border: 1px solid rgba(212,160,23,.1); border-radius: 4px; }
+.cd.tod { border: 2px solid var(--saffron); background: rgba(232,96,10,.1); }
+.cd.om  { opacity: .3; }
+.cd.fd  { background: rgba(232,96,10,.07); }
+.cd.ecd { background: rgba(80,80,180,.1); border-color: rgba(150,150,255,.2); }
+.cde { font-size: .92rem; color: var(--cream); font-weight: 600; }
+.cdh { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .62rem; color: rgba(253,246,227,.4); }
+.cdt { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .6rem; color: var(--gold); }
+.cdf { font-size: .56rem; color: var(--pink); line-height: 1.3; margin-top: 1px; }
+.cel { font-size: .52rem; background: rgba(100,100,255,.3); color: #aaaaff; padding: 1px 3px; border-radius: 3px; }
+
+@media(max-width: 480px) {
+  .cd { min-height: 50px; padding: 3px; }
+  .cdt, .cdf { display: none; }
+}
+
+/* ============================================================
+   FESTIVALS TAB
+   ============================================================ */
+.fbar { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 12px; }
+.fbtn { padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212,160,23,.3); background: transparent; color: var(--parchment); font-size: .74rem; cursor: pointer; font-family: 'Tiro Devanagari Sanskrit', serif; transition: all .2s; }
+.fbtn:hover, .fbtn.on { background: rgba(212,160,23,.2); border-color: var(--gold); color: var(--bright-gold); }
+
+.fl { display: flex; flex-direction: column; gap: 8px; }
+.fi { display: grid; grid-template-columns: 96px 1fr auto; gap: 8px; align-items: start; padding: 10px 12px; background: rgba(0,0,0,.25); border: 1px solid rgba(212,160,23,.2); border-radius: 6px; border-left: 3px solid var(--saffron); transition: background .2s; }
+.fi:hover { background: rgba(212,160,23,.07); }
+.fi.fec { border-left-color: #7788ff; }
+.fi.fvt { border-left-color: var(--pink); }
+.fi.fpst { opacity: .5; }
+.fi.ftd { background: rgba(232,96,10,.1); }
+.fde { font-size: .76rem; color: var(--gold); }
+.fdh { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .68rem; color: rgba(253,246,227,.5); }
+.ffh { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .96rem; color: var(--cream); }
+.ffe { font-size: .71rem; color: rgba(253,246,227,.5); }
+.fti { font-size: .68rem; color: var(--pink); text-align: right; white-space: nowrap; }
+.fbd { display: inline-block; font-size: .56rem; padding: 2px 6px; border-radius: 10px; margin-top: 3px; }
+
+@media(max-width: 500px) {
+  .fi { grid-template-columns: 78px 1fr; }
+  .fti { display: none; }
+}
+
+/* ============================================================
+   ECLIPSE TAB
+   ============================================================ */
+.ecrd { border-color: rgba(119,136,255,.4) !important; }
+.ecrd::before { background: linear-gradient(90deg, transparent, #7788ff, transparent) !important; }
+.egrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 14px; }
+.ei { padding: 15px; border-radius: 8px; border: 1px solid rgba(119,136,255,.3); background: rgba(0,0,30,.4); }
+.ety  { font-family: 'Cinzel Decorative', cursive; font-size: .7rem; color: #aaaaff; letter-spacing: 2px; margin-bottom: 5px; }
+.enhi { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.05rem; color: var(--cream); }
+.edtxt { font-size: .8rem; color: var(--gold); margin-top: 3px; }
+.eph { margin-top: 9px; display: flex; flex-direction: column; gap: 3px; }
+.ep  { display: flex; justify-content: space-between; font-size: .74rem; padding: 4px 7px; background: rgba(0,0,0,.3); border-radius: 4px; }
+.epn { color: #aaaaff; }
+.ept { color: var(--cream); }
+.enote { font-size: .66rem; color: rgba(253,246,227,.4); margin-top: 7px; font-style: italic; }
+
+/* ============================================================
+   BHAJAN / CHALISA / AARTI TAB
+   ============================================================ */
+.bj-fbar { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 16px; }
+.bj-fbtn { padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(212,160,23,.3); background: transparent; color: var(--parchment); font-size: .76rem; cursor: pointer; font-family: 'Tiro Devanagari Sanskrit', serif; transition: all .2s; }
+.bj-fbtn:hover, .bj-fbtn.on { background: rgba(212,160,23,.2); border-color: var(--gold); color: var(--bright-gold); }
+
+/* Player bar */
+.player-bar { position: sticky; top: 0; z-index: 100; background: linear-gradient(135deg, #1A0800, #2D1200); border: 2px solid var(--gold); border-radius: 10px; padding: 14px 18px; margin-bottom: 18px; box-shadow: 0 6px 30px rgba(0,0,0,.7), 0 0 20px rgba(212,160,23,.15); display: none; }
+.player-bar.visible { display: block; }
+.player-now { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.player-ico { font-size: 2.2rem; flex-shrink: 0; animation: spin-slow 8s linear infinite; }
+@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.player-ico.paused { animation-play-state: paused; }
+.player-info { flex: 1; min-width: 0; }
+.player-name-hi { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.05rem; color: var(--bright-gold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.player-name-en { font-size: .72rem; color: rgba(253,246,227,.55); margin-top: 1px; }
+.player-type-badge { font-size: .6rem; padding: 2px 8px; border-radius: 10px; background: rgba(232,96,10,.25); color: #FFB347; font-family: 'Cinzel Decorative', cursive; letter-spacing: 1px; margin-top: 3px; display: inline-block; }
+.player-controls { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.pc-btn { width: 38px; height: 38px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: all .2s; flex-shrink: 0; }
+.pc-btn.prev, .pc-btn.next { background: rgba(212,160,23,.15); color: var(--gold); }
+.pc-btn.prev:hover, .pc-btn.next:hover { background: rgba(212,160,23,.35); }
+.pc-btn.play { background: var(--saffron); color: #fff; width: 44px; height: 44px; font-size: 1.2rem; box-shadow: 0 0 15px rgba(232,96,10,.4); }
+.pc-btn.play:hover { background: var(--bright-gold); color: #1A0800; }
+.player-progress { flex: 1; min-width: 120px; display: flex; flex-direction: column; gap: 4px; }
+.progress-track { width: 100%; height: 4px; background: rgba(255,255,255,.1); border-radius: 2px; cursor: pointer; position: relative; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--saffron), var(--bright-gold)); border-radius: 2px; width: 0%; transition: width .5s linear; pointer-events: none; }
+.progress-times { display: flex; justify-content: space-between; font-size: .65rem; color: rgba(253,246,227,.5); font-family: 'Cinzel Decorative', cursive; }
+.pc-vol { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.pc-vol-ico { font-size: .9rem; color: var(--gold); }
+.vol-slider { -webkit-appearance: none; width: 70px; height: 3px; border-radius: 2px; background: rgba(255,255,255,.15); outline: none; cursor: pointer; }
+.vol-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; border-radius: 50%; background: var(--gold); cursor: pointer; }
+.pc-loop { background: transparent; border: 1px solid rgba(212,160,23,.3); color: var(--gold); font-size: .65rem; padding: 3px 8px; border-radius: 10px; cursor: pointer; font-family: 'Cinzel Decorative', cursive; letter-spacing: 1px; transition: all .2s; white-space: nowrap; }
+.pc-loop.on { background: rgba(212,160,23,.25); color: var(--bright-gold); }
+
+/* Track card grid */
+.track-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.track-card { background: linear-gradient(145deg, rgba(40,20,8,.97), rgba(25,10,2,.99)); border: 1px solid rgba(212,160,23,.25); border-radius: 10px; padding: 16px; cursor: pointer; transition: all .25s; position: relative; overflow: hidden; }
+.track-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0; transition: opacity .3s; }
+.track-card:hover { border-color: rgba(212,160,23,.5); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.5); }
+.track-card:hover::before { opacity: 1; }
+.track-card.playing { border-color: var(--saffron); background: linear-gradient(145deg, rgba(80,35,5,.97), rgba(50,20,2,.99)); box-shadow: 0 0 20px rgba(232,96,10,.2); }
+.track-card.playing::before { opacity: 1; background: linear-gradient(90deg, transparent, var(--saffron), transparent); }
+.tc-top { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+.tc-icon { font-size: 2.4rem; flex-shrink: 0; line-height: 1; }
+.tc-meta { flex: 1; min-width: 0; }
+.tc-name-hi { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.05rem; color: var(--cream); line-height: 1.3; }
+.tc-name-en { font-size: .72rem; color: rgba(253,246,227,.5); margin-top: 2px; }
+.tc-deity { font-size: .68rem; color: var(--gold); margin-top: 3px; font-family: 'Tiro Devanagari Sanskrit', serif; }
+.tc-badges { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
+.tc-badge { font-size: .58rem; padding: 2px 7px; border-radius: 10px; font-family: 'Cinzel Decorative', cursive; letter-spacing: .5px; }
+.badge-chalisa { background: rgba(232,96,10,.2); color: #FFB347; }
+.badge-aarti   { background: rgba(232,116,138,.2); color: var(--pink); }
+.badge-mantra  { background: rgba(26,74,46,.25); color: #81C784; }
+.badge-stotra  { background: rgba(119,136,255,.2); color: #aaaaff; }
+.badge-katha   { background: rgba(212,160,23,.2); color: var(--bright-gold); }
+.tc-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.tc-duration { font-size: .68rem; color: rgba(253,246,227,.4); font-family: 'Cinzel Decorative', cursive; }
+.tc-play-btn { display: flex; align-items: center; gap: 5px; background: linear-gradient(135deg, var(--saffron), var(--deep-saffron)); color: #fff; border: none; border-radius: 20px; padding: 6px 14px; font-size: .72rem; cursor: pointer; font-family: 'Cinzel Decorative', cursive; letter-spacing: .5px; transition: all .2s; white-space: nowrap; }
+.tc-play-btn:hover { background: linear-gradient(135deg, var(--bright-gold), var(--gold)); color: #1A0800; }
+.track-card.playing .tc-play-btn { background: linear-gradient(135deg, #4CAF50, #2E7D32); }
+.tc-eq { display: flex; align-items: flex-end; gap: 2px; height: 16px; }
+.tc-eq span { width: 3px; background: var(--saffron); border-radius: 2px; animation: eq .6s ease-in-out infinite alternate; }
+.tc-eq span:nth-child(2) { animation-delay: .1s; }
+.tc-eq span:nth-child(3) { animation-delay: .2s; }
+.tc-eq span:nth-child(4) { animation-delay: .3s; }
+@keyframes eq { from { height: 3px; } to { height: 14px; } }
+
+/* Read button */
+.read-btn { display: inline-flex; align-items: center; gap: 5px; background: rgba(212,160,23,.15); border: 1px solid rgba(212,160,23,.3); color: var(--gold); padding: 5px 12px; border-radius: 6px; font-size: .7rem; cursor: pointer; font-family: 'Cinzel Decorative', cursive; letter-spacing: .5px; transition: all .2s; white-space: nowrap; margin-left: 6px; }
+.read-btn:hover { background: rgba(212,160,23,.3); }
+
+/* ============================================================
+   CHALISA TEXT MODAL
+   ============================================================ */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.85); z-index: 1000; overflow-y: auto; padding: 20px; }
+.modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+.modal-box { background: linear-gradient(145deg, #1A0800, #2C1A0E); border: 2px solid var(--gold); border-radius: 12px; max-width: 700px; width: 100%; padding: 24px; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,.8); margin: auto; }
+.modal-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--bright-gold), transparent); border-radius: 12px 12px 0 0; }
+.modal-close { position: absolute; top: 14px; right: 14px; background: rgba(212,160,23,.2); border: 1px solid rgba(212,160,23,.3); color: var(--gold); width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: all .2s; }
+.modal-close:hover { background: rgba(212,160,23,.4); }
+.modal-title    { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.4rem; color: var(--bright-gold); text-align: center; margin-bottom: 6px; }
+.modal-subtitle { font-family: 'Cinzel Decorative', cursive; font-size: .65rem; color: var(--gold); text-align: center; letter-spacing: 3px; margin-bottom: 16px; }
+.modal-divider  { text-align: center; color: var(--gold); opacity: .4; font-size: 1rem; letter-spacing: 8px; margin: 12px 0; }
+.modal-tabs { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+.modal-tab-btn { padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(212,160,23,.3); background: transparent; color: var(--parchment); font-size: .72rem; cursor: pointer; font-family: 'Tiro Devanagari Sanskrit', serif; transition: all .2s; }
+.modal-tab-btn:hover, .modal-tab-btn.on { background: rgba(212,160,23,.2); border-color: var(--gold); color: var(--bright-gold); }
+.modal-section { display: none; }
+.modal-section.on { display: block; }
+.chalisa-text { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .97rem; line-height: 2.1; color: var(--parchment); white-space: pre-wrap; }
+.chalisa-text .doha { color: var(--bright-gold); font-style: italic; }
+.chalisa-text .chaupai-num { color: rgba(212,160,23,.5); font-size: .75rem; }
+
+/* Meaning/purpose */
+.purpose-box   { background: rgba(212,160,23,.08); border: 1px solid rgba(212,160,23,.25); border-radius: 8px; padding: 14px 16px; margin-bottom: 16px; }
+.purpose-title { font-family: 'Cinzel Decorative', cursive; font-size: .65rem; color: var(--bright-gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+.purpose-text  { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .88rem; line-height: 1.9; color: var(--parchment); }
+.verse-block   { margin: 10px 0; padding: 10px 14px; border-left: 3px solid rgba(212,160,23,.4); background: rgba(0,0,0,.2); border-radius: 0 6px 6px 0; }
+.verse-original { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .97rem; color: var(--cream); line-height: 1.9; }
+.verse-meaning { font-size: .82rem; color: rgba(253,246,227,.65); line-height: 1.7; margin-top: 5px; font-style: italic; }
+.verse-meaning::before { content: 'अर्थ: '; color: var(--gold); font-style: normal; font-weight: 600; }
+.katha-section { margin: 14px 0; }
+.katha-section-title { font-family: 'Cinzel Decorative', cursive; font-size: .68rem; color: var(--saffron); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid rgba(232,96,10,.25); }
+.katha-text { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .93rem; line-height: 2; color: var(--parchment); }
+
+/* Today banner */
+.tbanner { background: linear-gradient(135deg, rgba(232,96,10,.12), rgba(212,160,23,.08)); border: 1px solid rgba(232,96,10,.3); border-radius: 8px; padding: 9px 14px; margin-bottom: 10px; font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .87rem; color: var(--parchment); text-align: center; }
+
+/* ============================================================
+   GITA / VEDA READER TAB
+   ============================================================ */
+.gv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+.gv-card { background: linear-gradient(145deg, rgba(40,20,8,.97), rgba(25,10,2,.99)); border: 1px solid rgba(212,160,23,.3); border-radius: 10px; padding: 18px 16px; cursor: pointer; transition: all .25s; text-align: center; position: relative; }
+.gv-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0; transition: opacity .3s; border-radius: 10px 10px 0 0; }
+.gv-card:hover { border-color: rgba(212,160,23,.6); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.5); }
+.gv-card:hover::before { opacity: 1; }
+.gv-icon { font-size: 2.4rem; margin-bottom: 10px; line-height: 1; }
+.gv-name-hi { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.1rem; color: var(--bright-gold); margin-bottom: 3px; }
+.gv-name-en { font-family: 'Cinzel Decorative', cursive; font-size: .6rem; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.gv-desc { font-size: .75rem; color: rgba(253,246,227,.55); line-height: 1.5; }
+.gv-badge { display: inline-block; font-size: .58rem; padding: 2px 8px; border-radius: 10px; margin-top: 8px; font-family: 'Cinzel Decorative', cursive; letter-spacing: 1px; }
+.badge-gita { background: rgba(212,160,23,.2); color: var(--bright-gold); }
+.badge-veda { background: rgba(26,74,46,.3); color: #81C784; }
+
+/* Reader */
+.reader-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.reader-back { background: rgba(212,160,23,.15); border: 1px solid rgba(212,160,23,.3); color: var(--gold); padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: .8rem; font-family: 'Tiro Devanagari Sanskrit', serif; transition: all .2s; }
+.reader-back:hover { background: rgba(212,160,23,.3); }
+.reader-title { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.2rem; color: var(--bright-gold); flex: 1; }
+.chapter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; margin-bottom: 16px; }
+.ch-btn { padding: 8px 6px; background: rgba(0,0,0,.3); border: 1px solid rgba(212,160,23,.2); border-radius: 6px; cursor: pointer; text-align: center; transition: all .2s; color: var(--parchment); }
+.ch-btn:hover, .ch-btn.on { background: rgba(212,160,23,.2); border-color: var(--gold); color: var(--bright-gold); }
+.ch-btn-num { font-family: 'Cinzel Decorative', cursive; font-size: .7rem; color: var(--gold); }
+.ch-btn-hi  { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .78rem; margin-top: 2px; }
+.ch-content { background: rgba(0,0,0,.25); border: 1px solid rgba(212,160,23,.2); border-radius: 8px; padding: 18px; }
+.ch-content-title { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.15rem; color: var(--bright-gold); margin-bottom: 4px; }
+.ch-content-sub   { font-family: 'Cinzel Decorative', cursive; font-size: .62rem; color: var(--gold); letter-spacing: 2px; margin-bottom: 6px; }
+.ch-purpose { background: rgba(212,160,23,.07); border: 1px solid rgba(212,160,23,.2); border-radius: 6px; padding: 10px 14px; margin-bottom: 12px; font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .85rem; color: var(--parchment); line-height: 1.8; }
+.ch-purpose-lbl { font-family: 'Cinzel Decorative', cursive; font-size: .6rem; color: var(--saffron); letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 5px; }
+.shloka-block   { margin: 10px 0; padding: 12px 14px; border-left: 3px solid rgba(212,160,23,.4); background: rgba(0,0,0,.2); border-radius: 0 6px 6px 0; }
+.shloka-num     { font-family: 'Cinzel Decorative', cursive; font-size: .6rem; color: rgba(212,160,23,.6); letter-spacing: 1px; margin-bottom: 4px; }
+.shloka-text    { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .95rem; color: var(--cream); line-height: 2; }
+.shloka-meaning { font-size: .82rem; color: rgba(253,246,227,.62); line-height: 1.7; margin-top: 6px; border-top: 1px solid rgba(212,160,23,.15); padding-top: 6px; }
+.shloka-meaning::before { content: 'अर्थ: '; color: var(--gold); font-weight: 600; }
+.reader-audio { display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,.3); border: 1px solid rgba(212,160,23,.2); border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; flex-wrap: wrap; }
+.ra-label { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: .85rem; color: var(--gold); }
+.ra-note  { font-size: .7rem; color: rgba(253,246,227,.4); font-style: italic; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  text-align: center;
+  padding: 18px;
+  font-size: .7rem;
+  color: rgba(253,246,227,.4);
+  border-top: 1px solid rgba(212,160,23,.2);
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+}

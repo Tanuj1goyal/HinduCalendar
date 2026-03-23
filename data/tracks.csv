@@ -1,0 +1,29 @@
+id,nameHi,nameEn,deityHi,deityEn,type,icon,duration,audioFile,textKey
+hanuman-chalisa,हनुमान चालीसा,Hanuman Chalisa,श्री हनुमान जी,Shri Hanuman Ji,chalisa,🚩,8:12,chalisa/hanuman-chalisa.mp3,hanuman_chalisa
+ganesh-chalisa,गणेश चालीसा,Ganesh Chalisa,श्री गणेश जी,Shri Ganesh Ji,chalisa,✨,7:45,chalisa/ganesh-chalisa.mp3,ganesh_chalisa
+durga-chalisa,दुर्गा चालीसा,Durga Chalisa,श्री दुर्गा माता,Shri Durga Mata,chalisa,🌸,6:50,chalisa/durga-chalisa.mp3,durga_chalisa
+shiv-chalisa,शिव चालीसा,Shiv Chalisa,भगवान शिव,Bhagwan Shiv,chalisa,🔱,7:20,chalisa/shiv-chalisa.mp3,shiv_chalisa
+laxmi-chalisa,लक्ष्मी चालीसा,Lakshmi Chalisa,श्री लक्ष्मी माता,Shri Lakshmi Mata,chalisa,🪷,8:05,chalisa/laxmi-chalisa.mp3,laxmi_chalisa
+saraswati-chalisa,सरस्वती चालीसा,Saraswati Chalisa,माँ सरस्वती,Maa Saraswati,chalisa,📿,6:30,chalisa/saraswati-chalisa.mp3,saraswati_chalisa
+kali-chalisa,काली चालीसा,Kali Chalisa,माँ काली,Maa Kali,chalisa,🌸,8:30,chalisa/kali-chalisa.mp3,kali_chalisa
+vishnu-chalisa,विष्णु चालीसा,Vishnu Chalisa,भगवान विष्णु,Bhagwan Vishnu,chalisa,🙏,7:50,chalisa/vishnu-chalisa.mp3,vishnu_chalisa
+ram-chalisa,राम चालीसा,Ram Chalisa,भगवान श्री राम,Bhagwan Shri Ram,chalisa,🏹,8:00,chalisa/ram-chalisa.mp3,ram_chalisa
+om-jai-jagdish,ॐ जय जगदीश हरे,Om Jai Jagdish Hare,भगवान विष्णु,Bhagwan Vishnu,aarti,🙏,5:10,aarti/om-jai-jagdish.mp3,om_jai_jagdish
+shiv-aarti,जय शिव ओंकारा,Jai Shiv Omkara Aarti,भगवान शिव,Bhagwan Shiv,aarti,🔱,4:50,aarti/shiv-aarti.mp3,shiv_aarti
+hanuman-aarti,आरती कीजे हनुमान लला की,Hanuman Lala Ki Aarti,श्री हनुमान जी,Shri Hanuman Ji,aarti,🚩,4:25,aarti/hanuman-aarti.mp3,hanuman_aarti
+durga-aarti,अम्बे तू है जगदम्बे काली,Ambe Tu Hai Jagdambe Kali,माँ दुर्गा,Maa Durga,aarti,🌸,5:35,aarti/durga-aarti.mp3,durga_aarti
+gayatri-mantra,गायत्री मंत्र,Gayatri Mantra,माँ गायत्री,Maa Gayatri,mantra,🌞,10:00,mantra/gayatri-mantra.mp3,gayatri_mantra
+mahamrityunjay,महामृत्युञ्जय मंत्र,Mahamrityunjaya Mantra,भगवान शिव,Bhagwan Shiv,mantra,🔱,15:00,mantra/mahamrityunjay.mp3,mahamrityunjay
+ram-stotra,श्री राम स्तोत्र,Shri Ram Stotra,भगवान श्री राम,Bhagwan Shri Ram,stotra,🏹,6:00,stotra/ram-stotra.mp3,ram_stotra
+krishna-stotra,श्री कृष्ण स्तोत्र,Shri Krishna Stotra,भगवान श्री कृष्ण,Bhagwan Shri Krishna,stotra,🪈,7:15,stotra/krishna-stotra.mp3,krishna_stotra
+satyanarayan-katha,श्री सत्यनारायण कथा,Shri Satyanarayan Katha,भगवान सत्यनारायण,Bhagwan Satyanarayan,katha,🙏,45:00,katha/satyanarayan-katha.mp3,satyanarayan_katha
+karva-chauth-katha,करवा चौथ की कथा,Karva Chauth Katha,माँ गौरी,Maa Gauri,katha,🌕,20:00,katha/karva-chauth-katha.mp3,karva_chauth_katha
+ahoi-ashtami-katha,अहोई अष्टमी की कथा,Ahoi Ashtami Katha,माँ अहोई,Maa Ahoi,katha,⭐,15:00,katha/ahoi-ashtami-katha.mp3,ahoi_ashtami_katha
+ekadashi-katha,एकादशी की कथा,Ekadashi Katha,भगवान विष्णु,Bhagwan Vishnu,katha,🙏,25:00,katha/ekadashi-katha.mp3,ekadashi_katha
+ganesh-katha,श्री गणेश जी की कथा,Shri Ganesh Katha,श्री गणेश जी,Shri Ganesh Ji,katha,✨,18:00,katha/ganesh-katha.mp3,ganesh_katha
+navratri-katha,नवरात्रि कथा,Navratri Katha,माँ दुर्गा,Maa Durga,katha,🌸,60:00,katha/navratri-katha.mp3,navratri_katha
+shiv-katha,शिव पुराण कथा,Shiv Puran Katha,भगवान शिव,Bhagwan Shiv,katha,🔱,50:00,katha/shiv-katha.mp3,shiv_katha
+hanuman-katha,हनुमान जी की कथा,Hanuman Ji Katha,श्री हनुमान जी,Shri Hanuman Ji,katha,🚩,30:00,katha/hanuman-katha.mp3,hanuman_katha
+laxmi-katha,लक्ष्मी पूजन कथा,Lakshmi Puja Katha,श्री लक्ष्मी माता,Shri Lakshmi Mata,katha,🪷,22:00,katha/laxmi-katha.mp3,laxmi_katha
+chhath-katha,छठ पूजा कथा,Chhath Puja Katha,छठी माईया,Chhathi Maiya,katha,🌅,20:00,katha/chhath-katha.mp3,chhath_katha
+santoshi-katha,सन्तोषी माता की कथा,Santoshi Mata Katha,माँ सन्तोषी,Maa Santoshi,katha,🌼,15:00,katha/santoshi-katha.mp3,santoshi_katha
